@@ -7296,6 +7296,7 @@ GameObject:
   - component: {fileID: 1496849578}
   - component: {fileID: 1496849579}
   - component: {fileID: 1496849580}
+  - component: {fileID: 1496849581}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCamera
@@ -7434,24 +7435,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd25fc58df09bed4994105f96f232737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimating: 0
+  isMoving: 0
   isFlipping: 0
   officeStates:
   - state: 0
     transform: {fileID: 1447757824}
-    animDuration: 1
+    transitions:
+    - mouseRegion: 0
+      targetState: 1
+    - mouseRegion: 1
+      targetState: 2
+    - mouseRegion: 2
+      targetState: 3
+    - mouseRegion: 3
+      targetState: 4
   - state: 1
     transform: {fileID: 1829026256}
-    animDuration: 1
+    transitions:
+    - mouseRegion: 1
+      targetState: 0
   - state: 2
     transform: {fileID: 935715695}
-    animDuration: 0
+    transitions:
+    - mouseRegion: 0
+      targetState: 0
   - state: 3
     transform: {fileID: 298805441}
-    animDuration: 0.3
+    transitions:
+    - mouseRegion: 3
+      targetState: 0
   - state: 4
     transform: {fileID: 386570785}
-    animDuration: 1.5
+    transitions:
+    - mouseRegion: 3
+      targetState: 0
+  stateTransitions:
+  - state1: 0
+    state2: 1
+    duration: 1
+  - state1: 0
+    state2: 2
+    duration: 1
+  - state1: 0
+    state2: 3
+    duration: 0.3
+  - state1: 0
+    state2: 4
+    duration: 1.5
   sideEdgeZoneSize: 0.15
   vertEdgeZoneSize: 0.1
   smoothSpeed: 10
@@ -7488,6 +7518,19 @@ MonoBehaviour:
   officeCamera: {fileID: 1496849575}
   cameraAnimator: {fileID: 1548594107}
   cameraFlipSpeed: 8
+--- !u!114 &1496849581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496849573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c8320bee14a2a41b8a2196c7b2e9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMap: 1
 --- !u!1 &1527533832
 GameObject:
   m_ObjectHideFlags: 0

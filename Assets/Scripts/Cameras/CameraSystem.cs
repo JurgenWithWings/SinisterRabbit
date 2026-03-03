@@ -59,7 +59,7 @@ public class CameraSystem : MonoBehaviour {
             camCanvas.ToggleCanvas(false);
         }
         
-        owningController.isMoving = true;
+        owningController.isFlipping = false;
         camFlipCoroutine = null;
     }
 

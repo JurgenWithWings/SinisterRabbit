@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class PlayerOfficeController : MonoBehaviour {
     public enum State { Center, Left, Right, Top, Bottom, }
+    
+    public enum MouseRegion { Left, Right, Top, Bottom }
+    private bool[] mouseRegionStates = new bool[4] { false, false, false, false };
 
     [Serializable] public struct OfficeState {
         public State state;
         public Transform transform;
+        public List<AvailableTransition> transitions;
     }
 
-    public bool IsBusy => isMoving || isFlipping;
-    public bool isMoving;
-    public bool isFlipping;
+    [Serializable] public struct AvailableTransition {
+        public MouseRegion mouseRegion;
+        public State targetState;
+    }
+    
+    [Serializable] public struct OfficeTransition {
+        public State state1;
+        public State state2;
+        public float duration;
+    }
 
-    [Header("Snap Points")] 
-    [SerializeField] private float transitionDuration = 0.8f;
+    [HideInInspector] public bool IsBusy => isMoving || isFlipping;
+    [HideInInspector] public bool isMoving;
+    [HideInInspector] public bool isFlipping;
+
+    [Header("Snap Points")]
     [SerializeField] private List<OfficeState> officeStates = new(new [] {
         new OfficeState { state = State.Center },
         new OfficeState { state = State.Left },
@@ -23,6 +37,7 @@ public class PlayerOfficeController : MonoBehaviour {
         new OfficeState { state = State.Top },
         new OfficeState { state = State.Bottom },
     });
+    [SerializeField] private List<OfficeTransition> stateTransitions = new();
 
     [Header("Edge Zone Size")]
     [SerializeField, Range(0f, 0.5f)] private float sideEdgeZoneSize = 0.15f;
@@ -39,6 +54,7 @@ public class PlayerOfficeController : MonoBehaviour {
     // State Changing
     private State currentState = State.Center;
     private float elapsedAnimTime;
+    private float currentTransitionDuration;
     private State previousState;
 
     private bool edgeLocked = true; // prevents overshooting move back to center
@@ -89,81 +105,72 @@ public class PlayerOfficeController : MonoBehaviour {
     void HandleTransitions() {
         float mouseX = inputManager.OfficeMouse.Value.x / Screen.width;
         float mouseY = inputManager.OfficeMouse.Value.y / Screen.height;
+
         
-        print($"mouseX: {mouseX}, mouseY: {mouseY}");
-
-        bool inLeftEdge = mouseX < sideEdgeZoneSize;
-        bool inRightEdge = mouseX > 1f - sideEdgeZoneSize;
+        mouseRegionStates[(int)MouseRegion.Left] = mouseX < sideEdgeZoneSize;
+        bool anyMouseRegion = mouseRegionStates[(int)MouseRegion.Left];
         
-        bool inBottomEdge = mouseY < vertEdgeZoneSize;
-        bool inTopEdge = mouseY > 1f - vertEdgeZoneSize;
+        mouseRegionStates[(int)MouseRegion.Right] = mouseX > 1f - sideEdgeZoneSize;
+        anyMouseRegion = anyMouseRegion || mouseRegionStates[(int)MouseRegion.Right];
+        
+        mouseRegionStates[(int)MouseRegion.Top] = mouseY > 1f - vertEdgeZoneSize;
+        anyMouseRegion = anyMouseRegion || mouseRegionStates[(int)MouseRegion.Top];
+        
+        mouseRegionStates[(int)MouseRegion.Bottom] = mouseY < vertEdgeZoneSize;
+        anyMouseRegion = anyMouseRegion || mouseRegionStates[(int)MouseRegion.Bottom];
 
-        if (!edgeLocked) {
-            switch (currentState) {
-                case State.Center:
-                    if (inLeftEdge) {
-                        SetState(State.Left);
-                    }
-                    else if (inRightEdge) {
-                        SetState(State.Right);
-                    }
-                    else if (inTopEdge) {
-                        SetState(State.Top);
-                    }
-                    else if (inBottomEdge) {
-                        SetState(State.Bottom);
-                    }
-                    break;
-
-                case State.Left:
-                    if (inRightEdge) {
-                        SetState(State.Center);
-                    }
-                    break;
-
-                case State.Right:
-                    if (inLeftEdge) {
-                        SetState(State.Center);
-                    }
-                    break;
-                
-                case State.Top:
-                case State.Bottom:
-                    if (inBottomEdge) {
-                        SetState(State.Center);
-                    }
-                    break;
+        
+        // Check if current mouse region has a transition and move there
+        if (!edgeLocked && anyMouseRegion) {
+            foreach (AvailableTransition transition in officeStates[(int)currentState].transitions) {
+                if (mouseRegionStates[(int)transition.mouseRegion]) {
+                    SetState(transition.targetState);
+                }
             }
         }
 
         // Unlock mouse once it has left edge zones.
-        if (!isFlipping && !inLeftEdge && !inRightEdge && !inTopEdge && !inBottomEdge) {
+        if (!isFlipping && !anyMouseRegion) {
             edgeLocked = false;
         }
     }
 
     void SetState(State newState) {
+        if (!TryGetTransition(currentState, newState, out OfficeTransition transition)) {
+            Debug.LogWarning($"No transition with {currentState} and {newState}");
+            return;
+        }
+        
         previousState = currentState;
         currentState = newState;
         
-        edgeLocked = true;
+        currentTransitionDuration = transition.duration;
         
+        edgeLocked = true;
         isMoving = true;
+    }
+    
+    bool TryGetTransition(State a, State b, out OfficeTransition transition) {
+        foreach (var t in stateTransitions) {
+            if ((t.state1 == a && t.state2 == b) || (t.state2 == a && t.state1 == b)) {
+                transition = t;
+                return true;
+            }
+        }
+
+        transition = default;
+        return false;
     }
 
     void SmoothMove() {
-        float t = elapsedAnimTime / transitionDuration;
-        
+        float t = elapsedAnimTime / currentTransitionDuration;
         t = Mathf.Clamp01(t);
         t = t * t * (3f - 2f * t);
         
         transform.position = Vector3.Lerp(officeStates[(int)previousState].transform.position, officeStates[(int)currentState].transform.position, t);
-
         transform.rotation = Quaternion.Lerp(officeStates[(int)previousState].transform.rotation, officeStates[(int)currentState].transform.rotation, t);
         
         elapsedAnimTime += Time.deltaTime;
-
-        print(t);
         
         if (t >= 1) {
             isMoving = false;
