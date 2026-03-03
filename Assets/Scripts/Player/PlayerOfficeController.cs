@@ -1,16 +1,28 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerOfficeController : MonoBehaviour {
-    public enum CameraState { Center, Left, Right, Top, Bottom, }
+    public enum State { Center, Left, Right, Top, Bottom, }
 
-    public static bool IsBusy = false;
+    [Serializable] public struct OfficeState {
+        public State state;
+        public Transform transform;
+    }
 
-    [Header("Snap Points")]
-    [SerializeField] private Transform centerPoint;
-    [SerializeField] private Transform leftPoint;
-    [SerializeField] private Transform rightPoint;
-    [SerializeField] private Transform bottomPoint;
-    [SerializeField] private Transform topPoint;
+    public bool IsBusy => isMoving || isFlipping;
+    public bool isMoving;
+    public bool isFlipping;
+
+    [Header("Snap Points")] 
+    [SerializeField] private float transitionDuration = 0.8f;
+    [SerializeField] private List<OfficeState> officeStates = new(new [] {
+        new OfficeState { state = State.Center },
+        new OfficeState { state = State.Left },
+        new OfficeState { state = State.Right },
+        new OfficeState { state = State.Top },
+        new OfficeState { state = State.Bottom },
+    });
 
     [Header("Edge Zone Size")]
     [SerializeField, Range(0f, 0.5f)] private float sideEdgeZoneSize = 0.15f;
@@ -18,28 +30,67 @@ public class PlayerOfficeController : MonoBehaviour {
 
     [Header("Smoothing")]
     [SerializeField] private float smoothSpeed = 10f;
+    
+    [Header("References")]
+    [SerializeField] private InputManager inputManager;
+    [SerializeField] private CameraSystem cameraSystem;
+    [SerializeField] private OfficeInteractionController interactionController;
 
-    private CameraState currentState = CameraState.Center;
-    private Transform currentTarget;
+    // State Changing
+    private State currentState = State.Center;
+    private float elapsedAnimTime;
+    private State previousState;
 
-    private bool edgeLocked; // prevents overshooting move back to center
+    private bool edgeLocked = true; // prevents overshooting move back to center
 
+    private void Awake() {
+        if (inputManager == null) {
+            inputManager = GetComponent<InputManager>();
+        }
+        
+        if (cameraSystem == null) {
+            cameraSystem = GetComponent<CameraSystem>();
+        }
+        cameraSystem.Init(this);
+
+        if (interactionController == null) {
+            interactionController = GetComponent<OfficeInteractionController>();
+        }
+        interactionController.Init(this);
+    }
+    
     void Start() {
-        currentTarget = centerPoint;
-        transform.position = centerPoint.position;
-        transform.rotation = centerPoint.rotation;
+        transform.position = officeStates[0].transform.position;
+        transform.rotation = officeStates[0].transform.rotation;
+        
+        inputManager.OfficeCameraSystem.Event += OnOfficeCams;
+    }
+
+    private void OnDestroy() {
+        inputManager.OfficeCameraSystem.Event -= OnOfficeCams;
+    }
+
+    private void OnOfficeCams(InputEvent<bool> input) {
+        if (input.Context.performed && !IsBusy) {
+            cameraSystem.ToggleCams();
+        }
     }
 
     void Update() {
-        if (!IsBusy) {
+        if (!IsBusy && !cameraSystem.IsOpen) {
             HandleTransitions();
         }
-        SmoothMove();
+
+        if (isMoving) {
+            SmoothMove();
+        }
     }
 
     void HandleTransitions() {
-        float mouseX = Input.mousePosition.x / Screen.width;
-        float mouseY = Input.mousePosition.y / Screen.height;
+        float mouseX = inputManager.OfficeMouse.Value.x / Screen.width;
+        float mouseY = inputManager.OfficeMouse.Value.y / Screen.height;
+        
+        print($"mouseX: {mouseX}, mouseY: {mouseY}");
 
         bool inLeftEdge = mouseX < sideEdgeZoneSize;
         bool inRightEdge = mouseX > 1f - sideEdgeZoneSize;
@@ -49,69 +100,74 @@ public class PlayerOfficeController : MonoBehaviour {
 
         if (!edgeLocked) {
             switch (currentState) {
-                case CameraState.Center:
+                case State.Center:
                     if (inLeftEdge) {
-                        SetState(CameraState.Left, leftPoint);
-                        edgeLocked = true;
+                        SetState(State.Left);
                     }
                     else if (inRightEdge) {
-                        SetState(CameraState.Right, rightPoint);
-                        edgeLocked = true;
+                        SetState(State.Right);
                     }
                     else if (inTopEdge) {
-                        SetState(CameraState.Top, topPoint);
-                        edgeLocked = true;
+                        SetState(State.Top);
                     }
                     else if (inBottomEdge) {
-                        SetState(CameraState.Bottom, bottomPoint);
-                        edgeLocked = true;
+                        SetState(State.Bottom);
                     }
                     break;
 
-                case CameraState.Left:
+                case State.Left:
                     if (inRightEdge) {
-                        SetState(CameraState.Center, centerPoint);
-                        edgeLocked = true;
+                        SetState(State.Center);
                     }
                     break;
 
-                case CameraState.Right:
+                case State.Right:
                     if (inLeftEdge) {
-                        SetState(CameraState.Center, centerPoint);
-                        edgeLocked = true;
+                        SetState(State.Center);
                     }
                     break;
                 
-                case CameraState.Top:
+                case State.Top:
+                case State.Bottom:
                     if (inBottomEdge) {
-                        SetState(CameraState.Center, centerPoint);
-                        edgeLocked = true;
-                    }
-                    break;
-                
-                case CameraState.Bottom:
-                    if (inBottomEdge ) {
-                        SetState(CameraState.Center, centerPoint);
-                        edgeLocked = true;
+                        SetState(State.Center);
                     }
                     break;
             }
         }
 
         // Unlock mouse once it has left edge zones.
-        if (!inLeftEdge && !inRightEdge && !inTopEdge && !inBottomEdge) {
+        if (!isFlipping && !inLeftEdge && !inRightEdge && !inTopEdge && !inBottomEdge) {
             edgeLocked = false;
         }
     }
 
-    void SetState(CameraState newState, Transform newTarget) {
+    void SetState(State newState) {
+        previousState = currentState;
         currentState = newState;
-        currentTarget = newTarget;
+        
+        edgeLocked = true;
+        
+        isMoving = true;
     }
 
     void SmoothMove() {
-        transform.position = Vector3.Lerp(transform.position, currentTarget.position, Time.deltaTime * smoothSpeed);
+        float t = elapsedAnimTime / transitionDuration;
+        
+        t = Mathf.Clamp01(t);
+        t = t * t * (3f - 2f * t);
+        
+        transform.position = Vector3.Lerp(officeStates[(int)previousState].transform.position, officeStates[(int)currentState].transform.position, t);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, currentTarget.rotation, Time.deltaTime * smoothSpeed);
+        transform.rotation = Quaternion.Lerp(officeStates[(int)previousState].transform.rotation, officeStates[(int)currentState].transform.rotation, t);
+        
+        elapsedAnimTime += Time.deltaTime;
+
+        print(t);
+        
+        if (t >= 1) {
+            isMoving = false;
+            elapsedAnimTime = 0f;
+        }
     }
 }

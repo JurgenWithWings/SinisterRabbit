@@ -8,13 +8,17 @@ public class CameraSystem : MonoBehaviour {
     [SerializeField] private Camera officeCamera;
     [SerializeField] private Animation cameraAnimator;
     [SerializeField] private float cameraFlipSpeed = 8f;
-
+    
     private SecurityCamera[] cameras;
     private int currentIndex = 0;
-    private bool inCameraMode = false;
-    
-    private float camTargetRotation;
 
+    public bool IsOpen { get; private set; }
+    
+    private PlayerOfficeController owningController;
+    public void Init(PlayerOfficeController controller) {
+        owningController = controller;
+    }
+    
     private void Start() {
         cameras = FindObjectsOfType<SecurityCamera>(true);
         DisableAllSecurityCameras();
@@ -24,6 +28,39 @@ public class CameraSystem : MonoBehaviour {
 
     private void OnDestroy() {
         camCanvas.OnButtonPressed -= CamCanvasOnOnButtonPressed;
+    }
+    
+    public bool ToggleCams() {
+        if (camFlipCoroutine == null) {
+            camFlipCoroutine = StartCoroutine(ToggleCameraCoroutine());
+            return true;
+        }
+        return false;
+    }
+    
+    private Coroutine camFlipCoroutine;
+    private IEnumerator ToggleCameraCoroutine() {
+        IsOpen = !IsOpen;
+        owningController.isFlipping = true;
+
+        if (IsOpen) {
+            cameraAnimator.Play("OpenCam");
+            while (cameraAnimator.isPlaying) {
+                yield return null;
+            }
+            cameras[currentIndex].cam.enabled = true;
+            camCanvas.SetCamera(cameras[currentIndex]);
+            camCanvas.ToggleCanvas(true);
+        }
+        else {
+            cameras[currentIndex].cam.enabled = false;
+            cameraAnimator.Play("CloseCam");
+            camCanvas.SetCamera(null);
+            camCanvas.ToggleCanvas(false);
+        }
+        
+        owningController.isMoving = true;
+        camFlipCoroutine = null;
     }
 
     private void CamCanvasOnOnButtonPressed(SecurityCamera cam) {
@@ -37,51 +74,6 @@ public class CameraSystem : MonoBehaviour {
                 return;
             }
         }
-    }
-
-    void SmoothMove() {
-        cameraAnimator.transform.rotation = Quaternion.Lerp(cameraAnimator.transform.rotation, 
-            Quaternion.Euler(new Vector3(camTargetRotation, cameraAnimator.transform.rotation.eulerAngles.y, 
-                cameraAnimator.transform.rotation.eulerAngles.z)), Time.deltaTime * cameraFlipSpeed);
-    }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.S)) {
-            if (camFlipCoroutine == null) {
-                camFlipCoroutine = StartCoroutine(ToggleCameraMode());
-            }
-        }
-        
-        //SmoothMove();
-    }
-
-    private Coroutine camFlipCoroutine;
-    private IEnumerator ToggleCameraMode() {
-        inCameraMode = !inCameraMode;
-        PlayerOfficeController.IsBusy = inCameraMode;
-
-        if (inCameraMode) {
-            camTargetRotation = -90f;
-            cameraAnimator.Play("OpenCam");
-            while (cameraAnimator.isPlaying) {
-                print("Waiting...");
-                yield return null;
-            }
-            cameras[currentIndex].cam.enabled = true;
-            camCanvas.SetCamera(cameras[currentIndex]);
-            camCanvas.ToggleCanvas(true);
-        }
-        else {
-            cameras[currentIndex].cam.enabled = false;
-            camTargetRotation = 0f;
-            cameraAnimator.Play("CloseCam");
-            camCanvas.SetCamera(null);
-            camCanvas.ToggleCanvas(false);
-        }
-
-        yield return null;
-        
-        camFlipCoroutine = null;
     }
 
     void DisableAllSecurityCameras() {

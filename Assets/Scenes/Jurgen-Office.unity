@@ -525,10 +525,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1447757824}
-  - {fileID: 298805441}
-  - {fileID: 386570785}
   - {fileID: 1829026256}
   - {fileID: 935715695}
+  - {fileID: 298805441}
+  - {fileID: 386570785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &184791125
@@ -7297,7 +7297,7 @@ GameObject:
   - component: {fileID: 1496849579}
   - component: {fileID: 1496849580}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Player
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7434,14 +7434,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd25fc58df09bed4994105f96f232737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerPoint: {fileID: 1447757824}
-  leftPoint: {fileID: 1829026256}
-  rightPoint: {fileID: 935715695}
-  bottomPoint: {fileID: 386570785}
-  topPoint: {fileID: 298805441}
+  isAnimating: 0
+  isFlipping: 0
+  officeStates:
+  - state: 0
+    transform: {fileID: 1447757824}
+    animDuration: 1
+  - state: 1
+    transform: {fileID: 1829026256}
+    animDuration: 1
+  - state: 2
+    transform: {fileID: 935715695}
+    animDuration: 0
+  - state: 3
+    transform: {fileID: 298805441}
+    animDuration: 0.3
+  - state: 4
+    transform: {fileID: 386570785}
+    animDuration: 1.5
   sideEdgeZoneSize: 0.15
   vertEdgeZoneSize: 0.1
   smoothSpeed: 10
+  inputManager: {fileID: 0}
+  cameraSystem: {fileID: 0}
+  interactionController: {fileID: 0}
 --- !u!114 &1496849579
 MonoBehaviour:
   m_ObjectHideFlags: 0

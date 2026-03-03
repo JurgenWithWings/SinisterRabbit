@@ -4,11 +4,22 @@ public class OfficeInteractionController : MonoBehaviour {
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactDistance = 5f;
 
+    private InputManager inputManager;
+    
     private IInteractable currentInteractable;
 
     private float interactableHoverDuration;
     private float interactableInteractDuration;
+    
+    private PlayerOfficeController owningController;
+    public void Init(PlayerOfficeController controller) {
+        owningController = controller;
+    }
 
+    private void Awake() {
+        inputManager = GetComponent<InputManager>();
+    }
+    
     void Update() {
         HandleRaycast();
         HandleInput();
@@ -20,7 +31,7 @@ public class OfficeInteractionController : MonoBehaviour {
     }
 
     void HandleRaycast() {
-        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = playerCamera.ScreenPointToRay(inputManager.OfficeMouse.Value);
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance)) {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
@@ -38,16 +49,16 @@ public class OfficeInteractionController : MonoBehaviour {
     void HandleInput() {
         if (currentInteractable == null) return;
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (inputManager.OfficeLeftClick.Triggered) {
             currentInteractable.OnInteractStart();
             interactableInteractDuration = 0f;
         }
 
-        if (Input.GetMouseButton(0)) {
+        if (inputManager.OfficeLeftClick.Value) {
             currentInteractable.OnInteractHold(interactableInteractDuration);
         }
 
-        if (Input.GetMouseButtonUp(0)) {
+        if (inputManager.OfficeLeftClick.Context.canceled) {
             currentInteractable.OnInteractEnd();
         }
     }
