@@ -25,9 +25,10 @@ public class PlayerOfficeController : MonoBehaviour {
         public float duration;
     }
 
-    [HideInInspector] public bool IsBusy => isMoving || isFlipping;
+    [HideInInspector] public bool IsBusy => isMoving || isFlipping || busyLevel > 0;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool isFlipping;
+    [HideInInspector] public int busyLevel;
 
     [Header("Snap Points")]
     [SerializeField] private List<OfficeState> officeStates = new(new [] {
@@ -79,18 +80,6 @@ public class PlayerOfficeController : MonoBehaviour {
     void Start() {
         transform.position = officeStates[0].transform.position;
         transform.rotation = officeStates[0].transform.rotation;
-        
-        inputManager.OfficeCameraSystem.Event += OnOfficeCams;
-    }
-
-    private void OnDestroy() {
-        inputManager.OfficeCameraSystem.Event -= OnOfficeCams;
-    }
-
-    private void OnOfficeCams(InputEvent<bool> input) {
-        if (input.Context.performed && !IsBusy) {
-            cameraSystem.ToggleCams();
-        }
     }
 
     void Update() {

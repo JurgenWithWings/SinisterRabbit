@@ -5,31 +5,43 @@ using UnityEngine;
 public class CameraSystem : MonoBehaviour {
     [SerializeField] private CamCanvasController camCanvas;
     [Space]
+    [SerializeField] private SecurityCamera[] cameras;
+    [Space]
+    [SerializeField] private Camera bootUpCam;
     [SerializeField] private Camera officeCamera;
     [SerializeField] private Animation cameraAnimator;
     [SerializeField] private float cameraFlipSpeed = 8f;
     
-    private SecurityCamera[] cameras;
-    private int currentIndex = 0;
-
+    private int currentIndex;
+    
     public bool IsOpen { get; private set; }
     
     private PlayerOfficeController owningController;
     public void Init(PlayerOfficeController controller) {
         owningController = controller;
+        
+        owningController.InputManager.OfficeCameraSystem.Event += OnCamsFlipButton;
     }
     
     private void Start() {
-        cameras = FindObjectsOfType<SecurityCamera>(true);
         DisableAllSecurityCameras();
+
+        StartCoroutine(CamsBootUp());
         
         camCanvas.OnButtonPressed += CamCanvasOnOnButtonPressed;
     }
 
     private void OnDestroy() {
         camCanvas.OnButtonPressed -= CamCanvasOnOnButtonPressed;
+        owningController.InputManager.OfficeCameraSystem.Event -= OnCamsFlipButton;
     }
-    
+
+    private void OnCamsFlipButton(InputEvent<bool> input) {
+        if (input.Context.performed && !owningController.IsBusy) {
+            ToggleCams();
+        }
+    }
+
     public bool ToggleCams() {
         if (camFlipCoroutine == null) {
             camFlipCoroutine = StartCoroutine(ToggleCameraCoroutine());
@@ -45,20 +57,15 @@ public class CameraSystem : MonoBehaviour {
 
         if (IsOpen) {
             cameraAnimator.Play("OpenCam");
-            while (cameraAnimator.isPlaying) {
-                yield return null;
-            }
-            cameras[currentIndex].cam.enabled = true;
-            camCanvas.SetCamera(cameras[currentIndex]);
-            camCanvas.ToggleCanvas(true);
         }
         else {
-            cameras[currentIndex].cam.enabled = false;
             cameraAnimator.Play("CloseCam");
-            camCanvas.SetCamera(null);
-            camCanvas.ToggleCanvas(false);
         }
-        
+
+        while (cameraAnimator.isPlaying) {
+            yield return null;
+        }
+
         owningController.isFlipping = false;
         camFlipCoroutine = null;
     }
@@ -80,5 +87,21 @@ public class CameraSystem : MonoBehaviour {
         foreach (var cam in cameras) {
             cam.cam.enabled = false;
         }
+    }
+
+    private IEnumerator CamsBootUp() {
+        bootUpCam.enabled = true;
+        camCanvas.ToggleCanvas(false);
+        
+        Animation anim = bootUpCam.GetComponent<Animation>();
+        anim.Play("BootUp");
+        
+        yield return new WaitForSeconds(anim.clip.length);
+        
+        bootUpCam.enabled = false;
+        camCanvas.ToggleCanvas(true);
+        camCanvas.SetCamera(cameras[currentIndex]);
+        
+        cameras[currentIndex].cam.enabled = true;
     }
 }

@@ -53,12 +53,10 @@ public class OfficeInteractionController : MonoBehaviour {
         if (input.Triggered) {
             currentInteractable.OnInteractStart();
             interactableInteractDuration = 0f;
-            print("Interact Started");
         }
         
         if (input.Context.canceled) {
             currentInteractable.OnInteractEnd();
-            print("Interact Canceled");
         }
     }
 
@@ -67,7 +65,6 @@ public class OfficeInteractionController : MonoBehaviour {
         
         if (input.Value) {
             currentInteractable.OnInteractHold(interactableInteractDuration);
-            print("Interact Held For: " + interactableInteractDuration);
         }
     }
 

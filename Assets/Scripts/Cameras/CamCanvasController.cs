@@ -35,7 +35,7 @@ public class CamCanvasController : MonoBehaviour {
     }
 
     public void ToggleCanvas(bool enabled) {
-        //canvas.enabled = enabled;
+        canvas.enabled = enabled;
     }
 
     public void SetCamera(SecurityCamera cam) {
@@ -46,9 +46,5 @@ public class CamCanvasController : MonoBehaviour {
         OnButtonPressed?.Invoke(cam);
         
         camName.text = cam.camName;
-    }
-
-    public void ButtonPressed() {
-        Debug.Log("Button pressed");
     }
 }
