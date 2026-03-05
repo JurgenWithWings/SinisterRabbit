@@ -85,6 +85,7 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
         yield return null;
         
         EnableActionMap(defaultMap);
+        controls.UI.Enable();
     }
 
     private void SetUIModuleAsset() {
@@ -104,7 +105,6 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
     }
 
     public void EnableActionMap(InputMap map) {
-        controls.Disable();
         switch (map) {
             case InputMap.Player:
                 controls.Player.Enable();
@@ -117,6 +117,23 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
                 break;
             default:
                 controls.Enable();
+                break;
+        }
+    }
+    
+    public void DisableActionMap(InputMap map) {
+        switch (map) {
+            case InputMap.Player:
+                controls.Player.Disable();
+                break;
+            case InputMap.Office:
+                controls.Office.Disable();
+                break;
+            case InputMap.UI:
+                controls.UI.Disable();
+                break;
+            default:
+                controls.Disable();
                 break;
         }
     }

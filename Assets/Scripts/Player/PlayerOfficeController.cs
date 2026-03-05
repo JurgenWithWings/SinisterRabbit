@@ -48,6 +48,7 @@ public class PlayerOfficeController : MonoBehaviour {
     
     [Header("References")]
     [SerializeField] private InputManager inputManager;
+    public InputManager InputManager => inputManager;
     [SerializeField] private CameraSystem cameraSystem;
     [SerializeField] private OfficeInteractionController interactionController;
 
