@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 [Serializable] public struct CamButtonPair {
     public SecurityCamera cam;
-    public Button button;
+    public KeyCapButton button;
 }
 
 public class CamCanvasController : MonoBehaviour {
@@ -24,13 +24,13 @@ public class CamCanvasController : MonoBehaviour {
         SetCamera(null);
 
         foreach (CamButtonPair pair in camButtons) {
-            pair.button.onClick.AddListener(() => SetCamera(pair.cam));
+            pair.button.OnButtonPressed.AddListener(() => SetCamera(pair.cam));
         }
     }
 
     private void OnDestroy() {
         foreach (CamButtonPair pair in camButtons) {
-            pair.button.onClick.RemoveAllListeners();
+            pair.button.OnButtonPressed.RemoveAllListeners();
         }
     }
 
