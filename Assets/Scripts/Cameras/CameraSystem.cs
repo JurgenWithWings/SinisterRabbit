@@ -20,7 +20,7 @@ public class CameraSystem : MonoBehaviour {
     public void Init(PlayerOfficeController controller) {
         owningController = controller;
         
-        owningController.InputManager.OfficeCameraSystem.Event += OnCamsFlipButton;
+        owningController.OnStateChange += OnStateChange;
     }
     
     private void Start() {
@@ -33,11 +33,11 @@ public class CameraSystem : MonoBehaviour {
 
     private void OnDestroy() {
         camCanvas.OnButtonPressed -= CamCanvasOnOnButtonPressed;
-        owningController.InputManager.OfficeCameraSystem.Event -= OnCamsFlipButton;
+        owningController.OnStateChange -= OnStateChange;
     }
 
-    private void OnCamsFlipButton(InputEvent<bool> input) {
-        if (input.Context.performed && !owningController.IsBusy) {
+    private void OnStateChange(PlayerOfficeController.State newState, PlayerOfficeController.State oldState) {
+        if (newState == PlayerOfficeController.State.Camera || oldState == PlayerOfficeController.State.Camera) {
             ToggleCams();
         }
     }

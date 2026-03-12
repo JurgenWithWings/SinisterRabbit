@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerOfficeController : MonoBehaviour {
-    public enum State { Center, Left, Right, Top, Bottom, }
+    public enum State { Center, Left, Right, Top, Camera, }
     
     public enum MouseRegion { Left, Right, Top, Bottom }
     private bool[] mouseRegionStates = new bool[4] { false, false, false, false };
@@ -36,7 +36,7 @@ public class PlayerOfficeController : MonoBehaviour {
         new OfficeState { state = State.Left },
         new OfficeState { state = State.Right },
         new OfficeState { state = State.Top },
-        new OfficeState { state = State.Bottom },
+        new OfficeState { state = State.Camera },
     });
     [SerializeField] private List<OfficeTransition> stateTransitions = new();
 
@@ -58,6 +58,7 @@ public class PlayerOfficeController : MonoBehaviour {
     private float elapsedAnimTime;
     private float currentTransitionDuration;
     private State previousState;
+    public event Action<State, State> OnStateChange; // New State, Old State
 
     private bool edgeLocked = true; // prevents overshooting move back to center
 
@@ -83,7 +84,7 @@ public class PlayerOfficeController : MonoBehaviour {
     }
 
     void Update() {
-        if (!IsBusy && !cameraSystem.IsOpen) {
+        if (!IsBusy /*&& !cameraSystem.IsOpen*/) {
             HandleTransitions();
         }
 
@@ -138,6 +139,7 @@ public class PlayerOfficeController : MonoBehaviour {
         
         edgeLocked = true;
         isMoving = true;
+        OnStateChange?.Invoke(currentState, previousState);
     }
     
     bool TryGetTransition(State a, State b, out OfficeTransition transition) {
