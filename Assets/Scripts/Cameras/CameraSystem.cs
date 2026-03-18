@@ -16,6 +16,9 @@ public class CameraSystem : MonoBehaviour {
     
     public bool IsOpen { get; private set; }
     
+    public event Action OnCamsOpen;
+    public event Action OnCamsClosed;
+    
     private PlayerOfficeController owningController;
     public void Init(PlayerOfficeController controller) {
         owningController = controller;
@@ -57,9 +60,11 @@ public class CameraSystem : MonoBehaviour {
 
         if (IsOpen) {
             cameraAnimator.Play("OpenCam");
+            OnCamsOpen?.Invoke();
         }
         else {
             cameraAnimator.Play("CloseCam");
+            OnCamsClosed?.Invoke();
         }
 
         while (cameraAnimator.isPlaying) {
