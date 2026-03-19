@@ -14884,16 +14884,10 @@ MonoBehaviour:
     - Key: Office
       Value: {fileID: 1839858607}
   level: 5
-  progressFillRate: {x: 2, y: 10}
-  killThreshold: 100
   chickens:
   - {fileID: 113621383}
   - {fileID: 635049535}
   - {fileID: 605153236}
-  spawnIntervals:
-  - 30
-  - 45
-  - 65
 --- !u!1 &1845665499
 GameObject:
   m_ObjectHideFlags: 0
@@ -15848,7 +15842,7 @@ MonoBehaviour:
       Value: {fileID: 576063492}
     - Key: GameOver
       Value: {fileID: 576063492}
-  level: 20
+  level: 1
   movementInterval: 5
 --- !u!136 &1931259554
 CapsuleCollider:

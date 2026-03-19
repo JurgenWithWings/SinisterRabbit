@@ -1,21 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Chickens : Threat {
-    [SerializeField] private Vector2 progressFillRate = new Vector2(5f, 25f);
-    [SerializeField] private float killThreshold = 100;
-
     [SerializeField] private List<Chicken> chickens = new();
-    [SerializeField] private List<float> spawnIntervals = new();
-
-    private List<Chicken> inactiveChickens = new();
     private List<Chicken> activeChickens = new();
-    private float progress;
-    
-    private float FillRate => Mathf.Lerp(progressFillRate.x, progressFillRate.y, progress / killThreshold);
+    private List<Chicken> inactiveChickens = new();
 
     private void Start() {
+        states["Office"].RegisterThreat(this);
+        
         foreach (Chicken chicken in chickens) {
             chicken.OnChickenClicked += OnChickenClicked;
             inactiveChickens.Add(chicken);
@@ -29,29 +23,41 @@ public class Chickens : Threat {
     }
 
     private void OnChickenClicked(Chicken chicken) {
-        if (activeChickens.Count > 1) {
-            progress = spawnIntervals[activeChickens.Count - 2];
-        }
-        else {
-            progress = 0;
-        }
-        
-        inactiveChickens.Add(chicken);
         activeChickens.Remove(chicken);
+        inactiveChickens.Add(chicken);
+        
+        if (killTimer == null) {
+            StopCoroutine(killTimer);
+            killTimer = null;
+        }
     }
 
-    public override void Tick() {
-        progress += FillRate * Time.deltaTime;
+    public override void Tick() { }
 
-        if (activeChickens.Count != chickens.Count && progress > spawnIntervals[activeChickens.Count]) {
-            int random = Random.Range(0, inactiveChickens.Count);
-            activeChickens.Add(inactiveChickens[random]);
-            inactiveChickens[random].gameObject.SetActive(true);
-            inactiveChickens.RemoveAt(random);
+    public override void CameraSystemStateUpdate(bool isOpen) {
+        if (isOpen) {
+            if (RollLevel()) {
+                SpawnChicken();
+            }
         }
+    }
 
-        if (progress >= killThreshold) {
-            TriggerGameOver();
+    private void SpawnChicken() {
+        int random = Random.Range(0, inactiveChickens.Count);
+        Chicken chicken = inactiveChickens[random];
+        activeChickens.Add(chicken);
+        inactiveChickens.Remove(chicken);
+        chicken.gameObject.SetActive(true);
+        
+        if (activeChickens.Count == chickens.Count) {
+            killTimer = StartCoroutine(KillTimer());
         }
+    }
+
+    private Coroutine killTimer;
+    private IEnumerator KillTimer() {
+        yield return new WaitForSeconds(5);
+        
+        TriggerGameOver();
     }
 }

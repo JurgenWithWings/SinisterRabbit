@@ -60,15 +60,20 @@ public class CameraSystem : MonoBehaviour {
 
         if (IsOpen) {
             cameraAnimator.Play("OpenCam");
-            OnCamsOpen?.Invoke();
         }
         else {
             cameraAnimator.Play("CloseCam");
-            OnCamsClosed?.Invoke();
         }
 
         while (cameraAnimator.isPlaying) {
             yield return null;
+        }
+        
+        if (IsOpen) {
+            OnCamsOpen?.Invoke();
+        }
+        else {
+            OnCamsClosed?.Invoke();
         }
 
         owningController.isFlipping = false;
