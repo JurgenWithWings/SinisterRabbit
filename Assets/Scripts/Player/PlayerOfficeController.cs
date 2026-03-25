@@ -81,6 +81,8 @@ public class PlayerOfficeController : MonoBehaviour {
     void Start() {
         transform.position = officeStates[0].transform.position;
         transform.rotation = officeStates[0].transform.rotation;
+        
+        OfficeUINavigationController.OnStateChange?.Invoke(officeStates[(int)currentState].transitions);
     }
 
     void Update() {
@@ -115,7 +117,7 @@ public class PlayerOfficeController : MonoBehaviour {
         if (!edgeLocked && anyMouseRegion) {
             foreach (AvailableTransition transition in officeStates[(int)currentState].transitions) {
                 if (mouseRegionStates[(int)transition.mouseRegion]) {
-                    SetState(transition.targetState);
+                    SetState(transition.targetState, transition.mouseRegion);
                 }
             }
         }
@@ -126,7 +128,7 @@ public class PlayerOfficeController : MonoBehaviour {
         }
     }
 
-    void SetState(State newState) {
+    void SetState(State newState, MouseRegion direction) {
         if (!TryGetTransition(currentState, newState, out OfficeTransition transition)) {
             Debug.LogWarning($"No transition with {currentState} and {newState}");
             return;
@@ -140,6 +142,7 @@ public class PlayerOfficeController : MonoBehaviour {
         edgeLocked = true;
         isMoving = true;
         OnStateChange?.Invoke(currentState, previousState);
+        OfficeUINavigationController.OnStartStateChange?.Invoke(direction);
     }
     
     bool TryGetTransition(State a, State b, out OfficeTransition transition) {
@@ -167,6 +170,7 @@ public class PlayerOfficeController : MonoBehaviour {
         if (t >= 1) {
             isMoving = false;
             elapsedAnimTime = 0f;
+            OfficeUINavigationController.OnStateChange?.Invoke(officeStates[(int)currentState].transitions);
         }
     }
 }
