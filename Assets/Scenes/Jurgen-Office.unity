@@ -12763,6 +12763,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1496849575}
   interactDistance: 15
+  defaultCursor: {fileID: 2800000, guid: 49b4052220dcae94cb25dbe0ff2e88b9, type: 3}
+  hoverCursor: {fileID: 2800000, guid: 80b55876c6d53e6438bd1b0c4d8544d6, type: 3}
+  holdCursor: {fileID: 2800000, guid: 9412767cedcb691428f82450116eb377, type: 3}
 --- !u!114 &1496849580
 MonoBehaviour:
   m_ObjectHideFlags: 0

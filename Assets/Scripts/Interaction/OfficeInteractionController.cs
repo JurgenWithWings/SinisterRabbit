@@ -3,12 +3,21 @@ using UnityEngine;
 
 public class OfficeInteractionController : MonoBehaviour {
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private float interactDistance = 5f;
+    [SerializeField] private float interactDistance = 15f;
+
+    [SerializeField] private Texture2D defaultCursor;
+    [SerializeField] private Texture2D hoverCursor;
+    [SerializeField] private Texture2D holdCursor;
+    
+    private enum CursorState { Default, Hover, Hold }
+    private CursorState cursorState = CursorState.Default;
     
     private IInteractable currentInteractable;
 
     private float interactableHoverDuration;
     private float interactableInteractDuration;
+
+    private InputEvent<bool> inputBuffer;
     
     private PlayerOfficeController owningController;
     public void Init(PlayerOfficeController controller) {
@@ -29,6 +38,19 @@ public class OfficeInteractionController : MonoBehaviour {
 
         interactableHoverDuration += Time.deltaTime;
         interactableInteractDuration += Time.deltaTime;
+        
+        // Cursor State
+        if (currentInteractable == null) {
+            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        }
+        else {
+            if (inputBuffer.Triggered) {
+                Cursor.SetCursor(holdCursor, Vector2.zero, CursorMode.Auto);
+            }
+            else {
+                Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
+            }
+        }
     }
 
     void HandleRaycast() {
@@ -48,6 +70,7 @@ public class OfficeInteractionController : MonoBehaviour {
     }
 
     private void HandleInput(InputEvent<bool> input) {
+        inputBuffer = input;
         if (currentInteractable == null) return;
 
         if (input.Triggered) {
