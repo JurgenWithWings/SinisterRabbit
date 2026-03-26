@@ -41,7 +41,7 @@ public class PlayerOfficeController : MonoBehaviour {
     [SerializeField] private List<OfficeTransition> stateTransitions = new();
 
     [Header("Edge Zone Size")]
-    [SerializeField, Range(0f, 0.5f)] private float sideEdgeZoneSize = 0.15f;
+    [SerializeField, Range(0f, 0.5f)] private float sideEdgeZoneSize = 0.12f;
     [SerializeField, Range(0f, 0.5f)] private float vertEdgeZoneSize = 0.10f;
 
     [Header("Smoothing")]
