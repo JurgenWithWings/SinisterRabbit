@@ -26,7 +26,7 @@ public class Chickens : Threat {
         activeChickens.Remove(chicken);
         inactiveChickens.Add(chicken);
         
-        if (killTimer == null) {
+        if (killTimer != null) {
             StopCoroutine(killTimer);
             killTimer = null;
         }
