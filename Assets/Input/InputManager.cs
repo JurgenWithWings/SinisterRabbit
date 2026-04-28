@@ -189,19 +189,55 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
 
     // Player
     public InputEvent<Vector2> PlayerMove;
-    public void OnMove(InputAction.CallbackContext context) { }
+
+    public void OnMove(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            Vector2 value = context.ReadValue<Vector2>();
+            PlayerMove.SetAndInvoke(value, value, context);
+        }
+    }
     
     public InputEvent<Vector2> PlayerLook;
-    public void OnLook(InputAction.CallbackContext context) { }
+    public void OnLook(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            Vector2 value = context.ReadValue<Vector2>();
+            PlayerLook.SetAndInvoke(value, value, context);
+        }
+    }
     
     public InputEvent<bool> PlayerInteract;
-    public void OnInteract(InputAction.CallbackContext context) { }
+    public void OnInteract(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            PlayerInteract.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
     
     public InputEvent<bool> PlayerJump;
-    public void OnJump(InputAction.CallbackContext context) { }
+    public void OnJump(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            PlayerJump.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
     
     public InputEvent<bool> PlayerSprint;
-    public void OnSprint(InputAction.CallbackContext context) { }
+    public void OnSprint(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            PlayerSprint.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
+
+    public InputEvent<bool> PlayerCrouch;
+    public void OnCrouch(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            PlayerCrouch.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
     
     
     // Office
@@ -221,7 +257,7 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
             OfficeLeftClick.SetAndInvoke(context.performed, context.performed, context);
         }
     }
-    
+
     public InputEvent<bool> OfficeCameraSystem;
     public void OnCameraSystem(InputAction.CallbackContext context) {
         DefaultHandle(context);
