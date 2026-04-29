@@ -174,6 +174,7 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
         PlayerInteract.ResetState();
         PlayerJump.ResetState();
         PlayerSprint.ResetState();
+        PlayerCrouch.ResetState();
         
         // Office
         OfficeMouse.ResetState();

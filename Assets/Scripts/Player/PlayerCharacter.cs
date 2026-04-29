@@ -3,7 +3,9 @@ using UnityEngine;
 
 public enum CrouchInput {
     None,
-    Toggle
+    Toggle,
+    Held,
+    NotHeld,
 }
 
 public enum Stance {
@@ -107,6 +109,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
         requestedCrouch = input.Crouch switch {
             CrouchInput.Toggle => !requestedCrouch,
             CrouchInput.None => requestedCrouch,
+            CrouchInput.Held => true,
+            CrouchInput.NotHeld => false,
             _ => requestedCrouch,
         };
         if (requestedCrouch && !wasRequestingCrouch) {

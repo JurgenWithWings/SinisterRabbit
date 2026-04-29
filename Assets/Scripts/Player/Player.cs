@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 public class Player : MonoBehaviour {
     [SerializeField] private PlayerCharacter playerCharacter;
     [SerializeField] private PlayerCamera playerCamera;
+    [SerializeField] private float sensitivity = 0.3f;
     [Space]
     [SerializeField] private CameraSpring cameraSpring;
     [SerializeField] private CameraLean cameraLean;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
         
         playerCharacter.Initialize();
         playerCamera.Initialize(playerCharacter.CameraTarget);
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour {
 
     private void Update() {
         CameraInput cameraInput = new() {
-            Look = InputManager.Instance.PlayerLook
+            Look = InputManager.Instance.PlayerLook.Value * sensitivity,
         };
         playerCamera.UpdateRotation(cameraInput);
 
@@ -39,9 +41,9 @@ public class Player : MonoBehaviour {
             Move        = InputManager.Instance.PlayerMove,
             Jump           = InputManager.Instance.PlayerJump.Triggered,
             JumpSustain = InputManager.Instance.PlayerJump,
-            Crouch         = InputManager.Instance.PlayerCrouch.Triggered 
-                ? CrouchInput.Toggle 
-                : CrouchInput.None,
+            Crouch         = InputManager.Instance.PlayerCrouch.Value 
+                ? CrouchInput.Held 
+                : CrouchInput.NotHeld,
         };
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(Time.deltaTime);
