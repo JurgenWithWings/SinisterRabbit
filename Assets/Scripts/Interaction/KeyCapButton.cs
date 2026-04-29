@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class KeyCapButton : MonoBehaviour, IInteractable {
+    [SerializeField] private InteractionInfo interactionInfo;
+    
     public UnityEvent OnButtonPressed;
 
     private Animation animation;
@@ -11,9 +13,11 @@ public class KeyCapButton : MonoBehaviour, IInteractable {
         animation = GetComponent<Animation>();
     }
 
+    public InteractionInfo GetInteractionInfo() => interactionInfo;
     public void OnHoverEnter() { }
     public void OnHoverHold(float duration) { }
     public void OnHoverExit() { }
+
     public void OnInteractStart() {
         if (animation.isPlaying) {
             return;
@@ -21,6 +25,7 @@ public class KeyCapButton : MonoBehaviour, IInteractable {
         animation.Play("KeyCapClick");
         OnButtonPressed.Invoke();
     }
+
     public void OnInteractHold(float duration) { }
     public void OnInteractEnd() { }
 }

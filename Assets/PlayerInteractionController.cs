@@ -1,21 +1,12 @@
 using UnityEngine;
 
 public class PlayerInteractionController : MonoBehaviour {
-    [SerializeField] private float interactDistance = 15f;
-    [Space]
-    [SerializeField] private Texture2D defaultCursor;
-    [SerializeField] private Texture2D hoverCursor;
-    [SerializeField] private Texture2D holdCursor;
-    
-    private enum CursorState { Default, Hover, Hold }
-    private CursorState cursorState = CursorState.Default;
+    [SerializeField] private float interactDistance = 7.5f;
     
     private IInteractable currentInteractable;
 
     private float interactableHoverDuration;
     private float interactableInteractDuration;
-    
-    private InputEvent<bool> inputBuffer;
     
     public void Start() { 
         InputManager.Instance.PlayerInteract.Event += HandleInput;
@@ -33,19 +24,18 @@ public class PlayerInteractionController : MonoBehaviour {
 
         interactableHoverDuration += Time.deltaTime;
         interactableInteractDuration += Time.deltaTime;
+    }
+
+    private void LateUpdate() {
+        InteractionInfo info = new();
         
         // Cursor State
-        if (currentInteractable == null) {
-            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        if (currentInteractable != null) {
+            info.interactionText = currentInteractable.GetInteractionInfo().interactionText;
+            info.pointerType = InputManager.Instance.PlayerInteract.Value ? PointerType.Open : PointerType.Closed;
         }
-        else {
-            if (inputBuffer.Triggered) {
-                Cursor.SetCursor(holdCursor, Vector2.zero, CursorMode.Auto);
-            }
-            else {
-                Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
-            }
-        }
+
+        UIInteraction.SetInteractionInfo?.Invoke(info);
     }
 
     void HandleRaycast() {
@@ -63,7 +53,6 @@ public class PlayerInteractionController : MonoBehaviour {
     }
 
     private void HandleInput(InputEvent<bool> input) {
-        inputBuffer = input;
         if (currentInteractable == null) return;
 
         if (input.Triggered) {

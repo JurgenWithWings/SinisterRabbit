@@ -9,9 +9,6 @@ public class OfficeInteractionController : MonoBehaviour {
     [SerializeField] private Texture2D hoverCursor;
     [SerializeField] private Texture2D holdCursor;
     
-    private enum CursorState { Default, Hover, Hold }
-    private CursorState cursorState = CursorState.Default;
-    
     private IInteractable currentInteractable;
 
     private float interactableHoverDuration;

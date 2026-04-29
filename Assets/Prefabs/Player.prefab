@@ -181,10 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f2c88a6b4f7ca4a854dbfa171dc289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 15
-  defaultCursor: {fileID: 0}
-  hoverCursor: {fileID: 2800000, guid: 80b55876c6d53e6438bd1b0c4d8544d6, type: 3}
-  holdCursor: {fileID: 2800000, guid: 9412767cedcb691428f82450116eb377, type: 3}
+  interactDistance: 7.5
 --- !u!1 &1943325264029503121
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +401,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0582e6dab133d2744a07c4f3ba632846, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraFovSpeed
+  m_EditorClassIdentifier: 
   camera: {fileID: 4938177564306361104}
   min: 70
   max: 90

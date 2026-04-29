@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class OfficeDoor : MonoBehaviour, IInteractable {
+    [SerializeField] private InteractionInfo interactionInfo;
     [Header("Rotation Settings")]
     [SerializeField] private float openAngle = -20f;   // Slightly open
     [SerializeField] private float closedAngle = 0f;   // Fully closed
@@ -69,8 +70,8 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     
     
     // IInteractable Implementation
+    public InteractionInfo GetInteractionInfo() => interactionInfo;
     public void OnHoverEnter() { }
-
     public void OnHoverHold(float duration) { }
 
     public void OnHoverExit() {
