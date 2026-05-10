@@ -707,7 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a9406b2d75270418d9284305e79cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repairInteractionText: Press 'E' to Repair
+  repairedInteractionText: Machine is Repaired
+  brokenInteractionText: Press "E" to Repair the Machine
   brokenEffects:
   - {fileID: 2041913245334473829}
   - {fileID: 8551850394196041643}

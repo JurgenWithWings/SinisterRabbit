@@ -1,14 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.VFX;
 
 public class RepairableMachine : MonoBehaviour, IInteractable {
-    [SerializeField] private string repairInteractionText;
+    [SerializeField] private string repairedInteractionText;
+    [SerializeField] private string brokenInteractionText;
     [SerializeField] private VisualEffect[] brokenEffects;
     [SerializeField] private VisualEffect repairedEffect;
 
     [SerializeField] private bool broken;
     
     private InteractionInfo interactionInfo;
+    
+    public event Action OnRepairedMachine;
 
     private void Start() {
         SetBrokenState(broken);
@@ -26,7 +30,7 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
         }
         broken = state;
 
-        interactionInfo.interactionText = broken ? repairInteractionText : "";
+        interactionInfo.interactionText = broken ? brokenInteractionText : repairedInteractionText;
     }
 
     public InteractionInfo GetInteractionInfo() => interactionInfo;
