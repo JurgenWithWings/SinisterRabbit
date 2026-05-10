@@ -9,6 +9,7 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
     [SerializeField] private VisualEffect repairedEffect;
 
     [SerializeField] private bool broken;
+    public bool Broken => broken;
     
     private InteractionInfo interactionInfo;
     
@@ -30,7 +31,13 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
         }
         broken = state;
 
-        interactionInfo.interactionText = broken ? brokenInteractionText : repairedInteractionText;
+        if (broken) {
+            interactionInfo.interactionText = brokenInteractionText;
+        }
+        else {
+            interactionInfo.interactionText = repairedInteractionText;
+            OnRepairedMachine?.Invoke();
+        }
     }
 
     public InteractionInfo GetInteractionInfo() => interactionInfo;

@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 5022306550857387419}
   - component: {fileID: 5883417395230549254}
   - component: {fileID: 6339484943385937030}
+  - component: {fileID: 2099271015250502991}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -664,11 +665,11 @@ MonoBehaviour:
   motor: {fileID: 5883417395230549254}
   root: {fileID: 4385349270696378372}
   cameraTarget: {fileID: 828204544230409412}
-  walkSpeed: 20
-  crouchSpeed: 7
+  walkSpeed: 9
+  crouchSpeed: 5
   walkResponse: 25
   crouchResponse: 20
-  airSpeed: 15
+  airSpeed: 8
   airAcceleration: 70
   jumpCount: 1
   jumpSpeed: 20
@@ -685,6 +686,18 @@ MonoBehaviour:
   crouchHeightResponse: 15
   standCameraTargetHeight: 0.9
   crouchCameraTargetHeight: 0.7
+--- !u!114 &2099271015250502991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034416923142850520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0afba8b0a3954b4ea86fae932376d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7621310801630316171
 GameObject:
   m_ObjectHideFlags: 0

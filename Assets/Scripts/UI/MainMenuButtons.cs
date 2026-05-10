@@ -5,32 +5,23 @@ using UnityEngine.UI;
 public class MainMenuButtons : MonoBehaviour {
     [SerializeField] private Button continueButton;
     [SerializeField] private Button newGameButton;
-    [SerializeField] private Button levelSelectButton;
-    [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
 
     private void Awake() {
         continueButton.onClick.AddListener(ContinueButton);
         newGameButton.onClick.AddListener(NewGameButton);
-        levelSelectButton.onClick.AddListener(LevelSelectButton);
-        settingsButton.onClick.AddListener(SettingsButton);
         quitButton.onClick.AddListener(QuitButton);
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void ContinueButton() {
-        NewGameButton();
+        SceneManager.LoadScene(LevelLoadingData.DayShiftSceneName);
     }
     
     private void NewGameButton() {
-        SceneManager.LoadScene("Jurgen-Office");
-    }
-    
-    private void LevelSelectButton() {
-        NewGameButton();
-    }
-    
-    private void SettingsButton() {
-        
+        SceneManager.LoadScene(LevelLoadingData.NightShiftSceneName);
     }
 
     private void QuitButton() {

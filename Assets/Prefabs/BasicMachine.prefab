@@ -713,7 +713,7 @@ MonoBehaviour:
   - {fileID: 2041913245334473829}
   - {fileID: 8551850394196041643}
   repairedEffect: {fileID: 1736351107298026948}
-  broken: 1
+  broken: 0
 --- !u!65 &4395959116599724133
 BoxCollider:
   m_ObjectHideFlags: 0

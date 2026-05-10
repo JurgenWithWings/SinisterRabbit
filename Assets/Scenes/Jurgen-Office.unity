@@ -957,6 +957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4a91e2470f40b98ed6fd2ede82705e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionInfo:
+    interactionText: 
+    pointerType: 0
 --- !u!1 &152323134
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,6 +5044,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4a91e2470f40b98ed6fd2ede82705e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionInfo:
+    interactionText: 
+    pointerType: 0
 --- !u!1 &616071495
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,6 +5479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4a91e2470f40b98ed6fd2ede82705e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionInfo:
+    interactionText: 
+    pointerType: 0
 --- !u!1 &647457590
 GameObject:
   m_ObjectHideFlags: 0
@@ -14602,10 +14611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2560, y: 1440}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
