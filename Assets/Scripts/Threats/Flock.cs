@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chickens : Threat {
+public class Flock : Threat {
     [SerializeField] private List<Chicken> chickens = new();
     private List<Chicken> activeChickens = new();
     private List<Chicken> inactiveChickens = new();

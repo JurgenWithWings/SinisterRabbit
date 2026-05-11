@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class DayLogicManager : MonoBehaviour {
-    public static DayLogicManager Instance;
+    public static DayLogicManager Instance { get; private set; }
 
     private DayShiftData data = LevelLoadingData.DayShiftData;
     public DayShiftData Data => data;
@@ -26,7 +26,7 @@ public class DayLogicManager : MonoBehaviour {
         Instance = this;
         
         // Fallback level setting for testing
-        if (data == null || data.shiftDuration == 0) {
+        if (data == null || data.IsNull()) {
             LevelLoadingData.DayShiftData = ScriptableObject.CreateInstance<DayShiftData>();
             
             LevelLoadingData.DayShiftData.shiftDuration = 60f;

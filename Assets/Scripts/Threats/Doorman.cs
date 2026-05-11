@@ -20,6 +20,8 @@ public class Doorman : Threat {
             AttemptAdvance();
         }
 
+        DoorStateUpdate();
+
         if (isMoving) {
             if (Vector3.Distance(agent.transform.position, states[currentState].transform.position) < 0.55f) {
                 OnDestinationReached();
@@ -65,8 +67,8 @@ public class Doorman : Threat {
                 break;
             
             case "Office":
-                if (states[currentState].IsDoorOpen()) { // If door is open, move into office
-                    states[currentState].FullOpenDoor(0.5f);
+                if (states[currentState].OfficeDoor.IsOpen) { // If door is open, move into office
+                    states[currentState].OfficeDoor.FullOpenDoor(0.5f);
                 }
                 else return;
                 break;
@@ -95,30 +97,21 @@ public class Doorman : Threat {
         transform.rotation = states[currentState].transform.rotation;
     }
 
-    public override void DoorStateUpdate(bool isOpen) {
+    private float doorWaitTime;
+    public void DoorStateUpdate() {
         if (currentState != "RightDoor" && currentState != "LeftDoor") return;
-        
-        if (!isOpen && doorTimerRoutine == null) {
-            doorTimer = 0;
-            doorTimerRoutine = StartCoroutine(DoorTimer());
-        }
-        else if (isOpen && doorTimerRoutine != null) {
-            StopCoroutine(doorTimerRoutine);
-            doorTimerRoutine = null;
-        }
-    }
+        ThreatStatePoint state = states[currentState];
 
-    private float doorTimer;
-    private Coroutine doorTimerRoutine;
-    private IEnumerator DoorTimer() {
-        while (doorTimer < 1f) {
-            doorTimer += Time.deltaTime;
-            yield return null;
+        if (!isMoving && !state.OfficeDoor.IsOpen) {
+            doorWaitTime += Time.deltaTime;
+        }
+        else {
+            doorWaitTime = 0f;
         }
         
-        TryMove("Main");
-        
-        doorTimerRoutine = null;
+        if (!state.OfficeDoor.IsOpen && doorWaitTime > 2f) {
+            TryMove("Main");
+        }
     }
 
     public override void CameraSystemStateUpdate(bool isOpen) {

@@ -4,16 +4,32 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
+public enum ThreatType {
+    None,
+    Doorman,
+    Flock,
+    Technician,
+    Sheep,
+    Thief
+}
+
 public abstract class Threat : MonoBehaviour {
+    [SerializeField] protected ThreatType threatType;
+    public ThreatType ThreatType => threatType;
+    [Space]
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] protected SerializedDictionary<string, ThreatStatePoint> states = new();
-    [Space] 
-    [SerializeField] protected int level = 5;
+    
+    protected int level;
 
     protected ThreatManager manager;
 
     public virtual void Init(ThreatManager manager) {
         this.manager = manager;
+    }
+    
+    public void UpdateAILevel(int newLevel) {
+        level = newLevel;
     }
 
     // ~~ Helper Methods ~~
@@ -40,6 +56,5 @@ public abstract class Threat : MonoBehaviour {
 
     
     // Update Events
-    public virtual void DoorStateUpdate(bool isOpen) { }
     public virtual void CameraSystemStateUpdate(bool isOpen) { }
 }

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectButtons : MonoBehaviour {
     public void NightButtonPressed(NightShiftData data) {
-        if (data == null || data.shiftDuration == 0) {
+        if (data == null || data.IsNull()) {
             Debug.LogWarning("NightShiftData is not set or has invalid values. Please assign a valid NightShiftData ScriptableObject.");
             return;
         }
@@ -13,7 +13,7 @@ public class LevelSelectButtons : MonoBehaviour {
     }
     
     public void DayButtonPressed(DayShiftData data) {
-        if (data == null || data.shiftDuration == 0) {
+        if (data == null || data.IsNull()) {
             Debug.LogWarning("DayShiftData is not set or has invalid values. Please assign a valid DayShiftData ScriptableObject.");
             return;
         }

@@ -13,13 +13,11 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     private float targetAngle;
     private float currentAngle;
 
+    public float TimeClosed { get; private set; }
+    
     private int lockCounter;
     private bool IsLocked => lockCounter > 0;
     public bool IsOpen { get; private set; } = true;
-    
-    public event Action OnDoorOpen;
-    public event Action OnDoorClosed;
-    
 
     private void Start() {
         currentAngle = openAngle;
@@ -77,23 +75,23 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     public void OnHoverExit() {
         if (IsLocked) return;
         IsOpen = true;
-        OnDoorOpen?.Invoke();
         targetAngle = openAngle;
     }
 
     public void OnInteractStart() {
         if (IsLocked) return;
         IsOpen = false;
-        OnDoorClosed?.Invoke();
         targetAngle = closedAngle;
     }
 
-    public void OnInteractHold(float duration) { }
+    public void OnInteractHold(float duration) {
+        TimeClosed = duration;
+    }
 
     public void OnInteractEnd() {
         if (IsLocked) return;
         IsOpen = true;
-        OnDoorOpen?.Invoke();
         targetAngle = openAngle;
+        TimeClosed = 0f;
     }
 }
