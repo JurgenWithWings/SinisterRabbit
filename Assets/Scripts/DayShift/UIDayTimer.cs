@@ -21,15 +21,33 @@ public class UIDayTimer : MonoBehaviour {
     [SerializeField] private float colourSwapSpeed = 1f;
 
     public static Action<float> OnTimerUpdate;
+    public static Action<bool> OnTimerVisibility;
+    public static Action<string> OnTimerSetCustomText;
 
     private void Awake() {
-        OnTimerUpdate = TimerUpdate;
+        OnTimerUpdate += TimerUpdate;
+        OnTimerVisibility += TimerVisibility;
+        OnTimerSetCustomText += TimerSetCustomText;
+    }
+
+    private void OnDestroy() {
+        OnTimerUpdate -= TimerUpdate;
+        OnTimerVisibility -= TimerVisibility;
+        OnTimerSetCustomText -= TimerSetCustomText;
     }
 
     private void TimerUpdate(float time) {
         TimeSpan timeSpan = TimeSpan.FromSeconds(time);
         timer.text = timeSpan.ToString(@"mm\:ss");
         currentTime = time;
+    }
+    
+    private void TimerSetCustomText(string text) {
+        timer.text = text;
+    }
+    
+    private void TimerVisibility(bool visible) {
+        timer.gameObject.SetActive(visible);
     }
 
     private void Update() {

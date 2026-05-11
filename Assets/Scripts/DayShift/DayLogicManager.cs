@@ -10,9 +10,11 @@ public class DayLogicManager : MonoBehaviour {
     private DayShiftData data = LevelLoadingData.DayShiftData;
     public DayShiftData Data => data;
     
+    [SerializeField] private Collider startingArea;
     [SerializeField] private List<RepairableMachine> availableMachines;
     [SerializeField] private List<GoldenEggSpawner> availableEggSpawners;
 
+    private bool timerStarted;
     private float timeRemaining;
     private int repairedMachines;
     private int collectedEggs;
@@ -26,9 +28,11 @@ public class DayLogicManager : MonoBehaviour {
         // Fallback level setting for testing
         if (data == null || data.shiftDuration == 0) {
             LevelLoadingData.DayShiftData = ScriptableObject.CreateInstance<DayShiftData>();
+            
             LevelLoadingData.DayShiftData.shiftDuration = 60f;
             LevelLoadingData.DayShiftData.numBrokenMachines = 3;
             LevelLoadingData.DayShiftData.numberOfGoldenEggs = 3;
+            
             data = LevelLoadingData.DayShiftData;
         }
     }
@@ -36,20 +40,29 @@ public class DayLogicManager : MonoBehaviour {
     private void Start() {
         timeRemaining = data.shiftDuration;
         
+        UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
+        
         AssignBrokenMachines();
         
         SpawnGoldenEggs();
     }
 
     private void Update() {
-        UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
+        if (timerStarted) {
+            UpdateTimer();
+        }
+    }
 
+    private void UpdateTimer() {
         if (timeRemaining <= 0f) {
             SceneManager.LoadScene(LevelLoadingData.MainMenuSceneName);
             //TODO: Implement Game Over logic.
+            timerStarted = false;
         }
         
         timeRemaining -= Time.deltaTime;
+        
+        UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
     }
 
     private void AssignBrokenMachines() {
@@ -68,13 +81,6 @@ public class DayLogicManager : MonoBehaviour {
                     done = true;
                 }
             }
-        }
-    }
-
-    private void OnOnRepairedMachine() {
-        repairedMachines++;
-        if (repairedMachines >= data.numBrokenMachines) {
-            //TODO: Implement Win Logic
         }
     }
 
@@ -97,6 +103,14 @@ public class DayLogicManager : MonoBehaviour {
         }
     }
 
+    private void OnOnRepairedMachine() {
+        repairedMachines++;
+        if (repairedMachines >= data.numBrokenMachines) {
+            //TODO: Implement Win Logic
+            SceneManager.LoadScene(LevelLoadingData.MainMenuSceneName);
+        }
+    }
+    
     private void OnOnEggCollected() {
         collectedEggs++;
         if (collectedEggs >= data.numberOfGoldenEggs) {
@@ -105,6 +119,13 @@ public class DayLogicManager : MonoBehaviour {
         }
     }
 
+    private void OnTriggerExit(Collider other) {
+        if (other.TryGetComponent(out TriggerEfffector effector)) {
+            timerStarted = true;
+            startingArea.enabled = false;
+        }
+    }
+    
     public void AddTime(float time) {
         timeRemaining += time;
         UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
