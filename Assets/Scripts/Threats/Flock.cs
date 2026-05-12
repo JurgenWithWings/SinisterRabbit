@@ -43,6 +43,7 @@ public class Flock : Threat {
     }
 
     private void SpawnChicken() {
+        if (inactiveChickens.Count == 0) return;
         int random = Random.Range(0, inactiveChickens.Count);
         Chicken chicken = inactiveChickens[random];
         activeChickens.Add(chicken);

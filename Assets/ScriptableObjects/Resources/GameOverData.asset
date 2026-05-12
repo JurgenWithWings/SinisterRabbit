@@ -27,28 +27,23 @@ MonoBehaviour:
     deathText: Technical Fault!
     tooltip: Make sure you machine is working like he asks.
     image: {fileID: 0}
-  sheepDeathInfo:
+  thiefDeathInfo:
     cause: 3
     deathText: 
     tooltip: 
     image: {fileID: 0}
-  thiefDeathInfo:
-    cause: 4
-    deathText: 
-    tooltip: 
-    image: {fileID: 0}
   timerDeathInfo:
-    cause: 5
+    cause: 4
     deathText: You ran out of time!
     tooltip: Make sure to repair all the machines bafore the end of your shift.
     image: {fileID: 0}
   sixAMDeathInfo:
-    cause: 6
+    cause: 5
     deathText: 
     tooltip: 
     image: {fileID: 0}
   repairedDeathInfo:
-    cause: 7
+    cause: 6
     deathText: 
     tooltip: 
     image: {fileID: 0}

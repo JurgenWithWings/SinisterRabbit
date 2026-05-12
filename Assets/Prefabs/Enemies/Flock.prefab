@@ -205,12 +205,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatType: 2
+  deathCause: 1
   agent: {fileID: 0}
   states:
     _serializedList:
     - Key: Office
       Value: {fileID: 3771407246258931325}
-  level: 5
   chickens:
   - {fileID: 4690487690183042194}
   - {fileID: 1800524550269754139}

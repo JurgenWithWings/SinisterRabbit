@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea5bf26ba4e47eba8c135baa54499ae, type: 3}
   m_Name: Night 1 Data
   m_EditorClassIdentifier: 
-  shiftDuration: 10
+  levelIndex: 0
+  startingAI:
+  - ThreatType: 1
+    Level: 4
+  - ThreatType: 2
+    Level: 2
+  - ThreatType: 3
+    Level: 0
+  - ThreatType: 4
+    Level: 0
+  - ThreatType: 5
+    Level: 0
+  oneAMLevels: []
+  twoAMLevels: []
+  threeAMLevels: []
+  fourAMLevels: []
+  fiveAMLevels: []

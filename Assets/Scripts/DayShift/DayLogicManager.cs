@@ -42,9 +42,20 @@ public class DayLogicManager : MonoBehaviour {
         
         UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
         
+        GameOverManager.OnGameOver += OnGameOver;
+        
         AssignBrokenMachines();
         
         SpawnGoldenEggs();
+    }
+
+    private void OnDestroy() {
+        GameOverManager.OnGameOver -= OnGameOver;
+    }
+
+    private void OnGameOver() {
+        timerStarted = false;
+        UIDayTimer.OnTimerVisibility?.Invoke(false);
     }
 
     private void Update() {
