@@ -3,6 +3,8 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "NightData", menuName = "ScriptableObjects/NightData")]
 public class NightShiftData : LevelData {
+    public float camsPowerDrain = 0.5f;
+    
     [Serializable] public struct AILevelData {
         public ThreatType ThreatType;
         [Range(0, 20)] public int Level;

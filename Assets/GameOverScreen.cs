@@ -28,7 +28,8 @@ public class GameOverScreen : MonoBehaviour {
             case CauseOfDeath.Flock:
             case CauseOfDeath.Technician:
             case CauseOfDeath.Thief:
-            case CauseOfDeath.Timer:
+            case CauseOfDeath.Timer: 
+            case CauseOfDeath.Power:
                 bigText.text = "Game Over";
                 bigText.color = badTextColor;
                 topButtonText.text = "Restart";

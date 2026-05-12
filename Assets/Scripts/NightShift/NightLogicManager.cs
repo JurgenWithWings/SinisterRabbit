@@ -14,6 +14,8 @@ public class NightLogicManager : MonoBehaviour {
     
     private float currentTime;
 
+    private float power = 100f;
+
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
@@ -25,7 +27,7 @@ public class NightLogicManager : MonoBehaviour {
             LevelLoading.NightShiftData = ScriptableObject.CreateInstance<NightShiftData>();
             
             LevelLoading.NightShiftData.startingAI = new[] {
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 10 },
+                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 0 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 10 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 2 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Sheep, Level = 1 },
@@ -48,5 +50,17 @@ public class NightLogicManager : MonoBehaviour {
         }
         
         UINightTimer.OnTimerUpdate?.Invoke(currentTime);
+    }
+    
+    public void DecreasePower(float amount) {
+        if (GameOverManager.Instance.IsGameOver) return;
+        
+        power -= amount;
+        if (power <= 0f) {
+            power = 0f;
+            GameOverManager.Instance.GameOver(CauseOfDeath.Power);
+        }
+        
+        UINightTimer.OnPowerUpdate?.Invoke(power);
     }
 }

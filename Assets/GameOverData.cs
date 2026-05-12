@@ -16,6 +16,7 @@ public class GameOverData : ScriptableObject {
     public DeathInfo technicianDeathInfo;
     public DeathInfo thiefDeathInfo;
     public DeathInfo timerDeathInfo;
+    public DeathInfo powerDeathInfo;
     public DeathInfo sixAMDeathInfo;
     public DeathInfo repairedDeathInfo;
 }

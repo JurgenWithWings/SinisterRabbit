@@ -8,6 +8,7 @@ public enum CauseOfDeath {
     Technician,
     Thief,
     Timer,
+    Power,
     SixAM,
     Repaired,
 }
@@ -64,6 +65,7 @@ public class GameOverManager : MonoBehaviour {
             CauseOfDeath.Technician => GameOverData.technicianDeathInfo,
             CauseOfDeath.Thief => GameOverData.thiefDeathInfo,
             CauseOfDeath.Timer => GameOverData.timerDeathInfo,
+            CauseOfDeath.Power => GameOverData.powerDeathInfo,
             CauseOfDeath.SixAM => GameOverData.sixAMDeathInfo,
             CauseOfDeath.Repaired => GameOverData.repairedDeathInfo,
         };
