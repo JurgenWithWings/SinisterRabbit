@@ -4355,7 +4355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatManager: {fileID: 1034308973}
-  nightDuration: 360
+  nightDuration: 30
 --- !u!1 &850570030
 GameObject:
   m_ObjectHideFlags: 0

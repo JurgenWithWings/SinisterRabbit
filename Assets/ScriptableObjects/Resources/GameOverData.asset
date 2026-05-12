@@ -37,13 +37,18 @@ MonoBehaviour:
     deathText: You ran out of time!
     tooltip: Make sure to repair all the machines bafore the end of your shift.
     image: {fileID: 0}
-  sixAMDeathInfo:
+  powerDeathInfo:
     cause: 5
     deathText: 
     tooltip: 
     image: {fileID: 0}
-  repairedDeathInfo:
+  sixAMDeathInfo:
     cause: 6
+    deathText: 
+    tooltip: 
+    image: {fileID: 0}
+  repairedDeathInfo:
+    cause: 7
     deathText: 
     tooltip: 
     image: {fileID: 0}
