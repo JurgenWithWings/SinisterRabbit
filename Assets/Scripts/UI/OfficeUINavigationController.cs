@@ -9,7 +9,6 @@ public class OfficeUINavigationController : MonoBehaviour {
     
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
-    [SerializeField] private Button topButton;
     [SerializeField] private Button bottomButton;
 
     public void Awake() {
@@ -25,7 +24,6 @@ public class OfficeUINavigationController : MonoBehaviour {
     private void DisableAllButtons() {
         leftButton.interactable = false;
         rightButton.interactable = false;
-        topButton.interactable = false;
         bottomButton.interactable = false;
     }
     
@@ -38,9 +36,6 @@ public class OfficeUINavigationController : MonoBehaviour {
                 
             case PlayerOfficeController.MouseRegion.Right:
                 rightButton.interactable = true; break;
-                
-            case PlayerOfficeController.MouseRegion.Top:
-                topButton.interactable = true; break;
                 
             case PlayerOfficeController.MouseRegion.Bottom:
                 bottomButton.interactable = true; break;
@@ -57,9 +52,6 @@ public class OfficeUINavigationController : MonoBehaviour {
                 
                 case PlayerOfficeController.MouseRegion.Right:
                     rightButton.interactable = true; break;
-                
-                case PlayerOfficeController.MouseRegion.Top:
-                    topButton.interactable = true; break;
                 
                 case PlayerOfficeController.MouseRegion.Bottom:
                     bottomButton.interactable = true; break;

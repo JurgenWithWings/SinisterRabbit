@@ -1,7 +1,22 @@
+using System;
 using UnityEngine;
+
+public enum PointerType {
+    None,
+    Open,
+    Closed,
+    Point,
+}
+
+[Serializable] public struct InteractionInfo {
+    public string interactionText;
+    public PointerType pointerType;
+}
 
 public interface IInteractable
 {
+    InteractionInfo GetInteractionInfo();
+    
     /// <summary>
     /// Called when the mouse starts to hover over this object.
     /// </summary>

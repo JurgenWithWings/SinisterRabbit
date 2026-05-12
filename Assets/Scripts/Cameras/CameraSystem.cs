@@ -11,6 +11,8 @@ public class CameraSystem : MonoBehaviour {
     [SerializeField] private Camera officeCamera;
     [SerializeField] private Animation cameraAnimator;
     [SerializeField] private float cameraFlipSpeed = 8f;
+
+    private float powerDrain = 0.5f;
     
     private int currentIndex;
     
@@ -30,13 +32,29 @@ public class CameraSystem : MonoBehaviour {
         DisableAllSecurityCameras();
 
         StartCoroutine(CamsBootUp());
+
+        powerDrain = LevelLoading.NightShiftData.camsPowerDrain;
         
-        camCanvas.OnButtonPressed += CamCanvasOnOnButtonPressed;
+        camCanvas.OnButtonPressed += OnCamCanvasButtonPressed;
+        
+        GameOverManager.OnGameOver += OnGameOver;
     }
 
     private void OnDestroy() {
-        camCanvas.OnButtonPressed -= CamCanvasOnOnButtonPressed;
+        camCanvas.OnButtonPressed -= OnCamCanvasButtonPressed;
         owningController.OnStateChange -= OnStateChange;
+        
+        GameOverManager.OnGameOver -= OnGameOver;
+    }
+
+    private void Update() {
+        if (IsOpen) {
+            NightLogicManager.Instance.DecreasePower(powerDrain * Time.deltaTime);
+        }
+    }
+    
+    private void OnGameOver() {
+        cameraAnimator.Play("CloseCam");
     }
 
     private void OnStateChange(PlayerOfficeController.State newState, PlayerOfficeController.State oldState) {
@@ -46,7 +64,7 @@ public class CameraSystem : MonoBehaviour {
     }
 
     public bool ToggleCams() {
-        if (camFlipCoroutine == null) {
+        if (!GameOverManager.Instance.IsGameOver && camFlipCoroutine == null) {
             camFlipCoroutine = StartCoroutine(ToggleCameraCoroutine());
             return true;
         }
@@ -80,7 +98,7 @@ public class CameraSystem : MonoBehaviour {
         camFlipCoroutine = null;
     }
 
-    private void CamCanvasOnOnButtonPressed(SecurityCamera cam) {
+    private void OnCamCanvasButtonPressed(SecurityCamera cam) {
         for (int i = 0; i < cameras.Length; i++) {
             if (cameras[i] == cam) {
                 cameras[currentIndex].cam.enabled = false;

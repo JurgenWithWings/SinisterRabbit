@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class OfficeDoor : MonoBehaviour, IInteractable {
+    [SerializeField] private InteractionInfo interactionInfo;
     [Header("Rotation Settings")]
     [SerializeField] private float openAngle = -20f;   // Slightly open
     [SerializeField] private float closedAngle = 0f;   // Fully closed
@@ -12,13 +13,11 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     private float targetAngle;
     private float currentAngle;
 
+    public float TimeClosed { get; private set; }
+    
     private int lockCounter;
     private bool IsLocked => lockCounter > 0;
     public bool IsOpen { get; private set; } = true;
-    
-    public event Action OnDoorOpen;
-    public event Action OnDoorClosed;
-    
 
     private void Start() {
         currentAngle = openAngle;
@@ -69,30 +68,30 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     
     
     // IInteractable Implementation
+    public InteractionInfo GetInteractionInfo() => interactionInfo;
     public void OnHoverEnter() { }
-
     public void OnHoverHold(float duration) { }
 
     public void OnHoverExit() {
         if (IsLocked) return;
         IsOpen = true;
-        OnDoorOpen?.Invoke();
         targetAngle = openAngle;
     }
 
     public void OnInteractStart() {
         if (IsLocked) return;
         IsOpen = false;
-        OnDoorClosed?.Invoke();
         targetAngle = closedAngle;
     }
 
-    public void OnInteractHold(float duration) { }
+    public void OnInteractHold(float duration) {
+        TimeClosed = duration;
+    }
 
     public void OnInteractEnd() {
         if (IsLocked) return;
         IsOpen = true;
-        OnDoorOpen?.Invoke();
         targetAngle = openAngle;
+        TimeClosed = 0f;
     }
 }
