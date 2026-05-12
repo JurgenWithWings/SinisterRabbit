@@ -56,7 +56,7 @@ public struct InputEvent<T>{
 public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIActions {
     public static InputManager Instance { get; private set; }
 
-    public static PlayerControls controls { get; private set; }
+    public PlayerControls controls { get; private set; }
     
     [SerializeField] private InputMap defaultMap = InputMap.Office;
 
@@ -78,6 +78,10 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
     }
 
     private void Start() => StartCoroutine(EnablePlayerActions());
+    
+    private void OnDestroy() {
+        controls.Disable();
+    }
 
     private IEnumerator EnablePlayerActions() {
         SetUIModuleAsset();

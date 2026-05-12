@@ -9,7 +9,7 @@ public class NightLogicManager : MonoBehaviour {
     [SerializeField] private float nightDuration = 360f;
     public float NightDuration => nightDuration;
 
-    private NightShiftData data = LevelLoadingData.NightShiftData;
+    private NightShiftData data = LevelLoading.NightShiftData;
     public NightShiftData Data => data;
     
     private float currentTime;
@@ -22,16 +22,16 @@ public class NightLogicManager : MonoBehaviour {
         
         // Fallback level setting for testing
         if (data == null || data.IsNull()) {
-            LevelLoadingData.NightShiftData = ScriptableObject.CreateInstance<NightShiftData>();
+            LevelLoading.NightShiftData = ScriptableObject.CreateInstance<NightShiftData>();
             
-            LevelLoadingData.NightShiftData.startingAI = new[] {
+            LevelLoading.NightShiftData.startingAI = new[] {
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 20 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 3 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 2 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Sheep, Level = 1 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Thief, Level = 4 }
             };
-            LevelLoadingData.NightShiftData.oneAMLevels = new[] {
+            LevelLoading.NightShiftData.oneAMLevels = new[] {
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 20 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 10 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 6 },
@@ -39,7 +39,7 @@ public class NightLogicManager : MonoBehaviour {
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Thief, Level = 7 }
             };
             
-            data = LevelLoadingData.NightShiftData;
+            data = LevelLoading.NightShiftData;
         }
     }
 
@@ -51,8 +51,7 @@ public class NightLogicManager : MonoBehaviour {
         currentTime += Time.deltaTime;
         
         if (currentTime >= nightDuration) {
-            SceneManager.LoadScene(LevelLoadingData.MainMenuSceneName);
-            //TODO: Implement Win logic.
+            GameOverManager.Instance.GameOver(CauseOfDeath.SixAM);
         }
         
         UINightTimer.OnTimerUpdate?.Invoke(currentTime);

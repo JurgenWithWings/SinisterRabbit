@@ -32,11 +32,19 @@ public class CameraSystem : MonoBehaviour {
         StartCoroutine(CamsBootUp());
         
         camCanvas.OnButtonPressed += CamCanvasOnOnButtonPressed;
+        
+        GameOverManager.OnGameOver += OnGameOver;
+    }
+
+    private void OnGameOver() {
+        cameraAnimator.Play("CloseCam");
     }
 
     private void OnDestroy() {
         camCanvas.OnButtonPressed -= CamCanvasOnOnButtonPressed;
         owningController.OnStateChange -= OnStateChange;
+        
+        GameOverManager.OnGameOver -= OnGameOver;
     }
 
     private void OnStateChange(PlayerOfficeController.State newState, PlayerOfficeController.State oldState) {
@@ -46,7 +54,7 @@ public class CameraSystem : MonoBehaviour {
     }
 
     public bool ToggleCams() {
-        if (camFlipCoroutine == null) {
+        if (!GameOverManager.Instance.IsGameOver && camFlipCoroutine == null) {
             camFlipCoroutine = StartCoroutine(ToggleCameraCoroutine());
             return true;
         }

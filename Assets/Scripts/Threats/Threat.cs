@@ -15,7 +15,9 @@ public enum ThreatType {
 
 public abstract class Threat : MonoBehaviour {
     [SerializeField] protected ThreatType threatType;
+    [SerializeField] protected CauseOfDeath deathCause;
     public ThreatType ThreatType => threatType;
+    public CauseOfDeath DeathCause => deathCause;
     [Space]
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] protected SerializedDictionary<string, ThreatStatePoint> states = new();

@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
         
+        InputManager.Instance.EnableActionMap(InputMap.Player);
+        
         playerCharacter.Initialize();
         playerCamera.Initialize(playerCharacter.CameraTarget);
         

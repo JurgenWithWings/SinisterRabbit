@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NightData", menuName = "ScriptableObjects/NightData")]
-public class NightShiftData : ScriptableObject {
+public class NightShiftData : LevelData {
     [Serializable] public struct AILevelData {
         public ThreatType ThreatType;
         [Range(0, 20)] public int Level;
@@ -24,7 +24,12 @@ public class NightShiftData : ScriptableObject {
     public AILevelData[] fiveAMLevels;
 
 
-    public bool IsNull() {
+    public override bool IsNull() {
         return startingAI == null || startingAI.Length == 0;
     }
+}
+
+public abstract class LevelData : ScriptableObject {
+    public int levelIndex;
+    public abstract bool IsNull();
 }

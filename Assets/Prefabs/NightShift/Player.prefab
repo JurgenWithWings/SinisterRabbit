@@ -189,6 +189,9 @@ MonoBehaviour:
     transitions:
     - mouseRegion: 3
       targetState: 0
+  - state: 5
+    transform: {fileID: 0}
+    transitions: []
   stateTransitions:
   - state1: 0
     state2: 1
@@ -201,6 +204,21 @@ MonoBehaviour:
     duration: 0.2
   - state1: 0
     state2: 4
+    duration: 0.3333
+  - state1: 0
+    state2: 5
+    duration: 0
+  - state1: 1
+    state2: 5
+    duration: 0.3333
+  - state1: 2
+    state2: 5
+    duration: 0.3333
+  - state1: 2
+    state2: 5
+    duration: 0.3333
+  - state1: 4
+    state2: 5
     duration: 0.3333
   sideEdgeZoneSize: 0.08
   vertEdgeZoneSize: 0.1

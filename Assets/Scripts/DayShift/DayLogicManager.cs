@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class DayLogicManager : MonoBehaviour {
     public static DayLogicManager Instance { get; private set; }
 
-    private DayShiftData data = LevelLoadingData.DayShiftData;
+    private DayShiftData data = LevelLoading.DayShiftData;
     public DayShiftData Data => data;
     
     [SerializeField] private Collider startingArea;
@@ -27,13 +27,13 @@ public class DayLogicManager : MonoBehaviour {
         
         // Fallback level setting for testing
         if (data == null || data.IsNull()) {
-            LevelLoadingData.DayShiftData = ScriptableObject.CreateInstance<DayShiftData>();
+            LevelLoading.DayShiftData = ScriptableObject.CreateInstance<DayShiftData>();
             
-            LevelLoadingData.DayShiftData.shiftDuration = 60f;
-            LevelLoadingData.DayShiftData.numBrokenMachines = 3;
-            LevelLoadingData.DayShiftData.numberOfGoldenEggs = 3;
+            LevelLoading.DayShiftData.shiftDuration = 60f;
+            LevelLoading.DayShiftData.numBrokenMachines = 3;
+            LevelLoading.DayShiftData.numberOfGoldenEggs = 3;
             
-            data = LevelLoadingData.DayShiftData;
+            data = LevelLoading.DayShiftData;
         }
     }
     
@@ -55,8 +55,7 @@ public class DayLogicManager : MonoBehaviour {
 
     private void UpdateTimer() {
         if (timeRemaining <= 0f) {
-            SceneManager.LoadScene(LevelLoadingData.MainMenuSceneName);
-            //TODO: Implement Game Over logic.
+            GameOverManager.Instance.GameOver(CauseOfDeath.Timer);
             timerStarted = false;
         }
         
@@ -106,8 +105,7 @@ public class DayLogicManager : MonoBehaviour {
     private void OnOnRepairedMachine() {
         repairedMachines++;
         if (repairedMachines >= data.numBrokenMachines) {
-            //TODO: Implement Win Logic
-            SceneManager.LoadScene(LevelLoadingData.MainMenuSceneName);
+            GameOverManager.Instance.GameOver(CauseOfDeath.Repaired);
         }
     }
     
@@ -115,7 +113,6 @@ public class DayLogicManager : MonoBehaviour {
         collectedEggs++;
         if (collectedEggs >= data.numberOfGoldenEggs) {
             //TODO: Implement Golden Egg Win Logic
-            timeRemaining += 100f;
         }
     }
 

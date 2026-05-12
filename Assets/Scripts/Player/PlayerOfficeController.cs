@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerOfficeController : MonoBehaviour {
-    public enum State { Center, Left, Right, Top, Camera, }
+    public enum State { Center, Left, Right, Top, Camera, GameOver, }
     
     public enum MouseRegion { Left, Right, Top, Bottom }
     private bool[] mouseRegionStates = new bool[4] { false, false, false, false };
@@ -78,11 +78,21 @@ public class PlayerOfficeController : MonoBehaviour {
         interactionController.Init(this);
     }
     
-    void Start() {
+    private void Start() {
         transform.position = officeStates[0].transform.position;
         transform.rotation = officeStates[0].transform.rotation;
         
         OfficeUINavigationController.OnStateChange?.Invoke(officeStates[(int)currentState].transitions);
+        
+        GameOverManager.OnGameOver += OnOnGameOver;
+    }
+
+    private void OnDestroy() {
+        GameOverManager.OnGameOver -= OnOnGameOver;
+    }
+
+    private void OnOnGameOver() {
+        SetState(State.GameOver, MouseRegion.Bottom);
     }
 
     void Update() {

@@ -30,13 +30,13 @@ public class ThreatManager : MonoBehaviour {
 
     private void UpdateLevels(int hour) {
         NightShiftData.AILevelData[] aiData = hour switch {
-            0 => LevelLoadingData.NightShiftData.startingAI,
-            1 => LevelLoadingData.NightShiftData.oneAMLevels,
-            2 => LevelLoadingData.NightShiftData.twoAMLevels,
-            3 => LevelLoadingData.NightShiftData.threeAMLevels,
-            4 => LevelLoadingData.NightShiftData.fourAMLevels,
-            5 => LevelLoadingData.NightShiftData.fiveAMLevels,
-            _ => LevelLoadingData.NightShiftData.startingAI
+            0 => LevelLoading.NightShiftData.startingAI,
+            1 => LevelLoading.NightShiftData.oneAMLevels,
+            2 => LevelLoading.NightShiftData.twoAMLevels,
+            3 => LevelLoading.NightShiftData.threeAMLevels,
+            4 => LevelLoading.NightShiftData.fourAMLevels,
+            5 => LevelLoading.NightShiftData.fiveAMLevels,
+            _ => LevelLoading.NightShiftData.startingAI
         };
         
         if (aiData == null) return;
@@ -70,10 +70,6 @@ public class ThreatManager : MonoBehaviour {
     }
 
     public void GameOver(Threat source) {
-        Debug.Log($"Game Over caused by {source.name}");
-        
-        SceneManager.LoadScene(LevelLoadingData.MainMenuSceneName);
-        //TODO: Code GameOver Logic Here.
-
+        GameOverManager.Instance.GameOver(source.DeathCause);
     }
 }

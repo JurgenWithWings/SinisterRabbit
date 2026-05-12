@@ -17,11 +17,11 @@ public class MainMenuButtons : MonoBehaviour {
     }
 
     private void ContinueButton() {
-        SceneManager.LoadScene(LevelLoadingData.DayShiftSceneName);
+        LevelLoading.LoadNextLevel();
     }
     
     private void NewGameButton() {
-        SceneManager.LoadScene(LevelLoadingData.NightShiftSceneName);
+        SceneManager.LoadScene(LevelLoading.NightShiftSceneName);
     }
 
     private void QuitButton() {

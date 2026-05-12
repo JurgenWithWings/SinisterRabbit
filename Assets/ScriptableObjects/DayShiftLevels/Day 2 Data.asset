@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4879787a7ee40b9986fda7c748122a2, type: 3}
   m_Name: Day 2 Data
   m_EditorClassIdentifier: 
+  levelIndex: 3
   shiftDuration: 30
   numBrokenMachines: 2
   numberOfGoldenEggs: 3
