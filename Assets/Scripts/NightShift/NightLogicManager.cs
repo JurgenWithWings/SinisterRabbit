@@ -25,18 +25,11 @@ public class NightLogicManager : MonoBehaviour {
             LevelLoading.NightShiftData = ScriptableObject.CreateInstance<NightShiftData>();
             
             LevelLoading.NightShiftData.startingAI = new[] {
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 20 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 3 },
+                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 10 },
+                new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 10 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 2 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Sheep, Level = 1 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Thief, Level = 4 }
-            };
-            LevelLoading.NightShiftData.oneAMLevels = new[] {
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 20 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 10 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 6 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Sheep, Level = 6 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Thief, Level = 7 }
             };
             
             data = LevelLoading.NightShiftData;

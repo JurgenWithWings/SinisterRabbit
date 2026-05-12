@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerOfficeController : MonoBehaviour {
-    public enum State { Center, Left, Right, Top, Camera, GameOver, }
+    public enum State { Center, Left, Right, Camera, GameOver, }
     
-    public enum MouseRegion { Left, Right, Top, Bottom }
-    private bool[] mouseRegionStates = new bool[4] { false, false, false, false };
+    public enum MouseRegion { Left, Right, Bottom }
+    private bool[] mouseRegionStates = new bool[3] { false, false, false };
 
     [Serializable] public struct OfficeState {
         public State state;
@@ -30,12 +30,11 @@ public class PlayerOfficeController : MonoBehaviour {
     [HideInInspector] public bool isFlipping;
     [HideInInspector] public int busyLevel;
 
-    [Header("Snap Points")]
+    [Header("States and Transitions")]
     [SerializeField] private List<OfficeState> officeStates = new(new [] {
         new OfficeState { state = State.Center },
         new OfficeState { state = State.Left },
         new OfficeState { state = State.Right },
-        new OfficeState { state = State.Top },
         new OfficeState { state = State.Camera },
     });
     [SerializeField] private List<OfficeTransition> stateTransitions = new();
@@ -48,8 +47,6 @@ public class PlayerOfficeController : MonoBehaviour {
     [SerializeField] private float smoothSpeed = 10f;
     
     [Header("References")]
-    [SerializeField] private InputManager inputManager;
-    public InputManager InputManager => inputManager;
     [SerializeField] private CameraSystem cameraSystem;
     [SerializeField] private OfficeInteractionController interactionController;
 
@@ -63,10 +60,6 @@ public class PlayerOfficeController : MonoBehaviour {
     private bool edgeLocked = true; // prevents overshooting move back to center
 
     private void Awake() {
-        if (inputManager == null) {
-            inputManager = GetComponent<InputManager>();
-        }
-        
         if (cameraSystem == null) {
             cameraSystem = GetComponent<CameraSystem>();
         }
@@ -75,7 +68,6 @@ public class PlayerOfficeController : MonoBehaviour {
         if (interactionController == null) {
             interactionController = GetComponent<OfficeInteractionController>();
         }
-        interactionController.Init(this);
     }
     
     private void Start() {
@@ -84,19 +76,19 @@ public class PlayerOfficeController : MonoBehaviour {
         
         OfficeUINavigationController.OnStateChange?.Invoke(officeStates[(int)currentState].transitions);
         
-        GameOverManager.OnGameOver += OnOnGameOver;
+        GameOverManager.OnGameOver += OnGameOver;
     }
 
     private void OnDestroy() {
-        GameOverManager.OnGameOver -= OnOnGameOver;
+        GameOverManager.OnGameOver -= OnGameOver;
     }
 
-    private void OnOnGameOver() {
+    private void OnGameOver() {
         SetState(State.GameOver, MouseRegion.Bottom);
     }
 
     void Update() {
-        if (!IsBusy /*&& !cameraSystem.IsOpen*/) {
+        if (!IsBusy) {
             HandleTransitions();
         }
 
@@ -106,8 +98,8 @@ public class PlayerOfficeController : MonoBehaviour {
     }
 
     void HandleTransitions() {
-        float mouseX = inputManager.OfficeMouse.Value.x / Screen.width;
-        float mouseY = inputManager.OfficeMouse.Value.y / Screen.height;
+        float mouseX = InputManager.Instance.OfficeMouse.Value.x / Screen.width;
+        float mouseY = InputManager.Instance.OfficeMouse.Value.y / Screen.height;
 
         
         mouseRegionStates[(int)MouseRegion.Left] = mouseX < sideEdgeZoneSize;
@@ -115,9 +107,6 @@ public class PlayerOfficeController : MonoBehaviour {
         
         mouseRegionStates[(int)MouseRegion.Right] = mouseX > 1f - sideEdgeZoneSize;
         anyMouseRegion = anyMouseRegion || mouseRegionStates[(int)MouseRegion.Right];
-        
-        mouseRegionStates[(int)MouseRegion.Top] = mouseY > 1f - vertEdgeZoneSize;
-        anyMouseRegion = anyMouseRegion || mouseRegionStates[(int)MouseRegion.Top];
         
         mouseRegionStates[(int)MouseRegion.Bottom] = mouseY < vertEdgeZoneSize;
         anyMouseRegion = anyMouseRegion || mouseRegionStates[(int)MouseRegion.Bottom];

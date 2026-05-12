@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2429963900230869512}
   - component: {fileID: 4551922909186975219}
   - component: {fileID: 2984155917861680696}
-  - component: {fileID: 8980667634767326523}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCamera
@@ -167,8 +166,6 @@ MonoBehaviour:
       targetState: 2
     - mouseRegion: 2
       targetState: 3
-    - mouseRegion: 3
-      targetState: 4
   - state: 1
     transform: {fileID: 0}
     transitions:
@@ -182,14 +179,9 @@ MonoBehaviour:
   - state: 3
     transform: {fileID: 0}
     transitions:
-    - mouseRegion: 3
+    - mouseRegion: 2
       targetState: 0
   - state: 4
-    transform: {fileID: 0}
-    transitions:
-    - mouseRegion: 3
-      targetState: 0
-  - state: 5
     transform: {fileID: 0}
     transitions: []
   stateTransitions:
@@ -201,31 +193,24 @@ MonoBehaviour:
     duration: 0.6
   - state1: 0
     state2: 3
-    duration: 0.2
+    duration: 0.3333
   - state1: 0
     state2: 4
-    duration: 0.3333
-  - state1: 0
-    state2: 5
-    duration: 0
+    duration: 0.000001
   - state1: 1
-    state2: 5
-    duration: 0.3333
+    state2: 4
+    duration: 0.000001
   - state1: 2
-    state2: 5
-    duration: 0.3333
-  - state1: 2
-    state2: 5
-    duration: 0.3333
-  - state1: 4
-    state2: 5
-    duration: 0.3333
+    state2: 4
+    duration: 0.000001
+  - state1: 3
+    state2: 4
+    duration: 0.000001
   sideEdgeZoneSize: 0.08
   vertEdgeZoneSize: 0.1
   smoothSpeed: 10
-  inputManager: {fileID: 0}
-  cameraSystem: {fileID: 0}
-  interactionController: {fileID: 0}
+  cameraSystem: {fileID: 2984155917861680696}
+  interactionController: {fileID: 4551922909186975219}
 --- !u!114 &4551922909186975219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,19 +252,6 @@ MonoBehaviour:
   officeCamera: {fileID: 181190259782019904}
   cameraAnimator: {fileID: 8124285139802768465}
   cameraFlipSpeed: 8
---- !u!114 &8980667634767326523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8954915674304785303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c8320bee14a2a41b8a2196c7b2e9e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultMap: 1
 --- !u!1001 &6378902436872365003
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,20 +16,17 @@ public class OfficeInteractionController : MonoBehaviour {
 
     private InputEvent<bool> inputBuffer;
     
-    private PlayerOfficeController owningController;
-    public void Init(PlayerOfficeController controller) {
-        owningController = controller;
-
-        owningController.InputManager.OfficeLeftClick.Event += HandleInput;
+    public void Start(){
+        InputManager.Instance.OfficeLeftClick.Event += HandleInput;
     }
 
     private void OnDestroy() {
-        owningController.InputManager.OfficeLeftClick.Event -= HandleInput;
+        InputManager.Instance.OfficeLeftClick.Event -= HandleInput;
     }
 
     void Update() {
         HandleRaycast();
-        HandleHoldInput(owningController.InputManager.OfficeLeftClick);
+        HandleHoldInput();
 
         currentInteractable?.OnHoverHold(interactableHoverDuration);
 
@@ -51,10 +48,16 @@ public class OfficeInteractionController : MonoBehaviour {
     }
 
     void HandleRaycast() {
-        Ray ray = playerCamera.ScreenPointToRay(owningController.InputManager.OfficeMouse.Value);
+        Ray ray = playerCamera.ScreenPointToRay(InputManager.Instance.OfficeMouse.Value);
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance)) {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            IInteractable interactable;
+            if (hit.collider.attachedRigidbody != null) {
+                interactable = hit.collider.attachedRigidbody.GetComponent<IInteractable>();
+            }
+            else {
+                interactable = hit.collider.GetComponent<IInteractable>();
+            }
 
             if (interactable != currentInteractable) {
                 ClearCurrent();
@@ -80,10 +83,10 @@ public class OfficeInteractionController : MonoBehaviour {
         }
     }
 
-    private void HandleHoldInput(InputEvent<bool> input) {
+    private void HandleHoldInput() {
         if (currentInteractable == null) return;
         
-        if (input.Value) {
+        if (InputManager.Instance.OfficeLeftClick.Value) {
             currentInteractable.OnInteractHold(interactableInteractDuration);
         }
     }
