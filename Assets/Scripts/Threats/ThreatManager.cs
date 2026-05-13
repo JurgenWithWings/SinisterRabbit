@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ThreatManager : MonoBehaviour {
     [SerializeField] private List<Threat> threats = new List<Threat>();
@@ -51,12 +50,16 @@ public class ThreatManager : MonoBehaviour {
     }
     
     public bool TryEnterState(string state, Threat threat) {
-        if (occupiedStates.ContainsKey(state)) {
+        if (!CanMoveTo(state)) {
             return false;
         }
 
         occupiedStates[state] = threat;
         return true;
+    }
+
+    public bool CanMoveTo(string state) {
+        return !occupiedStates.ContainsKey(state);
     }
 
     public void LeaveState(string state, Threat threat) {

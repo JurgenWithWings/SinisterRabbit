@@ -32,7 +32,7 @@ public class Flock : Threat {
         }
     }
 
-    public override void Tick() { }
+    protected override void Tick() { }
 
     public override void CameraSystemStateUpdate(bool isOpen) {
         if (isOpen) {
