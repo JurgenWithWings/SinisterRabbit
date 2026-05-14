@@ -479,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6363780818546277278
 Transform:
   m_ObjectHideFlags: 0
@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: 5883417395230549254}
   - component: {fileID: 6339484943385937030}
   - component: {fileID: 2099271015250502991}
+  - component: {fileID: 6329276342617175972}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -665,30 +666,31 @@ MonoBehaviour:
   motor: {fileID: 5883417395230549254}
   root: {fileID: 4385349270696378372}
   cameraTarget: {fileID: 828204544230409412}
-  walkSpeed: 9
-  crouchSpeed: 5
-  walkResponse: 20
-  crouchResponse: 15
-  airSpeed: 8
-  airAcceleration: 70
+  walkSpeed: 6
+  crouchSpeed: 2.5
+  walkResponse: 7
+  crouchResponse: 5.5
+  airSpeed: 6
+  airAcceleration: 20
   jumpCount: 2
-  jumpSpeed: 15
+  jumpSpeed: 12
+  crouchJumpMultiplier: 1.7
   coyoteTime: 0.2
   jumpSustainGravity: 1
-  gravity: -60
-  slideStartSpeed: 25
-  slideEndSpeed: 15
-  slideFriction: 0.3
-  slideSteerAcceleration: 5
-  slideGravity: -90
+  gravity: -45
+  slideStartSpeed: 15
+  slideEndSpeed: 6
+  slideFriction: 0.8
+  slideSteerAcceleration: 1
+  slideGravity: -50
   uphillSlideGravityMultiplier: 0.5
   standingHeight: 2
   crouchHeight: 1
   crouchHeightResponse: 15
   standCameraTargetHeight: 0.9
   crouchCameraTargetHeight: 0.7
-  dashForce: 20
-  dashCooldown: 1.2
+  dashForce: 15
+  dashCooldown: 0.9
 --- !u!114 &2099271015250502991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +703,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0afba8b0a3954b4ea86fae932376d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &6329276342617175972
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034416923142850520}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7621310801630316171
 GameObject:
   m_ObjectHideFlags: 0

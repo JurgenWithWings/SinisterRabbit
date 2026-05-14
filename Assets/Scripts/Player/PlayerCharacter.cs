@@ -49,6 +49,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     [Space] 
     [SerializeField] private int jumpCount = 1;
     [SerializeField] private float jumpSpeed = 20f;
+    [SerializeField] private float crouchJumpMultiplier = 1.7f;
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField, Range(0f, 1f)] private float jumpSustainGravity = 0.4f;
     [SerializeField] private float gravity = -90f;
@@ -376,8 +377,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
                 // Unstick from ground
                 motor.ForceUnground(time: 0.1f);
 
+                float effectiveJumpSpeed = state.Stance == Stance.Slide ? jumpSpeed * crouchJumpMultiplier : jumpSpeed;
+                
                 float currentVerticalSpeed = Vector3.Dot(currentVelocity, motor.CharacterUp);
-                float targetVerticalSpeed = Mathf.Max(currentVerticalSpeed, jumpSpeed);
+                float targetVerticalSpeed = Mathf.Max(currentVerticalSpeed, effectiveJumpSpeed);
                 currentVelocity += motor.CharacterUp * (targetVerticalSpeed - currentVerticalSpeed);
             }
             else {
