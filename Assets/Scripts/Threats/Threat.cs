@@ -21,6 +21,14 @@ public abstract class Threat : MonoBehaviour {
     [Space]
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] protected SerializedDictionary<string, ThreatStatePoint> states = new();
+    [Space]
+    [SerializeField] protected float movementInterval = 5f;
+    protected float timer;
+    protected string currentState = "Outside";
+
+    [SerializeField] protected Animator animator;
+    
+    protected bool isMoving;
     
     protected int level;
 
@@ -34,29 +42,58 @@ public abstract class Threat : MonoBehaviour {
         level = newLevel;
     }
 
-    // ~~ Helper Methods ~~
-    protected bool RollLevel(int maxRoll = 20) {
-        float random = Random.value * maxRoll;
-        return random < level;
+    // ~~ Movement and States ~~
+    protected virtual string GetNextState() {
+        return null;
+    }
+    
+    protected void OnDestinationReached() {
+        isMoving = false;
+        transform.rotation = states[currentState].transform.rotation;
     }
     
     protected bool TryMoveTo(string state) {
-        return manager.TryEnterState(state, this);
+        if (manager.TryEnterState(state, this)) {
+            states[state].RegisterThreat(this);
+            states[currentState].RegisterThreat(null);
+            LeaveState(currentState);
+            currentState = state;
+            agent?.SetDestination(states[currentState].transform.position);
+            isMoving = true;
+            return true;
+        }
+        return false;
+    }
+
+    protected bool CanMoveTo(string state) {
+        return manager.CanMoveTo(state);
     }
 
     protected void LeaveState(string state) {
         manager.LeaveState(state, this);
+    }
+    
+    // ~~ Enemy Managment ~~
+    protected bool RollLevel(int maxRoll = 20) {
+        float random = Random.value * maxRoll;
+        return random < level;
     }
 
     protected void TriggerGameOver() {
         manager.GameOver(this);
     }
 
-    
-    private void Update() => Tick();
-    public abstract void Tick();
+    // ~~ Update ~~
+    private void Update() {
+        timer += Time.deltaTime;
+        Tick();
+    }
+
+    protected abstract void Tick();
 
     
     // Update Events
     public virtual void CameraSystemStateUpdate(bool isOpen) { }
+    
+    public virtual void OfficeButtonPressed(string key) { }
 }

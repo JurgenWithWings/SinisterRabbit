@@ -43,7 +43,18 @@ public class GameOverManager : MonoBehaviour {
 
     public void GameOver(CauseOfDeath cause) {
         if (!IsGameOver) {
+            print ($"Game Over due to: {cause}");
             StartCoroutine(GameOverCoroutine(cause));
+
+            // Save the players progress
+            switch (cause) {
+                case CauseOfDeath.SixAM:
+                    LevelLoading.SaveProgress(LevelLoading.NightShiftData.levelIndex);
+                    break;
+                case CauseOfDeath.Repaired:
+                    LevelLoading.SaveProgress(LevelLoading.DayShiftData.levelIndex);
+                    break;
+            }
         }
     }
     

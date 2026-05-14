@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class KeyCapButton : MonoBehaviour, IInteractable {
+    [SerializeField] private string animName = "KeyCapClick";
     [SerializeField] private InteractionInfo interactionInfo;
     
     public UnityEvent OnButtonPressed;
@@ -22,7 +23,7 @@ public class KeyCapButton : MonoBehaviour, IInteractable {
         if (animation.isPlaying) {
             return;
         }
-        animation.Play("KeyCapClick");
+        animation.Play(animName);
         OnButtonPressed.Invoke();
     }
 

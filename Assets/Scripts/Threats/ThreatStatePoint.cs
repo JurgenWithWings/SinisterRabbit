@@ -19,13 +19,20 @@ public class ThreatStatePoint : MonoBehaviour {
             cameraSystem.OnCamsOpen += CameraSystemOnOpen;
             cameraSystem.OnCamsClosed += CameraSystemOnClosed;
         }
+
+        if (securityCamera != null) {
+            securityCamera.OnOfficeButton += OnOfficeButton;
+        }
     }
 
     private void OnDestroy() {
-
         if (cameraSystem != null) {
             cameraSystem.OnCamsOpen -= CameraSystemOnOpen;
             cameraSystem.OnCamsClosed -= CameraSystemOnClosed;
+        }
+
+        if (securityCamera != null) {
+            securityCamera.OnOfficeButton -= OnOfficeButton;
         }
     }
 
@@ -33,6 +40,9 @@ public class ThreatStatePoint : MonoBehaviour {
         this.threat = threat;
     }
     
+    private void OnOfficeButton(string key) {
+        threat?.OfficeButtonPressed(key);
+    }
     
     // ~~ Event Handles ~~
     // Cam System

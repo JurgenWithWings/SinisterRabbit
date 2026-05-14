@@ -2,19 +2,12 @@ using System.Collections;
 using UnityEngine;
 
 public class Doorman : Threat {
-    [SerializeField] private float movementInterval = 5f;
-    
-    private string currentState = "Outside";
-    private float timer;
-    
-    private bool isMoving;
-
     private void Start() {
         agent.SetDestination(states[currentState].transform.position);
     }
-    
-    public override void Tick() {
-        timer += Time.deltaTime;
+
+    protected override void Tick() {
+        animator.SetFloat("Speed", agent.velocity.magnitude);
         
         if (!isMoving && timer > movementInterval) {
             AttemptAdvance();
@@ -34,28 +27,13 @@ public class Doorman : Threat {
         }
     }
 
-    void AttemptAdvance() {
+    private void AttemptAdvance() {
         if (!RollLevel()) return;
         
-        string nextState = currentState switch {
-            "Outside" => "Main",
-            "Main" => Random.value < 0.5f ? "RightHallway" : "LeftHallway",
-            
-            // Right Side
-            "RightHallway" => "RightDoor",
-            "RightDoor" => "Office",
-            
-            // Left Side
-            "LeftHallway" => "LeftDoor",
-            "LeftDoor" => "Office",
-            
-            // Office
-            "Office" => "GameOver",
-            "GameOver" => "Main",
-            
-            _ => currentState
-        };
+        string nextState = GetNextState();
 
+        if (!CanMoveTo(nextState)) return;
+        
         switch (nextState) {
             case "Outside":
             case "Main":
@@ -68,37 +46,39 @@ public class Doorman : Threat {
             
             case "Office":
                 if (states[currentState].OfficeDoor.IsOpen) { // If door is open, move into office
-                    states[currentState].OfficeDoor.FullOpenDoor(0.5f);
+                    TriggerGameOver();
                 }
-                else return;
-                break;
+                return;
             
             default:
                 return;
         }
-        
-        TryMove(nextState);
+
+        TryMoveTo(nextState);
     }
 
-    private void TryMove(string nextState) {
-        if (TryMoveTo(nextState)) {
-            states[nextState].RegisterThreat(this);
-            states[currentState].RegisterThreat(null);
-            LeaveState(currentState);
-            currentState = nextState;
-            agent.SetDestination(states[currentState].transform.position);
-            isMoving = true;
-        }
+    protected override string GetNextState() {
+        string nextState = currentState switch {
+            "Outside" => "Main",
+            "Main" => Random.value < 0.5f ? "RightHallway" : "LeftHallway",
+            
+            // Right Side
+            "RightHallway" => "RightDoor",
+            "RightDoor" => "Office",
+            
+            // Left Side
+            "LeftHallway" => "LeftDoor",
+            "LeftDoor" => "Office",
+            
+            _ => currentState
+        };
+        return nextState;
     }
 
-    private void OnDestinationReached() {
-        isMoving = false;
-        
-        transform.rotation = states[currentState].transform.rotation;
-    }
+    
 
     private float doorWaitTime;
-    public void DoorStateUpdate() {
+    private void DoorStateUpdate() {
         if (currentState != "RightDoor" && currentState != "LeftDoor") return;
         ThreatStatePoint state = states[currentState];
 
@@ -110,13 +90,7 @@ public class Doorman : Threat {
         }
         
         if (!state.OfficeDoor.IsOpen && doorWaitTime > 2f) {
-            TryMove("Main");
-        }
-    }
-
-    public override void CameraSystemStateUpdate(bool isOpen) {
-        if (isOpen && currentState == "Office" && Random.value < 0.5f) { // 50% chance when opening cams that doorman kills you
-            TriggerGameOver();
+            TryMoveTo("Main");
         }
     }
 }

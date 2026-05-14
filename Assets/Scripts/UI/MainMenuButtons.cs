@@ -1,16 +1,27 @@
+using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuButtons : MonoBehaviour {
     [SerializeField] private Button continueButton;
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button resetButton;
+    [SerializeField] private TMP_Text resetText;
+
+    public static Action OnResetProgress;
 
     private void Awake() {
         continueButton.onClick.AddListener(ContinueButton);
         newGameButton.onClick.AddListener(NewGameButton);
         quitButton.onClick.AddListener(QuitButton);
+        resetButton.onClick.AddListener(ResetProgress);
+        
+        if (LevelLoading.GetHighestLevelCompleted() < 0) {
+            continueButton.interactable = false;
+            resetButton.gameObject.SetActive(false);
+        }
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -21,7 +32,7 @@ public class MainMenuButtons : MonoBehaviour {
     }
     
     private void NewGameButton() {
-        SceneManager.LoadScene(LevelLoading.NightShiftSceneName);
+        LevelLoading.LoadLevel(0);
     }
 
     private void QuitButton() {
@@ -30,5 +41,19 @@ public class MainMenuButtons : MonoBehaviour {
     #endif
         
         Application.Quit();
+    }
+
+    private int resetCounter = 3;
+    private void ResetProgress() {
+        resetCounter--;
+        resetText.text = $"Reset Progress ({resetCounter})";
+        
+        if (resetCounter <= 0) {
+            continueButton.interactable = false;
+            resetButton.interactable = false;
+            resetText.text = "Progress Reset";
+            LevelLoading.ResetProgress();
+            OnResetProgress?.Invoke();
+        }
     }
 }

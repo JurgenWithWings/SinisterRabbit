@@ -27,9 +27,9 @@ public class NightLogicManager : MonoBehaviour {
             LevelLoading.NightShiftData = ScriptableObject.CreateInstance<NightShiftData>();
             
             LevelLoading.NightShiftData.startingAI = new[] {
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 0 },
+                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 10 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 10 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 2 },
+                new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 20 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Sheep, Level = 1 },
                 new NightShiftData.AILevelData { ThreatType = ThreatType.Thief, Level = 4 }
             };
@@ -40,6 +40,7 @@ public class NightLogicManager : MonoBehaviour {
 
     private void Update() {
         UpdateTimer();
+        causeTimer += Time.deltaTime;
     }
     
     private void UpdateTimer() {
@@ -52,13 +53,23 @@ public class NightLogicManager : MonoBehaviour {
         UINightTimer.OnTimerUpdate?.Invoke(currentTime);
     }
     
-    public void DecreasePower(float amount) {
+    private CauseOfDeath currentCauseOfDeath;
+    private float causeTimer;
+    public void DecreasePower(float amount, CauseOfDeath cause = CauseOfDeath.Power) {
         if (GameOverManager.Instance.IsGameOver) return;
+        
+        if (cause != CauseOfDeath.Power) {
+            currentCauseOfDeath = cause;
+            causeTimer = 0f;
+        }
+        else if (causeTimer > 1f) {
+            currentCauseOfDeath = CauseOfDeath.Power;
+        }
         
         power -= amount;
         if (power <= 0f) {
             power = 0f;
-            GameOverManager.Instance.GameOver(CauseOfDeath.Power);
+            GameOverManager.Instance.GameOver(currentCauseOfDeath);
         }
         
         UINightTimer.OnPowerUpdate?.Invoke(power);

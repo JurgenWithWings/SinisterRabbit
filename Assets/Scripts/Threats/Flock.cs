@@ -32,7 +32,7 @@ public class Flock : Threat {
         }
     }
 
-    public override void Tick() { }
+    protected override void Tick() { }
 
     public override void CameraSystemStateUpdate(bool isOpen) {
         if (isOpen) {
@@ -48,7 +48,7 @@ public class Flock : Threat {
         Chicken chicken = inactiveChickens[random];
         activeChickens.Add(chicken);
         inactiveChickens.Remove(chicken);
-        chicken.gameObject.SetActive(true);
+        chicken.Activate();
         
         if (activeChickens.Count == chickens.Count) {
             killTimer = StartCoroutine(KillTimer());

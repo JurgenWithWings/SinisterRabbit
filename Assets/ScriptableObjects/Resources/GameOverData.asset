@@ -15,7 +15,7 @@ MonoBehaviour:
   doormanDeathInfo:
     cause: 0
     deathText: Doorman got you!
-    tooltip: Hold the foor closed when he shows up.
+    tooltip: Hold the door closed when he shows up.
     image: {fileID: 0}
   flockDeathInfo:
     cause: 1
@@ -25,25 +25,30 @@ MonoBehaviour:
   technicianDeathInfo:
     cause: 2
     deathText: Technical Fault!
-    tooltip: Make sure you machine is working like he asks.
+    tooltip: Make sure the machine is working like he asks.
     image: {fileID: 0}
   thiefDeathInfo:
     cause: 3
-    deathText: 
-    tooltip: 
+    deathText: You've been robbed!
+    tooltip: Keep an eye on how is coming to pick up eggs.
     image: {fileID: 0}
   timerDeathInfo:
     cause: 4
     deathText: You ran out of time!
     tooltip: Make sure to repair all the machines bafore the end of your shift.
     image: {fileID: 0}
-  sixAMDeathInfo:
+  powerDeathInfo:
     cause: 5
+    deathText: You ran out of power!
+    tooltip: Keep an eye on your power level, don't let it run out.
+    image: {fileID: 0}
+  sixAMDeathInfo:
+    cause: 6
     deathText: 
     tooltip: 
     image: {fileID: 0}
   repairedDeathInfo:
-    cause: 6
+    cause: 7
     deathText: 
     tooltip: 
     image: {fileID: 0}
