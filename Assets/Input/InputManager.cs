@@ -243,8 +243,16 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
             PlayerCrouch.SetAndInvoke(context.performed, context.performed, context);
         }
     }
-    
-    
+
+    public InputEvent<bool> PlayerDash;
+    public void OnDash(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            PlayerDash.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
+
+
     // Office
     public InputEvent<Vector2> OfficeMouse;
     public void OnMouse(InputAction.CallbackContext context) {
