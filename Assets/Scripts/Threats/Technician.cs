@@ -17,7 +17,6 @@ public class Technician : Threat {
     }
 
     [Header("Minigame")] 
-    [SerializeField] private GameObject clipboard;
     [SerializeField] private TechnicianButton[] technicianButtons;
     [SerializeField] private SpriteRenderer[] clipboardCodePlacements;
     [SerializeField] private float minigameTimeLimit = 8f;
@@ -34,6 +33,8 @@ public class Technician : Threat {
     }
     
     protected override void Tick() {
+        animator.SetFloat("Speed", agent.velocity.magnitude);
+        
         if (!isMoving && timer > movementInterval) {
             AttemptAdvance();
         }
@@ -139,7 +140,7 @@ public class Technician : Threat {
             i++;
         }
 
-        clipboard.SetActive(true);
+        animator.SetBool("Clipboard", true);
         minigameProgress = 0;
         minigameTime = 0;
         
@@ -160,7 +161,7 @@ public class Technician : Threat {
             TriggerGameOver();
         }
         
-        clipboard.SetActive(false);
+        animator.SetBool("Clipboard", false);
         minigameCoroutine = null;
     }
     

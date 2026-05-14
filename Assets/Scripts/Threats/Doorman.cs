@@ -7,6 +7,8 @@ public class Doorman : Threat {
     }
 
     protected override void Tick() {
+        animator.SetFloat("Speed", agent.velocity.magnitude);
+        
         if (!isMoving && timer > movementInterval) {
             AttemptAdvance();
         }

@@ -25,6 +25,8 @@ public abstract class Threat : MonoBehaviour {
     [SerializeField] protected float movementInterval = 5f;
     protected float timer;
     protected string currentState = "Outside";
+
+    [SerializeField] protected Animator animator;
     
     protected bool isMoving;
     

@@ -11838,10 +11838,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4776914506349323447, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.803
-      objectReference: {fileID: 0}
     - target: {fileID: 5295684460538053541, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
       propertyPath: m_Name
       value: Technician
@@ -11904,10 +11900,6 @@ PrefabInstance:
       value: Doorman
       objectReference: {fileID: 0}
     - target: {fileID: 8693390418482718042, guid: ed62057b18ba9af4d86afdebc8c07a9e, type: 3}
-      propertyPath: states._serializedList.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8693390418482718042, guid: ed62057b18ba9af4d86afdebc8c07a9e, type: 3}
       propertyPath: states._serializedList.Array.data[0].Value
       value: 
       objectReference: {fileID: 1942806780}
@@ -11931,14 +11923,6 @@ PrefabInstance:
       propertyPath: states._serializedList.Array.data[5].Value
       value: 
       objectReference: {fileID: 1060746400}
-    - target: {fileID: 8693390418482718042, guid: ed62057b18ba9af4d86afdebc8c07a9e, type: 3}
-      propertyPath: states._serializedList.Array.data[6].Value
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8693390418482718042, guid: ed62057b18ba9af4d86afdebc8c07a9e, type: 3}
-      propertyPath: states._serializedList.Array.data[7].Value
-      value: 
-      objectReference: {fileID: 576063492}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
