@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 6594086422756802489}
   - component: {fileID: 2242662958452196857}
   - component: {fileID: 5873616723901211188}
-  - component: {fileID: 304924480424985197}
+  - component: {fileID: 1108755262748472295}
   m_Layer: 0
   m_Name: Office Floor  (7)
   m_TagString: Untagged
@@ -74,10 +74,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346967886224986535}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,7 +88,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346967886224986535}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5873616723901211188
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &304924480424985197
+--- !u!64 &1108755262748472295
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &378456125756424459
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1241555400651069790}
   - component: {fileID: 1250160812035784091}
   - component: {fileID: 5718773523673220644}
-  - component: {fileID: 4994131547269439777}
+  - component: {fileID: 9054806183681052997}
   m_Layer: 0
   m_Name: 'Office Floor '
   m_TagString: Untagged
@@ -183,10 +183,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378456125756424459}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -197,7 +197,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378456125756424459}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5718773523673220644
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4994131547269439777
+--- !u!64 &9054806183681052997
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,7 +264,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &1181175374621523832
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7573148180294508107}
   - component: {fileID: 9082466178441788568}
   - component: {fileID: 7704937680307986223}
-  - component: {fileID: 3156425037066038184}
+  - component: {fileID: 918401607530705486}
   m_Layer: 0
   m_Name: Office Floor  (1)
   m_TagString: Untagged
@@ -292,10 +292,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181175374621523832}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,7 +306,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181175374621523832}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &7704937680307986223
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3156425037066038184
+--- !u!64 &918401607530705486
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,7 +373,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &3673478575644498385
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 391940099083349928}
   - component: {fileID: 8002042491020491230}
   - component: {fileID: 4338864266780713806}
-  - component: {fileID: 596403123649500224}
+  - component: {fileID: 9162205462651365892}
   m_Layer: 0
   m_Name: Office Floor  (6)
   m_TagString: Untagged
@@ -401,10 +401,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3673478575644498385}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -415,7 +415,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3673478575644498385}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &4338864266780713806
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &596403123649500224
+--- !u!64 &9162205462651365892
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,7 +482,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &4018619680023121736
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 1551208596186143181}
   - component: {fileID: 8927747943899905295}
   - component: {fileID: 737401746527898880}
-  - component: {fileID: 8830890742482373441}
+  - component: {fileID: 9195585287314650246}
   m_Layer: 0
   m_Name: Office Floor  (6)
   m_TagString: Untagged
@@ -510,10 +510,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4018619680023121736}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -524,7 +524,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4018619680023121736}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &737401746527898880
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8830890742482373441
+--- !u!64 &9195585287314650246
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -591,7 +591,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &4632284757408996921
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 1755207635542624112}
   - component: {fileID: 1018318557352099006}
   - component: {fileID: 7004570527579330905}
-  - component: {fileID: 4137376752185705277}
+  - component: {fileID: 6508079878132036823}
   m_Layer: 0
   m_Name: Office Floor  (1)
   m_TagString: Untagged
@@ -619,10 +619,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632284757408996921}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -633,7 +633,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632284757408996921}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &7004570527579330905
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4137376752185705277
+--- !u!64 &6508079878132036823
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,7 +700,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &5683323994201734448
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 2939211612170711474}
   - component: {fileID: 5189035279881841813}
   - component: {fileID: 5875858073226148011}
-  - component: {fileID: 1252277947801781702}
+  - component: {fileID: 9208632636051865452}
   m_Layer: 0
   m_Name: Office Floor  (7)
   m_TagString: Untagged
@@ -728,10 +728,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683323994201734448}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -742,7 +742,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683323994201734448}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5875858073226148011
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1252277947801781702
+--- !u!64 &9208632636051865452
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -809,7 +809,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &6069667395282307744
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 8560087621288056991}
   - component: {fileID: 1438012302343247813}
   - component: {fileID: 5042951107966980688}
-  - component: {fileID: 5729776694284250262}
+  - component: {fileID: 1269119468412368485}
   m_Layer: 0
   m_Name: 'Office Floor '
   m_TagString: Untagged
@@ -837,10 +837,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6069667395282307744}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -851,7 +851,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6069667395282307744}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5042951107966980688
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5729776694284250262
+--- !u!64 &1269119468412368485
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -918,7 +918,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &6308908454726560347
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 6952851043848005922}
   - component: {fileID: 9080088441437320317}
   - component: {fileID: 5377277577940228031}
-  - component: {fileID: 7846331679959043197}
+  - component: {fileID: 1789950355719812166}
   m_Layer: 0
   m_Name: Office Floor  (6)
   m_TagString: Untagged
@@ -946,10 +946,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6308908454726560347}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -960,7 +960,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6308908454726560347}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5377277577940228031
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7846331679959043197
+--- !u!64 &1789950355719812166
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1027,7 +1027,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7229357070033742568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 6466289931924168658}
   - component: {fileID: 2089936911347539310}
   - component: {fileID: 9032526417718723165}
-  - component: {fileID: 6607329104005031717}
+  - component: {fileID: 2900152882669780837}
   m_Layer: 0
   m_Name: 'Office Floor '
   m_TagString: Untagged
@@ -1055,10 +1055,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7229357070033742568}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1069,7 +1069,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7229357070033742568}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &9032526417718723165
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6607329104005031717
+--- !u!64 &2900152882669780837
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1136,7 +1136,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7347817570400033407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 7434967528306692974}
   - component: {fileID: 691626762862286606}
   - component: {fileID: 5244681438794915887}
-  - component: {fileID: 6032216885113507502}
+  - component: {fileID: 4007049322016964765}
   m_Layer: 0
   m_Name: Office Floor  (7)
   m_TagString: Untagged
@@ -1164,10 +1164,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347817570400033407}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1178,7 +1178,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347817570400033407}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5244681438794915887
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1224,7 +1224,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6032216885113507502
+--- !u!64 &4007049322016964765
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1245,7 +1245,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7465327741979209949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 5657433961986824721}
   - component: {fileID: 8806909521183487694}
   - component: {fileID: 4323533786333378193}
-  - component: {fileID: 2129650086297986899}
+  - component: {fileID: 8041040024165892239}
   m_Layer: 0
   m_Name: 'Office Floor '
   m_TagString: Untagged
@@ -1273,10 +1273,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7465327741979209949}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1287,7 +1287,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7465327741979209949}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &4323533786333378193
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2129650086297986899
+--- !u!64 &8041040024165892239
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1354,7 +1354,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7863748435079654693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 1581352389329880015}
   - component: {fileID: 5067947593901123414}
   - component: {fileID: 5732527583930077746}
-  - component: {fileID: 4544534410179050501}
+  - component: {fileID: 1250034125533820852}
   m_Layer: 0
   m_Name: Office Floor  (6)
   m_TagString: Untagged
@@ -1382,10 +1382,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7863748435079654693}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1396,7 +1396,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7863748435079654693}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5732527583930077746
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1442,7 +1442,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4544534410179050501
+--- !u!64 &1250034125533820852
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1463,7 +1463,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &8426885805445710034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1475,7 @@ GameObject:
   - component: {fileID: 6664222348624911277}
   - component: {fileID: 318336846740045027}
   - component: {fileID: 5767994913211579855}
-  - component: {fileID: 844336835132315719}
+  - component: {fileID: 2375220903642713070}
   m_Layer: 0
   m_Name: Office Floor  (7)
   m_TagString: Untagged
@@ -1491,10 +1491,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8426885805445710034}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1505,7 +1505,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8426885805445710034}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &5767994913211579855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &844336835132315719
+--- !u!64 &2375220903642713070
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1572,7 +1572,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &8792488577086001511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 983376098507225213}
   - component: {fileID: 3132655681636544159}
   - component: {fileID: 1383107392298035411}
-  - component: {fileID: 3476733095598815129}
+  - component: {fileID: 1811519356138905950}
   m_Layer: 0
   m_Name: Office Floor  (1)
   m_TagString: Untagged
@@ -1600,10 +1600,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8792488577086001511}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1614,7 +1614,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8792488577086001511}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &1383107392298035411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3476733095598815129
+--- !u!64 &1811519356138905950
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1681,7 +1681,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &9089398456695805166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 1196082890121774467}
   - component: {fileID: 8495608201859608019}
   - component: {fileID: 308400049982650528}
-  - component: {fileID: 8970190672292555910}
+  - component: {fileID: 8924732294170504437}
   m_Layer: 0
   m_Name: Office Floor  (1)
   m_TagString: Untagged
@@ -1709,10 +1709,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9089398456695805166}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 75, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104873700043556847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1723,7 +1723,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9089398456695805166}
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &308400049982650528
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1769,7 +1769,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8970190672292555910
+--- !u!64 &8924732294170504437
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1790,4 +1790,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 558f387bdbe10774781d6ffcfe3df258, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}

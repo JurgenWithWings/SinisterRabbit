@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 9073185116926514735}
   - component: {fileID: 7921539718072867079}
   - component: {fileID: 7443088767539035748}
-  - component: {fileID: 123258316365933454}
+  - component: {fileID: 6649566234028917003}
   m_Layer: 0
   m_Name: Factory Floor (3)
   m_TagString: Untagged
@@ -74,10 +74,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2190469381965212052}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,7 +88,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2190469381965212052}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &7443088767539035748
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &123258316365933454
+--- !u!64 &6649566234028917003
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &2205283148306458147
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 7335644542874311963}
   - component: {fileID: 4878859998124888122}
   - component: {fileID: 2870261295407026196}
-  - component: {fileID: 3600265880567336533}
+  - component: {fileID: 9091460022527902207}
   m_Layer: 0
   m_Name: Factory Floor
   m_TagString: Untagged
@@ -183,10 +183,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2205283148306458147}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -197,7 +197,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2205283148306458147}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &2870261295407026196
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3600265880567336533
+--- !u!64 &9091460022527902207
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,7 +264,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &2966844152994278952
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5143022431591860817}
   - component: {fileID: 6469980607455285866}
   - component: {fileID: 8723876253922711242}
-  - component: {fileID: 1236260079609250945}
+  - component: {fileID: 6065775311882393416}
   m_Layer: 0
   m_Name: Factory Floor (1)
   m_TagString: Untagged
@@ -292,10 +292,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966844152994278952}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,7 +306,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966844152994278952}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &8723876253922711242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1236260079609250945
+--- !u!64 &6065775311882393416
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,7 +373,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &3620123479520374142
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 7511764537866841534}
   - component: {fileID: 833299415343551094}
   - component: {fileID: 3029124152305190076}
-  - component: {fileID: 5587786836000614812}
+  - component: {fileID: 8275557500888450559}
   m_Layer: 0
   m_Name: Factory Floor (1)
   m_TagString: Untagged
@@ -401,10 +401,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3620123479520374142}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -415,7 +415,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3620123479520374142}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &3029124152305190076
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5587786836000614812
+--- !u!64 &8275557500888450559
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,7 +482,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &3971134002540757644
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 6199768209706497011}
   - component: {fileID: 1185353700810651337}
   - component: {fileID: 1733267859473312310}
-  - component: {fileID: 7062183762749090722}
+  - component: {fileID: 5813737150744144293}
   m_Layer: 0
   m_Name: Factory Floor (2)
   m_TagString: Untagged
@@ -510,10 +510,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971134002540757644}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -524,7 +524,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971134002540757644}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &1733267859473312310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7062183762749090722
+--- !u!64 &5813737150744144293
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -591,7 +591,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &4232957634418468385
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 2322103660734878916}
   - component: {fileID: 4372991757031538191}
   - component: {fileID: 1541184935479009108}
-  - component: {fileID: 6877137612563611536}
+  - component: {fileID: 6801437320754246151}
   m_Layer: 0
   m_Name: Factory Floor (1)
   m_TagString: Untagged
@@ -619,10 +619,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4232957634418468385}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 74.99998, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -633,7 +633,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4232957634418468385}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &1541184935479009108
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6877137612563611536
+--- !u!64 &6801437320754246151
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,7 +700,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &5179933799636647853
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 2995166340551024627}
   - component: {fileID: 4242778706287213799}
   - component: {fileID: 4491978546813737230}
-  - component: {fileID: 32208339801134777}
+  - component: {fileID: 2579674831745977613}
   m_Layer: 0
   m_Name: Factory Floor (3)
   m_TagString: Untagged
@@ -728,10 +728,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5179933799636647853}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 2.25}
-  m_LocalScale: {x: 75, y: 74.99998, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -742,7 +742,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5179933799636647853}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &4491978546813737230
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &32208339801134777
+--- !u!64 &2579674831745977613
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -809,7 +809,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &5561991696753305780
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 3620312649133055655}
   - component: {fileID: 2260335090091768606}
   - component: {fileID: 4313582530478052687}
-  - component: {fileID: 2188016430210173517}
+  - component: {fileID: 753933292695472255}
   m_Layer: 0
   m_Name: Factory Floor (3)
   m_TagString: Untagged
@@ -837,10 +837,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561991696753305780}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -851,7 +851,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561991696753305780}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &4313582530478052687
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2188016430210173517
+--- !u!64 &753933292695472255
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -918,7 +918,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &5854650650525131887
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 2493790934500766811}
   - component: {fileID: 5025443900135726685}
   - component: {fileID: 1555866297312477666}
-  - component: {fileID: 1258735188939364065}
+  - component: {fileID: 8305437559152414682}
   m_Layer: 0
   m_Name: Factory Floor (1)
   m_TagString: Untagged
@@ -946,10 +946,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5854650650525131887}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -960,7 +960,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5854650650525131887}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &1555866297312477666
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1258735188939364065
+--- !u!64 &8305437559152414682
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1027,7 +1027,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &6589672730300729834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 7707914117072703649}
   - component: {fileID: 6423439170881276211}
   - component: {fileID: 756558846260235509}
-  - component: {fileID: 6249544258572082154}
+  - component: {fileID: 2136100737235792861}
   m_Layer: 0
   m_Name: Factory Floor (3)
   m_TagString: Untagged
@@ -1055,10 +1055,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6589672730300729834}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 5.25}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1069,7 +1069,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6589672730300729834}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &756558846260235509
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6249544258572082154
+--- !u!64 &2136100737235792861
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1136,7 +1136,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &6900342504834778856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 2417834606413106659}
   - component: {fileID: 6947784757574628366}
   - component: {fileID: 6676377992525284683}
-  - component: {fileID: 7708842679138400498}
+  - component: {fileID: 7673900885192439800}
   m_Layer: 0
   m_Name: Factory Floor
   m_TagString: Untagged
@@ -1164,10 +1164,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6900342504834778856}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1178,7 +1178,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6900342504834778856}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &6676377992525284683
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1224,7 +1224,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7708842679138400498
+--- !u!64 &7673900885192439800
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1245,7 +1245,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7265603722750571630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 5090589582255866866}
   - component: {fileID: 4890438279592178021}
   - component: {fileID: 1052428505662266836}
-  - component: {fileID: 2813879322540452699}
+  - component: {fileID: 4387702136945251913}
   m_Layer: 0
   m_Name: Factory Floor
   m_TagString: Untagged
@@ -1273,10 +1273,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265603722750571630}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1287,7 +1287,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265603722750571630}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &1052428505662266836
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2813879322540452699
+--- !u!64 &4387702136945251913
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1354,7 +1354,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7719887690819165132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 6358449084937378573}
   - component: {fileID: 7612147875397607274}
   - component: {fileID: 6856702148252327772}
-  - component: {fileID: 6289613433565557661}
+  - component: {fileID: 5440511867481216616}
   m_Layer: 0
   m_Name: Factory Floor
   m_TagString: Untagged
@@ -1382,10 +1382,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719887690819165132}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 74.99998, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1396,7 +1396,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719887690819165132}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &6856702148252327772
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1442,7 +1442,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6289613433565557661
+--- !u!64 &5440511867481216616
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1463,7 +1463,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &7965784155180497297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1475,7 @@ GameObject:
   - component: {fileID: 6297573397020724902}
   - component: {fileID: 8317788521601756186}
   - component: {fileID: 4517160472085131018}
-  - component: {fileID: 5142200911623733552}
+  - component: {fileID: 8184562407807338367}
   m_Layer: 0
   m_Name: Factory Floor (2)
   m_TagString: Untagged
@@ -1491,10 +1491,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965784155180497297}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.25, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1505,7 +1505,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965784155180497297}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &4517160472085131018
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5142200911623733552
+--- !u!64 &8184562407807338367
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1572,7 +1572,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &8226296764565898930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 8399380149882417231}
   - component: {fileID: 2902883071917756331}
   - component: {fileID: 7384293387562775614}
-  - component: {fileID: 5414446264336495604}
+  - component: {fileID: 6074165302617801887}
   m_Layer: 0
   m_Name: Factory Floor (2)
   m_TagString: Untagged
@@ -1600,10 +1600,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8226296764565898930}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 0.75}
-  m_LocalScale: {x: 75, y: 74.99998, z: 2.2084382}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1614,7 +1614,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8226296764565898930}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &7384293387562775614
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5414446264336495604
+--- !u!64 &6074165302617801887
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1681,7 +1681,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!1 &9011448754195671246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 6280973929198045681}
   - component: {fileID: 3502436629284738827}
   - component: {fileID: 4897929593188692428}
-  - component: {fileID: 5722904750511316864}
+  - component: {fileID: 6183407959907785976}
   m_Layer: 0
   m_Name: Factory Floor (2)
   m_TagString: Untagged
@@ -1709,10 +1709,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9011448754195671246}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.25, y: 0, z: 3.75}
-  m_LocalScale: {x: 75, y: 74.99997, z: 2.208438}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2760826301840499998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1723,7 +1723,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9011448754195671246}
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
 --- !u!23 &4897929593188692428
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1769,7 +1769,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5722904750511316864
+--- !u!64 &6183407959907785976
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1790,4 +1790,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8118425922599082104, guid: 7104c8d3bf829ae49842495ff628063c, type: 3}
+  m_Mesh: {fileID: 8118425922599082104, guid: 092593a34063af14a8d3899f5c80207f, type: 3}
