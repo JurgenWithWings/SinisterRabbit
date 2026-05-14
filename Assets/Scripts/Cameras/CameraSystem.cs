@@ -132,4 +132,8 @@ public class CameraSystem : MonoBehaviour {
         
         cameras[currentIndex].cam.enabled = true;
     }
+    
+    public void OfficeButton(string key) {
+        cameras[currentIndex].OnButtonPressed(key);
+    }
 }

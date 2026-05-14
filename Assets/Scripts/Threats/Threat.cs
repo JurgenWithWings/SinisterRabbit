@@ -92,4 +92,6 @@ public abstract class Threat : MonoBehaviour {
     
     // Update Events
     public virtual void CameraSystemStateUpdate(bool isOpen) { }
+    
+    public virtual void OfficeButtonPressed(string key) { }
 }
