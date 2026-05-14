@@ -1697,7 +1697,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5063,7 +5063,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -7313,7 +7313,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -7727,7 +7727,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: d6a20f9bb6ed190428e10f85792a6291, type: 2}
 --- !u!4 &1543061047
 Transform:
   m_ObjectHideFlags: 0
@@ -7799,7 +7799,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -9975,7 +9975,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -11156,7 +11156,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12108,15 +12108,15 @@ PrefabInstance:
     - target: {fileID: 2984155917861680696, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       propertyPath: 'cameras.Array.data[0]'
       value: 
-      objectReference: {fileID: 1410543075}
+      objectReference: {fileID: 2048682647}
     - target: {fileID: 2984155917861680696, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       propertyPath: 'cameras.Array.data[1]'
       value: 
-      objectReference: {fileID: 934011752}
+      objectReference: {fileID: 1410543075}
     - target: {fileID: 2984155917861680696, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       propertyPath: 'cameras.Array.data[2]'
       value: 
-      objectReference: {fileID: 2048682647}
+      objectReference: {fileID: 934011752}
     - target: {fileID: 2984155917861680696, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       propertyPath: 'cameras.Array.data[3]'
       value: 
