@@ -667,25 +667,28 @@ MonoBehaviour:
   cameraTarget: {fileID: 828204544230409412}
   walkSpeed: 9
   crouchSpeed: 5
-  walkResponse: 25
-  crouchResponse: 20
+  walkResponse: 20
+  crouchResponse: 15
   airSpeed: 8
   airAcceleration: 70
-  jumpCount: 1
-  jumpSpeed: 20
+  jumpCount: 2
+  jumpSpeed: 15
   coyoteTime: 0.2
-  jumpSustainGravity: 0.4
-  gravity: -90
+  jumpSustainGravity: 1
+  gravity: -60
   slideStartSpeed: 25
   slideEndSpeed: 15
-  slideFriction: 0.8
+  slideFriction: 0.3
   slideSteerAcceleration: 5
   slideGravity: -90
+  uphillSlideGravityMultiplier: 0.5
   standingHeight: 2
   crouchHeight: 1
   crouchHeightResponse: 15
   standCameraTargetHeight: 0.9
   crouchCameraTargetHeight: 0.7
+  dashForce: 20
+  dashCooldown: 1.2
 --- !u!114 &2099271015250502991
 MonoBehaviour:
   m_ObjectHideFlags: 0
