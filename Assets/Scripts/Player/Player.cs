@@ -46,6 +46,7 @@ public class Player : MonoBehaviour {
             Crouch         = InputManager.Instance.PlayerCrouch.Value 
                 ? CrouchInput.Held 
                 : CrouchInput.NotHeld,
+            Dash           = InputManager.Instance.PlayerDash.Triggered,
         };
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(Time.deltaTime);

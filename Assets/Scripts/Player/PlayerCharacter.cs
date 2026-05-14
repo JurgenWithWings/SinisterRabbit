@@ -1,5 +1,6 @@
 using KinematicCharacterController;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum CrouchInput {
     None,
@@ -27,6 +28,7 @@ public struct CharacterInput {
     public bool Jump;
     public bool JumpSustain;
     public CrouchInput Crouch;
+    public bool Dash;
 }
 
 public class PlayerCharacter : MonoBehaviour, ICharacterController {
@@ -47,6 +49,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     [Space] 
     [SerializeField] private int jumpCount = 1;
     [SerializeField] private float jumpSpeed = 20f;
+    [SerializeField] private float crouchJumpMultiplier = 1.7f;
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField, Range(0f, 1f)] private float jumpSustainGravity = 0.4f;
     [SerializeField] private float gravity = -90f;
@@ -56,12 +59,16 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     [SerializeField] private float slideFriction = 0.8f;
     [SerializeField] private float slideSteerAcceleration = 5f;
     [SerializeField] private float slideGravity = -90f;
+    [SerializeField, Range(0f, 1f)] private float uphillSlideGravityMultiplier = 0.5f;
     [Space]
     [SerializeField] private float standingHeight = 2f;
     [SerializeField] private float crouchHeight = 1f;
     [SerializeField] private float crouchHeightResponse = 15f;
     [SerializeField, Range(0f, 1f)] private float standCameraTargetHeight = 0.9f;
     [SerializeField, Range(0f, 1f)] private float crouchCameraTargetHeight = 0.7f;
+    [Space]
+    [SerializeField] private float dashForce = 35f;
+    [SerializeField] private float dashCooldown = 1.2f;
     
     // State
     private CharacterState state;
@@ -78,12 +85,16 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     private bool requestedJumpSustain;
     private bool requestedCrouch;
     private bool requestedCrouchInAir;
+    private bool requestedDash;
     
     // Trackers
     private int remainingJumps;
     private float timeSinceUngrounded;
     private float timeSinceJumpRequest;
     private bool ungroundedDueToJump;
+    private Vector3 requestedVelocityAdd;
+    private bool hasDashed;
+    private float currentDashCooldown;
     
     public void Initialize() {
         motor.CharacterController = this;
@@ -119,6 +130,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
         else if (!requestedCrouch && wasRequestingCrouch) {
             requestedCrouchInAir = false;
         }
+
+        requestedDash = requestedDash || input.Dash;
     }
 
     public void UpdateBody(float deltaTime) {
@@ -155,6 +168,29 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime) {
         state.Grounded = motor.GroundingStatus.IsStableOnGround;
         state.Acceleration = Vector3.zero;
+
+        if (requestedDash && !hasDashed && currentDashCooldown >= dashCooldown) {
+            currentDashCooldown = 0f;
+            hasDashed = true;
+            
+            Vector3 dashDirection = Vector3.ProjectOnPlane(
+                vector: requestedMovement,
+                planeNormal: motor.CharacterUp
+            ) * requestedMovement.magnitude * dashForce;
+            AddVelocity(dashDirection);
+        }
+        else {
+            currentDashCooldown += deltaTime;
+        }
+        requestedDash = false;
+        hasDashed = !state.Grounded && hasDashed;
+        
+        // External Forces
+        if (requestedVelocityAdd.magnitude > 0f) {
+            currentVelocity += requestedVelocityAdd;
+            requestedVelocityAdd = Vector3.zero;
+            motor.ForceUnground();
+        }
         
         // Grounded Movement
         if (state.Grounded) {
@@ -230,6 +266,9 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
                     vector: -motor.CharacterUp,
                     planeNormal: motor.GroundingStatus.GroundNormal
                 ) * slideGravity;
+                if (force.y > 0f) {
+                    force *= uphillSlideGravityMultiplier;
+                }
                 currentVelocity -= force * deltaTime;
                 
                 // Slide Steer
@@ -338,8 +377,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
                 // Unstick from ground
                 motor.ForceUnground(time: 0.1f);
 
+                float effectiveJumpSpeed = state.Stance == Stance.Slide ? jumpSpeed * crouchJumpMultiplier : jumpSpeed;
+                
                 float currentVerticalSpeed = Vector3.Dot(currentVelocity, motor.CharacterUp);
-                float targetVerticalSpeed = Mathf.Max(currentVerticalSpeed, jumpSpeed);
+                float targetVerticalSpeed = Mathf.Max(currentVerticalSpeed, effectiveJumpSpeed);
                 currentVelocity += motor.CharacterUp * (targetVerticalSpeed - currentVerticalSpeed);
             }
             else {
@@ -367,6 +408,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     }
     
     private Collider[] unCrouchOverlapResults = new Collider[8];
+
     public void AfterCharacterUpdate(float deltaTime) {
         // Uncrouch
         if (!requestedCrouch && state.Stance is not Stance.Stand) {
@@ -432,4 +474,9 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
     public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport) { }
     public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport) { }
     public void OnDiscreteCollisionDetected(Collider hitCollider) { }
+    
+    
+    public void AddVelocity(Vector3 velocity) {
+        requestedVelocityAdd += velocity;
+    }
 }
