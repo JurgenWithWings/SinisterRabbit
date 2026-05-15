@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 389488d1d3e9f3c4fbca3cc7a8cde78f
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ba1205021b0a83b448f8d1ee580513ea
   - enabled: 1
@@ -14,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jurgen-DayShift.unity
     guid: 917dffb2d2270c5459e92745a6447f56
+  - enabled: 1
+    path: Assets/Scenes/FactoryGeo.unity
+    guid: 6f53855035d813649887cdf1eea41cca
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

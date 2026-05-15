@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NightLogicManager : MonoBehaviour {
     public static NightLogicManager Instance { get; private set; }

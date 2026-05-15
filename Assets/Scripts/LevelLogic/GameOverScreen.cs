@@ -1,7 +1,6 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour {
@@ -46,7 +45,7 @@ public class GameOverScreen : MonoBehaviour {
         }
         
         bottomButton.onClick.AddListener(() => {
-            SceneManager.LoadScene(LevelLoading.MainMenuSceneName);
+            LevelLoading.LoadScene(Level.MainMenu);
         });
     }
 
@@ -55,6 +54,6 @@ public class GameOverScreen : MonoBehaviour {
     }
 
     private void Restart() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LevelLoading.ReloadLevel();
     }
 }
