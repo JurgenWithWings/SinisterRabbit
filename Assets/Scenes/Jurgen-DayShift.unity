@@ -611,7 +611,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -628,6 +628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &254148713
 Transform:
   m_ObjectHideFlags: 0
@@ -729,7 +732,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -746,6 +749,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &323006384
 Transform:
   m_ObjectHideFlags: 0
@@ -831,7 +837,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -848,6 +854,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &331319613
 Transform:
   m_ObjectHideFlags: 0
@@ -876,7 +885,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -893,6 +902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &345092470
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,7 +1191,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (5)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1196,6 +1208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  gizmoLength: 0.67
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!4 &569691053
 Transform:
   m_ObjectHideFlags: 0
@@ -1224,7 +1239,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (6)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1241,6 +1256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &722160508
 Transform:
   m_ObjectHideFlags: 0
@@ -1269,7 +1287,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1286,6 +1304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &730578619
 Transform:
   m_ObjectHideFlags: 0
@@ -3115,7 +3136,7 @@ GameObject:
   m_Layer: 0
   m_Name: RabbitPOI (7)
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3132,6 +3153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  gizmoLength: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.25
 --- !u!4 &1654541963
 Transform:
   m_ObjectHideFlags: 0
