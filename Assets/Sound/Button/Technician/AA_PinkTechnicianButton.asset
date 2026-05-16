@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: AA_PinkTechnicianButton
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 5386aff5105caf94b9fbfab5931206a6, type: 3}
-  pitchRange: {x: 0.85, y: 0.85}
+  - Clip: {fileID: 8300000, guid: 5386aff5105caf94b9fbfab5931206a6, type: 3}
+    Volume: 1
+    PitchRange: {x: 0.85, y: 0.85}

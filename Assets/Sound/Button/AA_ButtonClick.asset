@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: AA_ButtonClick
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: d632504cb9e9b6d4295e683e04f97337, type: 3}
-  - {fileID: 8300000, guid: 53b0daed41f99d340beaf7fa19dd4e3f, type: 3}
-  - {fileID: 8300000, guid: 3bb337aa71d6a674d9b657ce9d979b53, type: 3}
-  - {fileID: 8300000, guid: 2431a39363a23824fb15ea6b66a095c4, type: 3}
+  - Clip: {fileID: 8300000, guid: d632504cb9e9b6d4295e683e04f97337, type: 3}
+    Volume: 1
+    PitchRange: {x: 0.9, y: 1.1}
+  - Clip: {fileID: 8300000, guid: 53b0daed41f99d340beaf7fa19dd4e3f, type: 3}
+    Volume: 1
+    PitchRange: {x: 1.2, y: 1.4}
+  - Clip: {fileID: 8300000, guid: 3bb337aa71d6a674d9b657ce9d979b53, type: 3}
+    Volume: 1
+    PitchRange: {x: 0.9, y: 1.1}
+  - Clip: {fileID: 8300000, guid: 2431a39363a23824fb15ea6b66a095c4, type: 3}
+    Volume: 1
+    PitchRange: {x: 0.9, y: 1.1}

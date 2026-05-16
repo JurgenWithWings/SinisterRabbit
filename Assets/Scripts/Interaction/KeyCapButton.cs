@@ -25,9 +25,7 @@ public class KeyCapButton : MonoBehaviour, IInteractable {
             return;
         }
         animation.Play(animName);
-        audioSource.clip = pressSounds.RandomClip();
-        audioSource.pitch = pressSounds.RandomPitch();
-        audioSource.Play();
+        pressSounds.PlayRandomSound(audioSource);
         OnButtonPressed.Invoke();
     }
 

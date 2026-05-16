@@ -58,7 +58,7 @@ MonoBehaviour:
   - {fileID: 0}
   movementInterval: 5
   animator: {fileID: 4992881560316864913}
-  powerDrain: 16
+  powerDrain: 4
 --- !u!195 &5740418684552429476
 NavMeshAgent:
   m_ObjectHideFlags: 0

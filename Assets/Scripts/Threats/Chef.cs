@@ -31,7 +31,7 @@ public class Chef : Threat {
     }
     
     private void AttemptAdvance() {
-        if (!RollLevel()) return;
+        if (!RollLevel(35)) return;
         
         string nextState = GetNextState();
 
