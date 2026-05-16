@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Night 4 Data
   m_EditorClassIdentifier: 
   levelIndex: 6
+  camsPowerDrain: 0.5
   startingAI:
   - ThreatType: 1
     Level: 10
@@ -23,6 +24,8 @@ MonoBehaviour:
   - ThreatType: 4
     Level: 6
   - ThreatType: 5
+    Level: 8
+  - ThreatType: 6
     Level: 8
   oneAMLevels: []
   twoAMLevels: []

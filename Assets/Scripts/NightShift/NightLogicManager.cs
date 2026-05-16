@@ -7,6 +7,10 @@ public class NightLogicManager : MonoBehaviour {
     [Space]
     [SerializeField] private float nightDuration = 360f;
     public float NightDuration => nightDuration;
+    
+    #if UNITY_EDITOR
+    [SerializeField] private NightShiftData.AILevelData[] testingData;
+    #endif
 
     private NightShiftData data = LevelLoading.NightShiftData;
     public NightShiftData Data => data;
@@ -24,14 +28,11 @@ public class NightLogicManager : MonoBehaviour {
         // Fallback level setting for testing
         if (data == null || data.IsNull()) {
             LevelLoading.NightShiftData = ScriptableObject.CreateInstance<NightShiftData>();
-            
-            LevelLoading.NightShiftData.startingAI = new[] {
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Doorman, Level = 10 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Flock, Level = 10 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Technician, Level = 20 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Sheep, Level = 1 },
-                new NightShiftData.AILevelData { ThreatType = ThreatType.Thief, Level = 4 }
-            };
+
+            #if UNITY_EDITOR
+            LevelLoading.NightShiftData.startingAI = testingData;
+            LevelLoading.OverrideCurrentSceneTracker(Level.NightShift);
+            #endif
             
             data = LevelLoading.NightShiftData;
         }

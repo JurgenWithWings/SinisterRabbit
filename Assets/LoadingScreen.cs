@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour {
@@ -20,8 +21,10 @@ public class LoadingScreen : MonoBehaviour {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
-        LevelLoading.LoadScene(Level.MainMenu);
+
+        if (SceneManager.loadedSceneCount == 1 && SceneManager.GetActiveScene().name == LevelLoading.LoadingScreenSceneName) {
+            LevelLoading.LoadScene(Level.MainMenu);
+        }
     }
     
     public void StartLoadingScreen(List<AsyncOperation> operations) {

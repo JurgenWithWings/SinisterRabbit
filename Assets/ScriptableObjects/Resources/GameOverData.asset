@@ -16,39 +16,44 @@ MonoBehaviour:
     cause: 0
     deathText: Doorman got you!
     tooltip: Hold the door closed when he shows up.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 0adc36c72da196f4bba06cf20c62039c, type: 3}
   flockDeathInfo:
     cause: 1
     deathText: Swarmed by The Flock!
     tooltip: Pop each chicken as they appear.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 464979455361a154f95d8229880d3dc9, type: 3}
   technicianDeathInfo:
     cause: 2
     deathText: Technical Fault!
     tooltip: Make sure the machine is working like he asks.
-    image: {fileID: 0}
-  thiefDeathInfo:
+    image: {fileID: 21300000, guid: 5d34c50268626b04688478781ae7ffa2, type: 3}
+  chefDeathInfo:
     cause: 3
+    deathText: Chef got you!
+    tooltip: Keep the hungry fella off the conveyor belts.
+    image: {fileID: 21300000, guid: f6f8a44b228765e42b29c86512a950a0, type: 3}
+  thiefDeathInfo:
+    cause: 4
     deathText: You've been robbed!
     tooltip: Keep an eye on how is coming to pick up eggs.
     image: {fileID: 0}
   timerDeathInfo:
-    cause: 4
+    cause: 5
     deathText: You ran out of time!
     tooltip: Make sure to repair all the machines bafore the end of your shift.
     image: {fileID: 0}
   powerDeathInfo:
-    cause: 5
+    cause: 6
     deathText: You ran out of power!
     tooltip: Keep an eye on your power level, don't let it run out.
     image: {fileID: 0}
   sixAMDeathInfo:
-    cause: 6
+    cause: 7
     deathText: 
     tooltip: 
     image: {fileID: 0}
   repairedDeathInfo:
-    cause: 7
+    cause: 8
     deathText: 
     tooltip: 
     image: {fileID: 0}

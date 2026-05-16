@@ -250,6 +250,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   bootUpCam: {fileID: 0}
   officeCamera: {fileID: 181190259782019904}
   cameraAnimator: {fileID: 8124285139802768465}
@@ -306,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1499864017688998381, guid: 822e9f85591a2264696f42098326a1cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0879
+      value: -0.1963
       objectReference: {fileID: 0}
     - target: {fileID: 1499864017688998381, guid: 822e9f85591a2264696f42098326a1cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -347,6 +350,10 @@ PrefabInstance:
     - target: {fileID: 7137431804135695937, guid: 822e9f85591a2264696f42098326a1cd, type: 3}
       propertyPath: m_Name
       value: Cam Pivot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112601123512372487, guid: 822e9f85591a2264696f42098326a1cd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

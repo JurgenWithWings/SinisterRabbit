@@ -14,6 +14,7 @@ public static class LevelLoading {
     public static DayShiftData DayShiftData;
     public static NightShiftData NightShiftData;
     
+    public const string LoadingScreenSceneName = "LoadingScreen";
     public const string MainMenuSceneName = "MainMenu";
     public const string FactoryGeoSceneName = "FactoryGeo";
     public const string DayShiftSceneName = "Jurgen-DayShift";
@@ -33,6 +34,10 @@ public static class LevelLoading {
     }
     private static AllLevelData dataCache;
 
+    public static void OverrideCurrentSceneTracker(Level level) {
+        currentLevel = level;
+    }
+    
     public static void LoadNextLevel() {
         switch (currentLevel) {
             case Level.MainMenu:
@@ -62,7 +67,7 @@ public static class LevelLoading {
             
             case Level.DayShift:
                 if (DayShiftData != null) {
-                    LoadLevel(DayShiftData.levelIndex);
+                    LoadScene(Level.DayShift);
                 } else {
                     Debug.LogError("No DayShift data to reload.");
                 }
@@ -70,7 +75,7 @@ public static class LevelLoading {
             
             case Level.NightShift:
                 if (NightShiftData != null) {
-                    LoadLevel(NightShiftData.levelIndex);
+                    LoadScene(Level.NightShift);
                 } else {
                     Debug.LogError("No NightShift data to reload.");
                 }
@@ -134,7 +139,7 @@ public static class LevelLoading {
                 throw new ArgumentOutOfRangeException(nameof(level), level, null);
         }
 
-        LoadingScreen.instance.StartLoadingScreen(operations);
+        LoadingScreen.instance?.StartLoadingScreen(operations);
     }
 
     private static string[] fileContents;

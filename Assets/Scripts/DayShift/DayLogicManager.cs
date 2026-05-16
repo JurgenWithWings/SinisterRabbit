@@ -13,6 +13,13 @@ public class DayLogicManager : MonoBehaviour {
     [SerializeField] private List<RepairableMachine> availableMachines;
     [SerializeField] private List<GoldenEggSpawner> availableEggSpawners;
 
+    #if UNITY_EDITOR
+    [Header("Testing Data")] 
+    [SerializeField] private float shiftDuration = 30f;
+    [SerializeField] private int numBrokenMachines = 5;
+    [SerializeField] private int numberOfGoldenEggs = 3;
+    #endif
+    
     private bool timerStarted;
     private float timeRemaining;
     private int repairedMachines;
@@ -28,9 +35,12 @@ public class DayLogicManager : MonoBehaviour {
         if (data == null || data.IsNull()) {
             LevelLoading.DayShiftData = ScriptableObject.CreateInstance<DayShiftData>();
             
-            LevelLoading.DayShiftData.shiftDuration = 60f;
-            LevelLoading.DayShiftData.numBrokenMachines = 3;
-            LevelLoading.DayShiftData.numberOfGoldenEggs = 3;
+            #if UNITY_EDITOR
+            LevelLoading.DayShiftData.shiftDuration = shiftDuration;
+            LevelLoading.DayShiftData.numBrokenMachines = numBrokenMachines;
+            LevelLoading.DayShiftData.numberOfGoldenEggs = numberOfGoldenEggs;
+            LevelLoading.OverrideCurrentSceneTracker(Level.DayShift);
+            #endif
             
             data = LevelLoading.DayShiftData;
         }

@@ -14,6 +14,7 @@ public class GameOverData : ScriptableObject {
     public DeathInfo doormanDeathInfo;
     public DeathInfo flockDeathInfo;
     public DeathInfo technicianDeathInfo;
+    public DeathInfo chefDeathInfo;
     public DeathInfo thiefDeathInfo;
     public DeathInfo timerDeathInfo;
     public DeathInfo powerDeathInfo;

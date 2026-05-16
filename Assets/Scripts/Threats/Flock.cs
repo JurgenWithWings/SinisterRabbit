@@ -8,7 +8,7 @@ public class Flock : Threat {
     private List<Chicken> inactiveChickens = new();
 
     private void Start() {
-        states["Office"].RegisterThreat(this);
+        states["Flock"].RegisterThreat(this);
         
         foreach (Chicken chicken in chickens) {
             chicken.OnChickenClicked += OnChickenClicked;

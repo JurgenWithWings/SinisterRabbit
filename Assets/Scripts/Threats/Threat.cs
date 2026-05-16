@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,6 +10,7 @@ public enum ThreatType {
     Doorman,
     Flock,
     Technician,
+    Chef,
     Sheep,
     Thief
 }
@@ -20,11 +22,12 @@ public abstract class Threat : MonoBehaviour {
     public CauseOfDeath DeathCause => deathCause;
     [Space]
     [SerializeField] protected NavMeshAgent agent;
-    [SerializeField] protected SerializedDictionary<string, ThreatStatePoint> states = new();
+    [SerializeField] private List<ThreatStatePoint> availableStates = new();
+    protected Dictionary<string, ThreatStatePoint> states = new();
     [Space]
     [SerializeField] protected float movementInterval = 5f;
     protected float timer;
-    protected string currentState = "Outside";
+    protected string currentState;
 
     [SerializeField] protected Animator animator;
     
@@ -36,6 +39,13 @@ public abstract class Threat : MonoBehaviour {
 
     public virtual void Init(ThreatManager manager) {
         this.manager = manager;
+        
+        if (availableStates.Count != 0) {
+            currentState = availableStates[0].name;
+            foreach (ThreatStatePoint state in availableStates) {
+                states[state.gameObject.name] = state;
+            }
+        }
     }
     
     public void UpdateAILevel(int newLevel) {
