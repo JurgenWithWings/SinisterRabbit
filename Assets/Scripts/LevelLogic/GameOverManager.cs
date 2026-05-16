@@ -62,6 +62,8 @@ public class GameOverManager : MonoBehaviour {
     private IEnumerator GameOverCoroutine(CauseOfDeath cause) {
         IsGameOver = true;
         OnGameOver?.Invoke();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
         if (player.TryGetComponent(out Player playerComponent)) {
             playerComponent.Teleport(gameOverBox.transform.position);
@@ -84,7 +86,7 @@ public class GameOverManager : MonoBehaviour {
         };
         gameOverScreen.SetupScreen(deathInfo);
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

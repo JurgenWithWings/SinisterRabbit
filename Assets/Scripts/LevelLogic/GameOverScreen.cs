@@ -13,11 +13,14 @@ public class GameOverScreen : MonoBehaviour {
     [SerializeField] private TMP_Text topButtonText;
     [SerializeField] private Button bottomButton;
     [SerializeField] private Image image;
+    [Space]
+    [SerializeField] private Animation animation;
     
     public void SetupScreen(GameOverData.DeathInfo deathInfo) {
         littleText.text = deathInfo.deathText;
         tooltipText.text = deathInfo.tooltip;
         image.sprite = deathInfo.image;
+        animation.Play();
         
         topButton.onClick.RemoveAllListeners();
         bottomButton.onClick.RemoveAllListeners();
