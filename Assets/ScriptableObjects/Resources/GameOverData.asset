@@ -36,24 +36,24 @@ MonoBehaviour:
     cause: 4
     deathText: You've been robbed!
     tooltip: Keep an eye on how is coming to pick up eggs.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}
   timerDeathInfo:
     cause: 5
     deathText: You ran out of time!
     tooltip: Make sure to repair all the machines bafore the end of your shift.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}
   powerDeathInfo:
     cause: 6
     deathText: You ran out of power!
     tooltip: Keep an eye on your power level, don't let it run out.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}
   sixAMDeathInfo:
     cause: 7
     deathText: 
     tooltip: 
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}
   repairedDeathInfo:
     cause: 8
     deathText: 
     tooltip: 
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}

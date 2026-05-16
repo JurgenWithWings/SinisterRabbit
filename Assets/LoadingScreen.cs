@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour {
     public static LoadingScreen instance;
     
+    [SerializeField] private Camera fallbackCam;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Slider slider;
 
@@ -32,6 +33,7 @@ public class LoadingScreen : MonoBehaviour {
     }
     
     private IEnumerator LoadLevelAsync(List<AsyncOperation> operations) {
+        fallbackCam.enabled = true;
         canvas.enabled = true;
         slider.value = 0f;
         Time.timeScale = 0f;
@@ -58,5 +60,6 @@ public class LoadingScreen : MonoBehaviour {
         OnFinishedLoading?.Invoke();
         Time.timeScale = 1f;
         canvas.enabled = false;
+        fallbackCam.enabled = false;
     }
 }
