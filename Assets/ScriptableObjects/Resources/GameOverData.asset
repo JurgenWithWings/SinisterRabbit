@@ -35,12 +35,12 @@ MonoBehaviour:
   thiefDeathInfo:
     cause: 4
     deathText: You've been robbed!
-    tooltip: Keep an eye on how is coming to pick up eggs.
+    tooltip: Keep an eye on who is coming to pick up eggs.
     image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}
   timerDeathInfo:
     cause: 5
     deathText: You ran out of time!
-    tooltip: Make sure to repair all the machines bafore the end of your shift.
+    tooltip: Make sure to repair all the machines before the end of your shift.
     image: {fileID: 21300000, guid: c93806f76155f3444995116411fad716, type: 3}
   powerDeathInfo:
     cause: 6

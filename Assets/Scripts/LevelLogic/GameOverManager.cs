@@ -86,7 +86,8 @@ public class GameOverManager : MonoBehaviour {
         };
         gameOverScreen.SetupScreen(deathInfo);
         
-        yield return new WaitForSeconds(3.5f);
+        bool isWin = cause is CauseOfDeath.SixAM or CauseOfDeath.Repaired;
+        yield return new WaitForSeconds(isWin ? 6f : 3.5f);
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

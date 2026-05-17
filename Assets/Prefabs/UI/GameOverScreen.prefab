@@ -183,7 +183,7 @@ RectTransform:
   m_GameObject: {fileID: 3027650614387603277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.3904, y: 6.3904, z: 6.3904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3868608892298760798}
@@ -364,6 +364,7 @@ MonoBehaviour:
   animation: {fileID: 2532820083241791317}
   audioSource: {fileID: 5829746150967941022}
   secondThudSound: {fileID: 8300000, guid: 954a3f6e2b72d424c850d82194851105, type: 3}
+  winSound: {fileID: 8300000, guid: 030b32e87e00e9c4891a1ad553cacd7a, type: 3}
 --- !u!111 &2532820083241791317
 Animation:
   m_ObjectHideFlags: 0
@@ -376,6 +377,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 3960e5bac7c991749980e52507e20d58, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 3960e5bac7c991749980e52507e20d58, type: 2}
+  - {fileID: 7400000, guid: 5892bb31c445c844f8cc91294212e728, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -552,7 +554,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -810,7 +812,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

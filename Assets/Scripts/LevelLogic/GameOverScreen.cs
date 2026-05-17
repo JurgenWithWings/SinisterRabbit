@@ -18,13 +18,12 @@ public class GameOverScreen : MonoBehaviour {
     [Space]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip secondThudSound;
+    [SerializeField] private AudioClip winSound;
     
     public void SetupScreen(GameOverData.DeathInfo deathInfo) {
         littleText.text = deathInfo.deathText;
         tooltipText.text = deathInfo.tooltip;
         image.sprite = deathInfo.image;
-        animation.Play();
-        audioSource.Play();
         
         topButton.onClick.RemoveAllListeners();
         bottomButton.onClick.RemoveAllListeners();
@@ -44,12 +43,17 @@ public class GameOverScreen : MonoBehaviour {
                 
             case CauseOfDeath.SixAM:
             case CauseOfDeath.Repaired:
+                animation.clip = animation["CompletionFadeIn"].clip;
+                audioSource.clip = winSound;
                 bigText.text = "Completed!";
                 bigText.color = goodTextColor;
                 topButtonText.text = "NextLevel";
                 topButton.onClick.AddListener(LoadNextLevel);
                 break;
         }
+        
+        animation.Play();
+        audioSource.Play();
         
         bottomButton.onClick.AddListener(() => {
             LevelLoading.LoadScene(Level.MainMenu);
