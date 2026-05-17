@@ -18,7 +18,7 @@ public class Thief : Threat {
     [Space]
     [SerializeField] private AudioSource audioSource;
     
-    private Coroutine TimerCoroutine;
+    private Coroutine timerCoroutine;
     private float currentTimer;
     
     private bool isRat;
@@ -32,6 +32,21 @@ public class Thief : Threat {
         stateDistance = Vector3.Distance(states["thStart"].transform.position, states["thDepot"].transform.position);
         truckStartMovePos = truck.transform.position;
     }
+    
+    public override void UpdateAILevel(int newLevel) {
+        if (newLevel == 0) {
+            truck.SetActive(false);
+            rat.SetActive(false);
+            if (timerCoroutine != null) {
+                StopCoroutine(timerCoroutine);
+                timerCoroutine = null;
+            }
+        }
+        else {
+            truck.SetActive(true);
+        }
+        base.UpdateAILevel(newLevel);
+    }
 
     private float GetInterval() {
         return movementInterval - (truckIntervalDecreasePerLevel * level);
@@ -44,8 +59,8 @@ public class Thief : Threat {
 
         LerpMoveTruck();
 
-        if (currentState == "thDepot" && Vector3.Distance(truck.transform.position, states[currentState].transform.position) < 0.01f && TimerCoroutine == null) {
-            TimerCoroutine = StartCoroutine(Timer());
+        if (currentState == "thDepot" && Vector3.Distance(truck.transform.position, states[currentState].transform.position) < 0.01f && timerCoroutine == null) {
+            timerCoroutine = StartCoroutine(Timer());
         }
         
         // Reset timer at end of Update
@@ -85,9 +100,9 @@ public class Thief : Threat {
         shutterAnim.Play();
         TryMoveTo("thStart");
         truckStartMovePos = truck.transform.position;
-        if (TimerCoroutine != null) {
-            StopCoroutine(TimerCoroutine);
-            TimerCoroutine = null;
+        if (timerCoroutine != null) {
+            StopCoroutine(timerCoroutine);
+            timerCoroutine = null;
         }
         if (!isRat) {
             NightLogicManager.Instance.DecreasePower(powerPenalty);
@@ -115,6 +130,6 @@ public class Thief : Threat {
             }
         }
         
-        TimerCoroutine = null;
+        timerCoroutine = null;
     }
 }

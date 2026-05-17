@@ -26,6 +26,24 @@ public class Flock : Threat {
             chicken.OnChickenClicked -= OnChickenClicked;
         }
     }
+    
+    public override void UpdateAILevel(int newLevel) {
+        if (newLevel == 0) {
+            foreach (Chicken chicken in chickens) {
+                if (activeChickens.Contains(chicken)) {
+                    activeChickens.Remove(chicken);
+                    inactiveChickens.Add(chicken);
+                }
+                chicken.gameObject.SetActive(false);
+            }
+        }
+        else {
+            foreach (Chicken chicken in chickens) {
+                chicken.gameObject.SetActive(true);
+            }
+        }
+        base.UpdateAILevel(newLevel);
+    }
 
     private void OnChickenClicked(Chicken chicken) {
         activeChickens.Remove(chicken);

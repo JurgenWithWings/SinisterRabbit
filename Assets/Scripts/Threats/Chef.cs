@@ -9,6 +9,16 @@ public class Chef : Threat {
         agent.SetDestination(states[currentState].transform.position);
     }
     
+    public override void UpdateAILevel(int newLevel) {
+        if (newLevel == 0) {
+            animator.transform.parent.gameObject.SetActive(false);
+        }
+        else {
+            animator.transform.parent.gameObject.SetActive(true);
+        }
+        base.UpdateAILevel(newLevel);
+    }
+    
     protected override void Tick() {
         animator.SetFloat("Speed", agent.velocity.magnitude);
         

@@ -73,6 +73,9 @@ public class ThreatManager : MonoBehaviour {
     }
 
     public void GameOver(Threat source) {
+        foreach (Threat threat in threats) {
+            threat.UpdateAILevel(0);
+        }
         GameOverManager.Instance.GameOver(source.DeathCause);
     }
 }

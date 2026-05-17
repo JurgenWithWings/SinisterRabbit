@@ -50,6 +50,7 @@ public abstract class Threat : MonoBehaviour {
     
     public virtual void UpdateAILevel(int newLevel) {
         level = newLevel;
+        TryMoveTo(availableStates[0].name);
     }
 
     // ~~ Movement and States ~~
