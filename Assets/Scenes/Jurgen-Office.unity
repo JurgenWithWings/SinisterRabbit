@@ -5788,12 +5788,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatManager: {fileID: 1034308973}
-  nightDuration: 5.4546545e+9
+  nightDuration: 360
   testingData:
   - ThreatType: 1
     Level: 0
   - ThreatType: 2
-    Level: 0
+    Level: 20
   - ThreatType: 3
     Level: 0
   - ThreatType: 4
