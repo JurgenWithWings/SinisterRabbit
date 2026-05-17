@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class Chef : Threat {
+    [SerializeField] private float normalMoveSpeed = 7f;
+    [SerializeField] private float sadMoveSpeed = 3f;
     [SerializeField] private float powerDrain = 4f;
     
     private void Start() {
@@ -40,18 +42,26 @@ public class Chef : Threat {
         //EnterState
         switch (nextState) {
             case "chStage1":
+                agent.speed = sadMoveSpeed;
+                animator.SetBool("isSad", true);
                 animator.SetInteger("Stage", 1);
                 break;
             case "chStage2":
+                agent.speed = normalMoveSpeed;
+                animator.SetBool("isSad", false);
                 animator.SetInteger("Stage", 2);
                 break;
             case "chStage3":
+                agent.speed = normalMoveSpeed;
+                animator.SetBool("isSad", false);
                 animator.SetInteger("Stage", 3);
                 break;
             
             case "chWestConveyor":
             case "chCentralConveyor":
             case "chEastConveyor":
+                agent.speed = normalMoveSpeed;
+                animator.SetBool("isSad", false);
                 animator.SetInteger("Stage", 0);
                 break;
             
@@ -77,6 +87,8 @@ public class Chef : Threat {
     public override void OfficeButtonPressed(string key) {
         if (isMoving || key != "chef" || !currentState.Contains("Conveyor")) return;
         
+        agent.speed = sadMoveSpeed;
+        animator.SetBool("isSad", true);
         TryMoveTo("chStage1");
     }
 }

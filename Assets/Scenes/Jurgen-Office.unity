@@ -5844,11 +5844,11 @@ MonoBehaviour:
   - ThreatType: 3
     Level: 0
   - ThreatType: 4
-    Level: 0
+    Level: 20
   - ThreatType: 5
     Level: 0
   - ThreatType: 6
-    Level: 20
+    Level: 0
 --- !u!1 &850570030
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ MonoBehaviour:
   truckRenderer: {fileID: 3427538339009903811}
   truckNormalMat: {fileID: 2100000, guid: d8f31966698af7342a2a011212325649, type: 2}
   truckRatMat: {fileID: 2100000, guid: 03398beb169bfd049a1ff7ca009c4824, type: 2}
-  truckMoveSpeed: 4
+  truckMoveSpeed: 5
   shutterAnim: {fileID: 0}
   truckIntervalDecreasePerLevel: 1.5
   truckTimer: 5
