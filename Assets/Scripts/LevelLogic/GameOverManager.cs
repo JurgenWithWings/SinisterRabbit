@@ -64,6 +64,7 @@ public class GameOverManager : MonoBehaviour {
         OnGameOver?.Invoke();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        MusicManager.instance?.StopMusic();
         
         if (player.TryGetComponent(out Player playerComponent)) {
             playerComponent.Teleport(gameOverBox.transform.position);

@@ -19,11 +19,14 @@ public class GameOverScreen : MonoBehaviour {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip secondThudSound;
     [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioSource voiceAudioSource;
     
     public void SetupScreen(GameOverData.DeathInfo deathInfo) {
         littleText.text = deathInfo.deathText;
         tooltipText.text = deathInfo.tooltip;
         image.sprite = deathInfo.image;
+        voiceAudioSource.clip = deathInfo.deathVoiceLine;
+        voiceAudioSource.Play();
         
         topButton.onClick.RemoveAllListeners();
         bottomButton.onClick.RemoveAllListeners();

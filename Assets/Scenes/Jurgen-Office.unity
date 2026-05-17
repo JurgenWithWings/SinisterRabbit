@@ -5788,7 +5788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatManager: {fileID: 1034308973}
-  nightDuration: 30
+  nightDuration: 5.4546545e+9
   testingData:
   - ThreatType: 1
     Level: 0
@@ -14609,7 +14609,7 @@ PrefabInstance:
     - target: {fileID: 7588020603870072970, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8954915674304785303, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       propertyPath: m_Name
       value: Player
