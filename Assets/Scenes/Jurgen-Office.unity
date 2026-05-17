@@ -14712,18 +14712,6 @@ PrefabInstance:
       propertyPath: 'availableStates.Array.data[1]'
       value: 
       objectReference: {fileID: 464266048}
-    - target: {fileID: 1584067916082257761, guid: 2ad6edc219c434d489c260324cac4098, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1584067916082257761, guid: 2ad6edc219c434d489c260324cac4098, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1584067916082257761, guid: 2ad6edc219c434d489c260324cac4098, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7996804197951204489, guid: 2ad6edc219c434d489c260324cac4098, type: 3}
       propertyPath: m_Name
       value: f:Thief
