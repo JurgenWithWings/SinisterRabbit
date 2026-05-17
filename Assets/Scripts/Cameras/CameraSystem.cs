@@ -11,6 +11,10 @@ public class CameraSystem : MonoBehaviour {
     [SerializeField] private Camera officeCamera;
     [SerializeField] private Animation cameraAnimator;
     [SerializeField] private float cameraFlipSpeed = 8f;
+    [Space]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip camOpenSound;
+    [SerializeField] private AudioClip camClosedSound;
 
     private float powerDrain = 0.5f;
     
@@ -78,9 +82,11 @@ public class CameraSystem : MonoBehaviour {
 
         if (IsOpen) {
             cameraAnimator.Play("OpenCam");
+            audioSource.PlayOneShot(camOpenSound);
         }
         else {
             cameraAnimator.Play("CloseCam");
+            audioSource.PlayOneShot(camClosedSound);
         }
 
         while (cameraAnimator.isPlaying) {

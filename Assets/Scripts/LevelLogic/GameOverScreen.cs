@@ -15,12 +15,16 @@ public class GameOverScreen : MonoBehaviour {
     [SerializeField] private Image image;
     [Space]
     [SerializeField] private Animation animation;
+    [Space]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip secondThudSound;
     
     public void SetupScreen(GameOverData.DeathInfo deathInfo) {
         littleText.text = deathInfo.deathText;
         tooltipText.text = deathInfo.tooltip;
         image.sprite = deathInfo.image;
         animation.Play();
+        audioSource.Play();
         
         topButton.onClick.RemoveAllListeners();
         bottomButton.onClick.RemoveAllListeners();
@@ -58,5 +62,9 @@ public class GameOverScreen : MonoBehaviour {
 
     private void Restart() {
         LevelLoading.ReloadLevel();
+    }
+
+    public void PlaySecondThud() {
+        audioSource.PlayOneShot(secondThudSound);
     }
 }

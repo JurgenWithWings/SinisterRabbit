@@ -52,10 +52,7 @@ MonoBehaviour:
   threatType: 2
   deathCause: 1
   agent: {fileID: 0}
-  states:
-    _serializedList:
-    - Key: Office
-      Value: {fileID: 8724461497097014058}
+  availableStates: []
   movementInterval: 5
   animator: {fileID: 0}
   chickens:
@@ -63,6 +60,13 @@ MonoBehaviour:
   - {fileID: 4226780788267159487}
   - {fileID: 2317219678574493959}
   - {fileID: 2960995681769049987}
+  counterIncreaseLevels:
+  - -1.5
+  - 2.5
+  - 7
+  - 14
+  - 20
+  chickenPopCounterDecrease: 15
 --- !u!114 &8724461497097014058
 MonoBehaviour:
   m_ObjectHideFlags: 0
