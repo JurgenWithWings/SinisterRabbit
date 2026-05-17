@@ -48,7 +48,7 @@ public abstract class Threat : MonoBehaviour {
         }
     }
     
-    public void UpdateAILevel(int newLevel) {
+    public virtual void UpdateAILevel(int newLevel) {
         level = newLevel;
     }
 
@@ -68,7 +68,9 @@ public abstract class Threat : MonoBehaviour {
             states[currentState].RegisterThreat(null);
             LeaveState(currentState);
             currentState = state;
-            agent?.SetDestination(states[currentState].transform.position);
+            if (agent != null) {
+                agent.SetDestination(states[currentState].transform.position);
+            }
             isMoving = true;
             return true;
         }
