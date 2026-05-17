@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class Thief : Threat {
     [SerializeField] private GameObject rat;
@@ -10,8 +8,6 @@ public class Thief : Threat {
     [SerializeField] private MeshRenderer truckRenderer;
     [SerializeField] private Material truckNormalMat;
     [SerializeField] private Material truckRatMat;
-    [Space]
-    [SerializeField] private GameObject truckNormalDecal;
     [Space] 
     [SerializeField] private float truckMoveSpeed = 2f;
     [SerializeField] private Animation shutterAnim;
@@ -65,7 +61,6 @@ public class Thief : Threat {
         
         rat.gameObject.SetActive(isRat);
         truckRenderer.material = isRat ? truckRatMat : truckNormalMat;
-        truckNormalDecal.SetActive(!isRat);
 
         currentTimer = 0;
         
@@ -75,13 +70,12 @@ public class Thief : Threat {
     
     private void LerpMoveTruck() {
         float distance = Vector3.Distance(truckStartMovePos, states[currentState].transform.position);
-        if (distance < 0.1f) {
+        if ((states[currentState].transform.position - truck.transform.position).magnitude < 0.1f) {
             truck.transform.position = states[currentState].transform.position;
             return;
         }
         Vector3 direction = (states[currentState].transform.position - truck.transform.position).normalized;
         float t = distance / stateDistance;
-        t = Mathf.SmoothStep(0f, 1f, t);
         truck.transform.position += direction * t * truckMoveSpeed * Time.deltaTime;
     }
     
