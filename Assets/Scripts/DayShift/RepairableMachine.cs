@@ -7,6 +7,8 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
     [SerializeField] private string brokenInteractionText;
     [SerializeField] private VisualEffect[] brokenEffects;
     [SerializeField] private VisualEffect repairedEffect;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioArray repairedSound;
 
     [SerializeField] private bool broken;
     public bool Broken => broken;
@@ -50,6 +52,7 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
         if (broken) {
             SetBrokenState(false);
             repairedEffect.enabled = true;
+            repairedSound.PlayRandomSound(audioSource);
         }
     }
 
