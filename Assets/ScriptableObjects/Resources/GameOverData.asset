@@ -58,11 +58,11 @@ MonoBehaviour:
     cause: 7
     deathText: 
     tooltip: 
-    image: {fileID: 21300000, guid: 16b949de9f13d794fad72215a191b98a, type: 3}
+    image: {fileID: 21300000, guid: 6589ab04432e49642bafa555da46caab, type: 3}
     deathVoiceLine: {fileID: 0}
   repairedDeathInfo:
     cause: 8
     deathText: 
     tooltip: 
-    image: {fileID: 21300000, guid: 16b949de9f13d794fad72215a191b98a, type: 3}
+    image: {fileID: 21300000, guid: 6589ab04432e49642bafa555da46caab, type: 3}
     deathVoiceLine: {fileID: 0}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7754135932564462567}
   - component: {fileID: 7918191314302147660}
   - component: {fileID: 8625977043897340202}
+  - component: {fileID: 7262158731890943861}
   m_Layer: 0
   m_Name: OfficeDoor
   m_TagString: Untagged
@@ -52,8 +53,11 @@ MonoBehaviour:
     pointerType: 0
   openAngle: 20
   closedAngle: 0
-  rotateSpeed: 5
+  rotateSpeed: 50
   fullOpenAngle: 85
+  audioSource: {fileID: 7262158731890943861}
+  openSound: {fileID: 8300000, guid: 77d912255754947479b529d04ed2022b, type: 3}
+  closeSound: {fileID: 8300000, guid: 0c2fa6ba66de2224b89c0e95d15c6898, type: 3}
 --- !u!114 &7918191314302147660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +99,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.13248448, y: 2.495804, z: 1.5071442}
   m_Center: {x: 0, y: 1.2234813, z: 0.72384965}
+--- !u!82 &7262158731890943861
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195125946323449888}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4048676849093547130, guid: 02278440f8816b643b562ecfe7a3f745, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &6911194759640260113
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     [SerializeField] private float closedAngle = 0f;   // Fully closed
     [SerializeField] private float rotateSpeed = 5f;
     [SerializeField] private float fullOpenAngle = 85f;
+    [Space]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
 
     private float targetAngle;
     private float currentAngle;
@@ -30,7 +34,19 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     }
 
     private void SmoothRotate() {
-        currentAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime * rotateSpeed);
+        if (Mathf.Approximately(currentAngle, targetAngle)) {
+            transform.localRotation = Quaternion.Euler(0f, targetAngle, 0f);
+            return;
+        }
+
+        float angleDifference = Mathf.DeltaAngle(currentAngle, targetAngle);
+        float step = rotateSpeed * Time.deltaTime;
+        if (Mathf.Abs(angleDifference) <= step) {
+            currentAngle = targetAngle;
+        }
+        else {
+            currentAngle += Mathf.Sign(angleDifference) * step;
+        }
         transform.localRotation = Quaternion.Euler(0f, currentAngle, 0f);
     }
 
@@ -52,6 +68,8 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
     private Coroutine fullOpenCoroutine;
 
     private IEnumerator FullOpen() {
+        audioSource.clip = openSound;
+        audioSource.Play();
         SetDoorLocked(true);
         targetAngle = fullOpenAngle;
 
@@ -74,6 +92,11 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
 
     public void OnHoverExit() {
         if (IsLocked) return;
+        if (!IsOpen) {
+            audioSource.clip = openSound;
+            audioSource.Stop();
+            audioSource.Play();
+        }
         IsOpen = true;
         targetAngle = openAngle;
     }
@@ -82,6 +105,9 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
         if (IsLocked) return;
         IsOpen = false;
         targetAngle = closedAngle;
+        audioSource.clip = closeSound;
+        audioSource.Stop();
+        audioSource.Play();
     }
 
     public void OnInteractHold(float duration) {
@@ -93,5 +119,8 @@ public class OfficeDoor : MonoBehaviour, IInteractable {
         IsOpen = true;
         targetAngle = openAngle;
         TimeClosed = 0f;
+        audioSource.clip = openSound;
+        audioSource.Stop();
+        audioSource.Play();
     }
 }

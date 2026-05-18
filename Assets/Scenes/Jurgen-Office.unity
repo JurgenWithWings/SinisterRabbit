@@ -5827,6 +5827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838798238}
   - component: {fileID: 838798239}
+  - component: {fileID: 838798240}
   m_Layer: 0
   m_Name: NightLogicManager
   m_TagString: Untagged
@@ -5862,7 +5863,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatManager: {fileID: 1034308973}
-  nightDuration: 360
+  nightDuration: 30
+  startVolume: 0.08
+  endVolume: 0.17
   testingData:
   - ThreatType: 1
     Level: 0
@@ -5876,6 +5879,103 @@ MonoBehaviour:
     Level: 0
   - ThreatType: 6
     Level: 0
+--- !u!82 &838798240
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838798237}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4770532151606183353, guid: 02278440f8816b643b562ecfe7a3f745, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 9f8354e07ec9c9b499412b6cced36835, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.1
+      value: 1
+      inSlope: -0.018340625
+      outSlope: -0.018340625
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.55292565
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.59013
+      outSlope: -3.59013
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.098619394
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &850570030
 GameObject:
   m_ObjectHideFlags: 0
@@ -15597,7 +15697,7 @@ PrefabInstance:
     - target: {fileID: 2250137682425457626, guid: 5ffafe1cf49a4fc4bbdc7e6130b2d79d, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 8dfe4f93a4a172b40a5934c4e9eb2c2a, type: 3}
+      objectReference: {fileID: 8300000, guid: 137f2f84264c9294e83818d6dd71567b, type: 3}
     - target: {fileID: 4728743870710050435, guid: 5ffafe1cf49a4fc4bbdc7e6130b2d79d, type: 3}
       propertyPath: m_Name
       value: MusicManager
