@@ -16,6 +16,7 @@ public class Doorman : Threat {
     }
 
     protected override void Tick() {
+        if (level == 0) return;
         animator.SetFloat("Speed", agent.velocity.magnitude);
         
         if (!isMoving && timer > movementInterval) {

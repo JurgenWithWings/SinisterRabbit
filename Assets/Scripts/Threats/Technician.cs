@@ -32,6 +32,7 @@ public class Technician : Threat {
     }
     
     public override void UpdateAILevel(int newLevel) {
+        if (level == 0) return;
         if (newLevel == 0) {
             animator.transform.parent.gameObject.SetActive(false);
             if (minigameCoroutine != null) {

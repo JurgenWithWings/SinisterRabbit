@@ -53,6 +53,7 @@ public class Thief : Threat {
     }
 
     protected override void Tick() {
+        if (level == 0) return;
         if (timer > GetInterval()) {
             AttemptSendTruck();
         }
