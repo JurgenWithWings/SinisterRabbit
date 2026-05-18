@@ -47,7 +47,7 @@ MonoBehaviour:
     deathText: You ran out of time!
     tooltip: Make sure to repair all the machines before the end of your shift.
     image: {fileID: 21300000, guid: 365e01dca0148e643b36fe503dc55084, type: 3}
-    deathVoiceLine: {fileID: 0}
+    deathVoiceLine: {fileID: 8300000, guid: 9f8354e07ec9c9b499412b6cced36835, type: 3}
   powerDeathInfo:
     cause: 6
     deathText: You ran out of power!

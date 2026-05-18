@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldenEggPrefab: {fileID: 3328826492670973234}
-  timeValue: 15
+  timeValue: 5
   audioSource: {fileID: 8905721884851811274}
 --- !u!54 &1260273737445140609
 Rigidbody:

@@ -45,6 +45,11 @@ public class DayLogicManager : MonoBehaviour {
             data = LevelLoading.DayShiftData;
         }
     }
+
+    private void LoadAssets() {
+        AssignBrokenMachines();
+        SpawnGoldenEggs();
+    }
     
     private void Start() {
         timeRemaining = data.shiftDuration;
@@ -52,10 +57,8 @@ public class DayLogicManager : MonoBehaviour {
         UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
         
         GameOverManager.OnGameOver += OnGameOver;
-        
-        AssignBrokenMachines();
-        
-        SpawnGoldenEggs();
+
+        LoadAssets();
     }
 
     private void OnDestroy() {
@@ -85,6 +88,10 @@ public class DayLogicManager : MonoBehaviour {
     }
 
     private void AssignBrokenMachines() {
+        if (availableMachines.Count == 0) {
+            Debug.LogError("No Repairable Machines found in scene!");
+        }
+        
         if (availableMachines.Count < data.numBrokenMachines) {
             Debug.LogWarning("Not enough machines to break! Please add more machines to the availableMachines list.");
             return;
