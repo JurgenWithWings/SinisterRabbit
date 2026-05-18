@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8249596617115890485
+--- !u!114 &-2191533114211693357
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_MachineBox2
+  m_Name: M_CeilingLight
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,11 +42,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 113ec043b7479f749abddbf2e6705c55, type: 3}
+        m_Texture: {fileID: 2800000, guid: c21e544f93d23b74abe454c9df7ac8f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 4b7dfacf6674b2042b440e1195ea91bb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43a840f3c35ca4945b8ed6bcaaf8da58, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -62,15 +62,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 46155bdd6bbf83247a94dbf38cbcf704, type: 3}
+        m_Texture: {fileID: 2800000, guid: cbca466d111827d41b0c18b759262c37, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 113ec043b7479f749abddbf2e6705c55, type: 3}
+        m_Texture: {fileID: 2800000, guid: c21e544f93d23b74abe454c9df7ac8f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 238bb5f5d24b60241972a7d3f9f5b9ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4cde388892bb24b41bdc6cd191473e56, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
