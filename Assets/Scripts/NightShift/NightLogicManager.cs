@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(AudioSource))]
 public class NightLogicManager : MonoBehaviour {
@@ -10,7 +11,9 @@ public class NightLogicManager : MonoBehaviour {
     public float NightDuration => nightDuration;
     [Space] 
     [SerializeField] private float startVolume = 0.4f; 
-    [SerializeField] private float endVolume = 0.6f; 
+    [SerializeField] private float endVolume = 0.6f;
+    [Space] 
+    [SerializeField] private DecalProjector whiteboardDecal;
     
     #if UNITY_EDITOR
     [SerializeField] private NightShiftData.AILevelData[] testingData;
@@ -41,6 +44,13 @@ public class NightLogicManager : MonoBehaviour {
             #endif
             
             data = LevelLoading.NightShiftData;
+        }
+
+        if (data.whiteboardMat != null) {
+            whiteboardDecal.material = data.whiteboardMat;
+        }
+        else {
+            whiteboardDecal.enabled = false;
         }
         
         audioSource = GetComponent<AudioSource>();

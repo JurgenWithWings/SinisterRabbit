@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 0
   camsPowerDrain: 0.5
+  whiteboardMat: {fileID: 2100000, guid: a77ccef4c9ed7d44e89664510ee5df5c, type: 2}
   startingAI:
   - ThreatType: 1
     Level: 4
   - ThreatType: 2
     Level: 2
   - ThreatType: 3
-    Level: 0
+    Level: 2
   - ThreatType: 4
     Level: 0
   - ThreatType: 5

@@ -52,7 +52,8 @@ MonoBehaviour:
   threatType: 2
   deathCause: 1
   agent: {fileID: 0}
-  availableStates: []
+  availableStates:
+  - {fileID: 8724461497097014058}
   movementInterval: 5
   animator: {fileID: 0}
   chickens:
@@ -82,6 +83,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1001 &4436149349964014099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -491,15 +495,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 46482222022628791, guid: 79aa246b91cb458478e0655c8d648f9c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.052
+      value: 1.037
       objectReference: {fileID: 0}
     - target: {fileID: 46482222022628791, guid: 79aa246b91cb458478e0655c8d648f9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.357
+      value: 7.234
       objectReference: {fileID: 0}
     - target: {fileID: 46482222022628791, guid: 79aa246b91cb458478e0655c8d648f9c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.692
+      value: 1.739
       objectReference: {fileID: 0}
     - target: {fileID: 46482222022628791, guid: 79aa246b91cb458478e0655c8d648f9c, type: 3}
       propertyPath: m_LocalRotation.w
