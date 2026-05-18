@@ -31,7 +31,7 @@ public class NightLogicManager : MonoBehaviour {
 
             #if UNITY_EDITOR
             LevelLoading.NightShiftData.startingAI = testingData;
-            LevelLoading.OverrideCurrentSceneTracker(Level.NightShift);
+            LevelLoading.OverrideCurrentSceneTracker(Scene.NightShift);
             #endif
             
             data = LevelLoading.NightShiftData;

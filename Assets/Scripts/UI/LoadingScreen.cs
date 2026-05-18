@@ -23,9 +23,7 @@ public class LoadingScreen : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         }
 
-        if (SceneManager.loadedSceneCount == 1 && SceneManager.GetActiveScene().name == LevelLoading.LoadingScreenSceneName) {
-            LevelLoading.LoadScene(Level.MainMenu);
-        }
+        LevelLoading.LoadScene(Scene.MainMenu);
     }
     
     public void StartLoadingScreen(List<AsyncOperation> operations) {
@@ -36,7 +34,7 @@ public class LoadingScreen : MonoBehaviour {
         fallbackCam.enabled = true;
         canvas.enabled = true;
         slider.value = 0f;
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         
         int doneCounter = 0;
         while (doneCounter < operations.Count) {
@@ -58,7 +56,7 @@ public class LoadingScreen : MonoBehaviour {
         slider.value = 1f;
         yield return new WaitForSecondsRealtime(1f); // Delay for better UX
         OnFinishedLoading?.Invoke();
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         canvas.enabled = false;
         fallbackCam.enabled = false;
     }

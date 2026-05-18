@@ -39,7 +39,7 @@ public class DayLogicManager : MonoBehaviour {
             LevelLoading.DayShiftData.shiftDuration = shiftDuration;
             LevelLoading.DayShiftData.numBrokenMachines = numBrokenMachines;
             LevelLoading.DayShiftData.numberOfGoldenEggs = numberOfGoldenEggs;
-            LevelLoading.OverrideCurrentSceneTracker(Level.DayShift);
+            LevelLoading.OverrideCurrentSceneTracker(Scene.DayShift);
             #endif
             
             data = LevelLoading.DayShiftData;

@@ -252,6 +252,13 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
         }
     }
 
+    public InputEvent<bool> PlayerPause;
+    void IPlayerActions.OnPause(InputAction.CallbackContext context) {
+        if (context.performed || context.canceled) {
+            PlayerPause.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
+
 
     // Office
     public InputEvent<Vector2> OfficeMouse;
@@ -268,6 +275,14 @@ public class InputManager : MonoBehaviour, IPlayerActions, IOfficeActions, IUIAc
         DefaultHandle(context);
         if (context.performed || context.canceled) {
             OfficeLeftClick.SetAndInvoke(context.performed, context.performed, context);
+        }
+    }
+
+    public InputEvent<bool> OfficePause;
+    void IOfficeActions.OnPause(InputAction.CallbackContext context) {
+        DefaultHandle(context);
+        if (context.performed || context.canceled) {
+            OfficePause.SetAndInvoke(context.performed, context.performed, context);
         }
     }
 

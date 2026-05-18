@@ -40,7 +40,7 @@ public class GameOverScreen : MonoBehaviour {
             case CauseOfDeath.Power:
                 bigText.text = "Game Over";
                 bigText.color = badTextColor;
-                topButtonText.text = "Restart";
+                topButtonText.text = "Try Again";
                 topButton.onClick.AddListener(Restart);
                 break;
                 
@@ -59,7 +59,7 @@ public class GameOverScreen : MonoBehaviour {
         audioSource.Play();
         
         bottomButton.onClick.AddListener(() => {
-            LevelLoading.LoadScene(Level.MainMenu);
+            LevelLoading.LoadScene(Scene.MainMenu);
         });
     }
 

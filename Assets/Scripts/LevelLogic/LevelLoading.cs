@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum Level {
+public enum Scene {
     MainMenu,
     DayShift,
     NightShift,
@@ -20,7 +20,7 @@ public static class LevelLoading {
     public const string DayShiftSceneName = "Jurgen-DayShift";
     public const string NightShiftSceneName = "Jurgen-Office";
 
-    private static Level currentLevel = Level.MainMenu;
+    public static Scene CurrentScene { get; private set; } = Scene.MainMenu;
 
     public static string SaveFilePath = Application.dataPath + "saveData.csv";
     
@@ -34,13 +34,13 @@ public static class LevelLoading {
     }
     private static AllLevelData dataCache;
 
-    public static void OverrideCurrentSceneTracker(Level level) {
-        currentLevel = level;
+    public static void OverrideCurrentSceneTracker(Scene scene) {
+        CurrentScene = scene;
     }
     
     public static void LoadNextLevel() {
-        switch (currentLevel) {
-            case Level.MainMenu:
+        switch (CurrentScene) {
+            case Scene.MainMenu:
                 int levelIndex = GetHighestLevelCompleted() + 1;
                 if (levelIndex < 0 || levelIndex >= AllData.levels.Count) {
                     Debug.LogError("No more levels to load. Highest completed index: " + (levelIndex - 1));
@@ -49,33 +49,33 @@ public static class LevelLoading {
                 LoadLevel(levelIndex);
                 break;
             
-            case Level.DayShift:
+            case Scene.DayShift:
                 LoadLevel(DayShiftData.levelIndex + 1);
                 break;
             
-            case Level.NightShift:
+            case Scene.NightShift:
                 LoadLevel(NightShiftData.levelIndex + 1);
                 break;
         }
     }
 
     public static void ReloadLevel() {
-        switch (currentLevel) {
-            case Level.MainMenu:
-                LoadScene(Level.MainMenu);
+        switch (CurrentScene) {
+            case Scene.MainMenu:
+                LoadScene(Scene.MainMenu);
                 break;
             
-            case Level.DayShift:
+            case Scene.DayShift:
                 if (DayShiftData != null) {
-                    LoadScene(Level.DayShift);
+                    LoadScene(Scene.DayShift);
                 } else {
                     Debug.LogError("No DayShift data to reload.");
                 }
                 break;
             
-            case Level.NightShift:
+            case Scene.NightShift:
                 if (NightShiftData != null) {
-                    LoadScene(Level.NightShift);
+                    LoadScene(Scene.NightShift);
                 } else {
                     Debug.LogError("No NightShift data to reload.");
                 }
@@ -94,17 +94,17 @@ public static class LevelLoading {
         }
 
         if (index > AllData.levels.Count) {
-            LoadScene(Level.MainMenu);
+            LoadScene(Scene.MainMenu);
             return;
         }
         
         LevelData levelData = AllData.levels[index];
         if (levelData is DayShiftData dayData) {
             DayShiftData = dayData;
-            LoadScene(Level.DayShift);
+            LoadScene(Scene.DayShift);
         } else if (levelData is NightShiftData nightData) {
             NightShiftData = nightData;
-            LoadScene(Level.NightShift);
+            LoadScene(Scene.NightShift);
         } else {
             Debug.LogError("Unknown level data type at index: " + index);
         }
@@ -113,30 +113,30 @@ public static class LevelLoading {
     /// <summary>
     /// Load only the scene without changing the level data. Used for returning to main menu or reloading current level.
     /// </summary>
-    /// <param name="level">The scene to load</param>
-    public static void LoadScene(Level level) {
-        LoadSceneWithLoadingScreen(level);
+    /// <param name="scene">The scene to load</param>
+    public static void LoadScene(Scene scene) {
+        LoadSceneWithLoadingScreen(scene);
     }
     
-    private static void LoadSceneWithLoadingScreen(Level level) {
+    private static void LoadSceneWithLoadingScreen(Scene scene) {
         List<AsyncOperation> operations = new List<AsyncOperation>();
-        switch (level) {
-            case Level.MainMenu:
-                currentLevel = Level.MainMenu;
+        switch (scene) {
+            case Scene.MainMenu:
+                CurrentScene = Scene.MainMenu;
                 operations.Add(SceneManager.LoadSceneAsync(MainMenuSceneName, LoadSceneMode.Single));
                 break;
-            case Level.DayShift:
-                currentLevel = Level.DayShift;
+            case Scene.DayShift:
+                CurrentScene = Scene.DayShift;
                 operations.Add(SceneManager.LoadSceneAsync(FactoryGeoSceneName, LoadSceneMode.Single));
                 operations.Add(SceneManager.LoadSceneAsync(DayShiftSceneName, LoadSceneMode.Additive));
                 break;
-            case Level.NightShift:
-                currentLevel = Level.NightShift;
+            case Scene.NightShift:
+                CurrentScene = Scene.NightShift;
                 operations.Add(SceneManager.LoadSceneAsync(FactoryGeoSceneName, LoadSceneMode.Single));
                 operations.Add(SceneManager.LoadSceneAsync(NightShiftSceneName, LoadSceneMode.Additive));
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(level), level, null);
+                throw new ArgumentOutOfRangeException(nameof(scene), scene, null);
         }
 
         LoadingScreen.instance?.StartLoadingScreen(operations);
