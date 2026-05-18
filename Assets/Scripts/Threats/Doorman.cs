@@ -1,12 +1,22 @@
-using System.Collections;
 using UnityEngine;
 
 public class Doorman : Threat {
     private void Start() {
         agent.SetDestination(states[currentState].transform.position);
     }
+    
+    public override void UpdateAILevel(int newLevel) {
+        if (newLevel == 0) {
+            animator.transform.parent.gameObject.SetActive(false);
+        }
+        else {
+            animator.transform.parent.gameObject.SetActive(true);
+        }
+        base.UpdateAILevel(newLevel);
+    }
 
     protected override void Tick() {
+        if (level == 0) return;
         animator.SetFloat("Speed", agent.velocity.magnitude);
         
         if (!isMoving && timer > movementInterval) {
@@ -35,16 +45,20 @@ public class Doorman : Threat {
         if (!CanMoveTo(nextState)) return;
         
         switch (nextState) {
-            case "Outside":
-            case "Main":
-            case "RightHallway":
-            case "LeftHallway":
-            case "RightDoor":
-            case "LeftDoor":
+            case "dmStart":
+            case "dmReception":
+            case "dmOffice1":
+            case "dmHall":
+            case "dmCafeteria":
+            case "dmFactoryFloor":
+            case "dmLeftStairs":
+            case "dmRightStairs":
+            case "uLeftDoor":
+            case "uRightDoor":
                 //if (states[currentState].IsCameraActive()) return; // Camera stalling
                 break;
             
-            case "Office":
+            case "dmOffice":
                 if (states[currentState].OfficeDoor.IsOpen) { // If door is open, move into office
                     TriggerGameOver();
                 }
@@ -58,17 +72,23 @@ public class Doorman : Threat {
     }
 
     protected override string GetNextState() {
+        float randomValue = Random.value;
         string nextState = currentState switch {
-            "Outside" => "Main",
-            "Main" => Random.value < 0.5f ? "RightHallway" : "LeftHallway",
+            "dmStart" => "dmReception",
+            "dmReception" => randomValue < 0.5f ? "dmOffice1" : "dmHall",
+            
+            "dmOffice1" => randomValue < 0.5f ? "dmFactoryFloor" : "dmHall",
+            "dmHall" => randomValue < 1/3f ? "dmFactoryFloor" : randomValue < 2/3f ? "dmCafeteria" : "dmRightStairs",
+            "dmCafeteria" => "dmRightStairs",
+            "dmFactoryFloor" => "dmLeftStairs",
             
             // Right Side
-            "RightHallway" => "RightDoor",
-            "RightDoor" => "Office",
+            "dmRightStairs" => "uRightDoor",
+            "uRightDoor" => "dmOffice",
             
             // Left Side
-            "LeftHallway" => "LeftDoor",
-            "LeftDoor" => "Office",
+            "dmLeftStairs" => "uLeftDoor",
+            "uLeftDoor" => "dmOffice",
             
             _ => currentState
         };
@@ -79,7 +99,7 @@ public class Doorman : Threat {
 
     private float doorWaitTime;
     private void DoorStateUpdate() {
-        if (currentState != "RightDoor" && currentState != "LeftDoor") return;
+        if (currentState != "uRightDoor" && currentState != "uLeftDoor") return;
         ThreatStatePoint state = states[currentState];
 
         if (!isMoving && !state.OfficeDoor.IsOpen) {
@@ -90,7 +110,7 @@ public class Doorman : Threat {
         }
         
         if (!state.OfficeDoor.IsOpen && doorWaitTime > 2f) {
-            TryMoveTo("Main");
+            TryMoveTo("dmReception");
         }
     }
 }

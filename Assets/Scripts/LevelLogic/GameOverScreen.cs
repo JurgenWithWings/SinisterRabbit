@@ -1,7 +1,6 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour {
@@ -14,11 +13,20 @@ public class GameOverScreen : MonoBehaviour {
     [SerializeField] private TMP_Text topButtonText;
     [SerializeField] private Button bottomButton;
     [SerializeField] private Image image;
+    [Space]
+    [SerializeField] private Animation animation;
+    [Space]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip secondThudSound;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioSource voiceAudioSource;
     
     public void SetupScreen(GameOverData.DeathInfo deathInfo) {
         littleText.text = deathInfo.deathText;
         tooltipText.text = deathInfo.tooltip;
         image.sprite = deathInfo.image;
+        voiceAudioSource.clip = deathInfo.deathVoiceLine;
+        voiceAudioSource.Play();
         
         topButton.onClick.RemoveAllListeners();
         bottomButton.onClick.RemoveAllListeners();
@@ -32,12 +40,14 @@ public class GameOverScreen : MonoBehaviour {
             case CauseOfDeath.Power:
                 bigText.text = "Game Over";
                 bigText.color = badTextColor;
-                topButtonText.text = "Restart";
+                topButtonText.text = "Try Again";
                 topButton.onClick.AddListener(Restart);
                 break;
                 
             case CauseOfDeath.SixAM:
             case CauseOfDeath.Repaired:
+                animation.clip = animation["CompletionFadeIn"].clip;
+                audioSource.clip = winSound;
                 bigText.text = "Completed!";
                 bigText.color = goodTextColor;
                 topButtonText.text = "NextLevel";
@@ -45,8 +55,11 @@ public class GameOverScreen : MonoBehaviour {
                 break;
         }
         
+        animation.Play();
+        audioSource.Play();
+        
         bottomButton.onClick.AddListener(() => {
-            SceneManager.LoadScene(LevelLoading.MainMenuSceneName);
+            LevelLoading.LoadScene(Scene.MainMenu);
         });
     }
 
@@ -55,6 +68,10 @@ public class GameOverScreen : MonoBehaviour {
     }
 
     private void Restart() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LevelLoading.ReloadLevel();
+    }
+
+    public void PlaySecondThud() {
+        audioSource.PlayOneShot(secondThudSound);
     }
 }

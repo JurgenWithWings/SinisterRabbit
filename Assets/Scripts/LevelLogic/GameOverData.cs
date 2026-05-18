@@ -8,12 +8,14 @@ public class GameOverData : ScriptableObject {
         public string deathText;
         [TextArea] public string tooltip;
         public Sprite image;
+        public AudioClip deathVoiceLine;
     }
 
     [Header("Cause of Death Info")]
     public DeathInfo doormanDeathInfo;
     public DeathInfo flockDeathInfo;
     public DeathInfo technicianDeathInfo;
+    public DeathInfo chefDeathInfo;
     public DeathInfo thiefDeathInfo;
     public DeathInfo timerDeathInfo;
     public DeathInfo powerDeathInfo;

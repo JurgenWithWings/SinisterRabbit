@@ -1,11 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.VFX;
+using Random = UnityEngine.Random;
 
 public class Chicken : MonoBehaviour, IInteractable {
     [SerializeField] private InteractionInfo interactionInfo;
     [SerializeField] private GameObject chicken;
     [SerializeField] private VisualEffect featherEffect;
+    [Space]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioLoopSource;
+    [SerializeField] private AudioArray clickedSounds;
     
     public event Action<Chicken> OnChickenClicked;
 
@@ -16,6 +21,8 @@ public class Chicken : MonoBehaviour, IInteractable {
 
     public void Activate() {
         chicken.SetActive(true);
+        audioLoopSource.time = Random.Range(0, audioLoopSource.clip.length);
+        audioLoopSource.Play();
     }
 
     public InteractionInfo GetInteractionInfo() => interactionInfo;
@@ -28,6 +35,8 @@ public class Chicken : MonoBehaviour, IInteractable {
         chicken.SetActive(false);
         featherEffect.gameObject.SetActive(true);
         featherEffect.Play();
+        clickedSounds.PlayRandomSound(audioSource);
+        audioLoopSource.Stop();
     }
 
     public void OnInteractHold(float duration) { }

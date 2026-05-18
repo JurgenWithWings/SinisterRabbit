@@ -211,6 +211,10 @@ PrefabInstance:
       value: Technician Button (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
+      propertyPath: pressSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 45c216202d0814b40b0c2125fbd5e3dd, type: 2}
+    - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -317,6 +321,10 @@ PrefabInstance:
       value: Technician Button (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
+      propertyPath: pressSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 88f8c8913f13d6345a134aa5863d86f4, type: 2}
+    - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -422,6 +430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Technician Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
+      propertyPath: pressSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e126ceaeffdf5540a254cd4cfc6d016, type: 2}
     - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -619,6 +631,10 @@ PrefabInstance:
       value: Technician Button (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
+      propertyPath: pressSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 94232c772818b174d8fbde602933873e, type: 2}
+    - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -724,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Technician Button (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
+      propertyPath: pressSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: c6a85e3723aad424da26d3a829a11250, type: 2}
     - target: {fileID: 8836574990306944691, guid: 4e2203417e81fb44caaf104793dd4ed1, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
       value: 1

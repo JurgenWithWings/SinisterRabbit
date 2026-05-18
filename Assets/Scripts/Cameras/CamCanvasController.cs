@@ -2,17 +2,11 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-
-[Serializable] public struct CamButtonPair {
-    public SecurityCamera cam;
-    public KeyCapButton button;
-}
 
 public class CamCanvasController : MonoBehaviour {
     [SerializeField] private TMP_Text camName;
 
-    [SerializeField] private List<CamButtonPair> camButtons = new();
+    [SerializeField] private List<KeyCapButton> camButtons = new();
 
     private Canvas canvas;
     
@@ -23,14 +17,20 @@ public class CamCanvasController : MonoBehaviour {
         
         SetCamera(null);
 
-        foreach (CamButtonPair pair in camButtons) {
-            pair.button.OnButtonPressed.AddListener(() => SetCamera(pair.cam));
+        SecurityCamera[] cams = FindObjectsOfType<SecurityCamera>();
+        
+        foreach (KeyCapButton button in camButtons) {
+            foreach (SecurityCamera cam in cams) {
+                if (cam.gameObject.name == button.name) {
+                    button.OnButtonPressed.AddListener(() => SetCamera(cam));
+                }
+            }
         }
     }
 
     private void OnDestroy() {
-        foreach (CamButtonPair pair in camButtons) {
-            pair.button.OnButtonPressed.RemoveAllListeners();
+        foreach (KeyCapButton button in camButtons) {
+            button.OnButtonPressed.RemoveAllListeners();
         }
     }
 
@@ -45,6 +45,6 @@ public class CamCanvasController : MonoBehaviour {
         
         OnButtonPressed?.Invoke(cam);
         
-        camName.text = cam.camName;
+        camName.text = cam.gameObject.name;
     }
 }

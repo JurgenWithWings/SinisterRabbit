@@ -12,11 +12,12 @@ public class NightShiftData : LevelData {
     
     [Header("AI Levels Per Hour")]
     public AILevelData[] startingAI = {
-        new AILevelData { ThreatType = ThreatType.Doorman, Level = 1 },
-        new AILevelData { ThreatType = ThreatType.Flock, Level = 1 },
-        new AILevelData { ThreatType = ThreatType.Technician, Level = 1 },
-        new AILevelData { ThreatType = ThreatType.Sheep, Level = 1 },
-        new AILevelData { ThreatType = ThreatType.Thief, Level = 1 }
+        new AILevelData { ThreatType = ThreatType.Doorman, Level = 20 },
+        new AILevelData { ThreatType = ThreatType.Flock, Level = 20 },
+        new AILevelData { ThreatType = ThreatType.Technician, Level = 20 },
+        new AILevelData { ThreatType = ThreatType.Chef, Level = 20 },
+        new AILevelData { ThreatType = ThreatType.Sheep, Level = 20 },
+        new AILevelData { ThreatType = ThreatType.Thief, Level = 20 }
     };
 
     public AILevelData[] oneAMLevels;

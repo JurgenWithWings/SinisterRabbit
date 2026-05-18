@@ -6,6 +6,7 @@ public enum CauseOfDeath {
     Doorman,
     Flock,
     Technician,
+    Chef,
     Thief,
     Timer,
     Power,
@@ -61,6 +62,9 @@ public class GameOverManager : MonoBehaviour {
     private IEnumerator GameOverCoroutine(CauseOfDeath cause) {
         IsGameOver = true;
         OnGameOver?.Invoke();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        MusicManager.instance?.StopMusic();
         
         if (player.TryGetComponent(out Player playerComponent)) {
             playerComponent.Teleport(gameOverBox.transform.position);
@@ -74,6 +78,7 @@ public class GameOverManager : MonoBehaviour {
             CauseOfDeath.Doorman => GameOverData.doormanDeathInfo,
             CauseOfDeath.Flock => GameOverData.flockDeathInfo,
             CauseOfDeath.Technician => GameOverData.technicianDeathInfo,
+            CauseOfDeath.Chef => GameOverData.chefDeathInfo,
             CauseOfDeath.Thief => GameOverData.thiefDeathInfo,
             CauseOfDeath.Timer => GameOverData.timerDeathInfo,
             CauseOfDeath.Power => GameOverData.powerDeathInfo,
@@ -82,7 +87,8 @@ public class GameOverManager : MonoBehaviour {
         };
         gameOverScreen.SetupScreen(deathInfo);
         
-        yield return new WaitForSeconds(2f);
+        bool isWin = cause is CauseOfDeath.SixAM or CauseOfDeath.Repaired;
+        yield return new WaitForSeconds(isWin ? 6f : 3.5f);
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

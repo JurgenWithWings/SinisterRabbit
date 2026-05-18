@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 
 public class SecurityCamera : MonoBehaviour {
-    public string camName;
     public Camera cam;
 
     public event Action<string> OnOfficeButton;

@@ -13,7 +13,7 @@ public class ThreatStatePoint : MonoBehaviour {
 
     public Threat threat { get; private set; }
     public bool Occupied => threat != null;
-
+    
     private void Start() {
         if (cameraSystem != null) {
             cameraSystem.OnCamsOpen += CameraSystemOnOpen;

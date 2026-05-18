@@ -28,8 +28,22 @@ public class Technician : Threat {
     
     private void Start() {
         defMoveInterval = movementInterval;
-        currentState = "RabbitStart";
         agent.SetDestination(states[currentState].transform.position);
+    }
+    
+    public override void UpdateAILevel(int newLevel) {
+        if (level == 0) return;
+        if (newLevel == 0) {
+            animator.transform.parent.gameObject.SetActive(false);
+            if (minigameCoroutine != null) {
+                StopCoroutine(minigameCoroutine);
+                minigameCoroutine = null;
+            }
+        }
+        else {
+            animator.transform.parent.gameObject.SetActive(true);
+        }
+        base.UpdateAILevel(newLevel);
     }
     
     protected override void Tick() {
@@ -61,19 +75,21 @@ public class Technician : Threat {
         if (!CanMoveTo(nextState)) return;
         
         switch (nextState) {
-            case "RabbitStart":
-            case "RabbitMain":
-            case "RabbitRightHallway":
-            case "RabbitLeftHallway":
+            case "teStart":
+            case "teEastWing":
+            case "teCafeteria":
+            case "teReception":
+            case "teCentralFactory":
+            case "teWestWing":
                 break;
             
-            case "RightDoor":
-            case "LeftDoor":
+            case "uRightDoor":
+            case "uLeftDoor":
                 movementInterval = doorPatience - (doorPatienceCount * doorPatiencePenalty);
                 break;
             
-            case "RabbitOffice":
-                if (currentState == "RabbitOffice") return; // Already in office, do not move
+            case "teOffice":
+                if (currentState == "teOffice") return; // Already in office, do not move
                 movementInterval = defMoveInterval;
                 if (states[currentState].OfficeDoor.IsOpen) { // If door is open, move into office
                     states[currentState].OfficeDoor.FullOpenDoor(0.5f);
@@ -85,7 +101,7 @@ public class Technician : Threat {
                 return;
         }
         
-        if (minigameCoroutine == null && currentState != "RabbitOffice" && nextState == "RabbitOffice") {
+        if (minigameCoroutine == null && currentState != "teOffice" && nextState == "teOffice") {
             minigameCoroutine = StartCoroutine(Minigame());
         }
         
@@ -93,17 +109,19 @@ public class Technician : Threat {
     }
     
     protected override string GetNextState() {
+        float randomValue = Random.value;
         string nextState = currentState switch {
-            "RabbitStart" => "RabbitMain",
-            "RabbitMain" => Random.value < 0.5f ? "RabbitRightHallway" : "RabbitLeftHallway",
+            "teStart" => "teEastWing",
+            "teEastWing" => "teCafeteria",
+            "teCafeteria" => randomValue < 0.5f ? "teReception" : "teCentralFactory",
+            "teReception" => "teWestWing",
             
-            // Right Side
-            "RabbitRightHallway" => "RightDoor",
-            "RightDoor" => "RabbitOffice",
+            //Middle
+            "teCentralFactory" => randomValue < 0.5f ? "teWestWing" : "uRightDoor",
+            "teWestWing" => randomValue < 0.5f ? "teCentralFactory" : "uLeftDoor",
             
-            // Left Side
-            "RabbitLeftHallway" => "LeftDoor",
-            "LeftDoor" => "RabbitOffice",
+            "uRightDoor" => "teOffice",
+            "uLeftDoor" => "teOffice",
             
             _ => currentState
         };
@@ -112,7 +130,7 @@ public class Technician : Threat {
     
     private float doorWaitTime;
     private void DoorStateUpdate() {
-        if (currentState != "RightDoor" && currentState != "LeftDoor") return;
+        if (currentState != "uRightDoor" && currentState != "uLeftDoor") return;
         ThreatStatePoint state = states[currentState];
 
         if (!isMoving && !state.OfficeDoor.IsOpen) {
@@ -124,7 +142,7 @@ public class Technician : Threat {
         
         if (!state.OfficeDoor.IsOpen && doorWaitTime > 4f) {
             doorPatienceCount++;
-            TryMoveTo("RabbitMain");
+            TryMoveTo(currentState == "uRightDoor" ? "teCentralFactory" : "teWestWing");
         }
     }
     
@@ -155,7 +173,7 @@ public class Technician : Threat {
         }
 
         if (minigameProgress >= 4) {
-            TryMoveTo("RabbitStart");
+            TryMoveTo("teStart");
         }
         else {
             TriggerGameOver();

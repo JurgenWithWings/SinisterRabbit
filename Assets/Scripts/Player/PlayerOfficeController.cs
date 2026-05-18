@@ -88,6 +88,14 @@ public class PlayerOfficeController : MonoBehaviour {
     }
 
     void Update() {
+        if (InputManager.Instance.OfficePause) {
+            PauseScreen.OnPause?.Invoke();
+        }
+
+        if (Time.timeScale == 0) {
+            return;
+        }
+        
         if (!IsBusy) {
             HandleTransitions();
         }

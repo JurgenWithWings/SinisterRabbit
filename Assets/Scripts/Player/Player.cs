@@ -33,6 +33,13 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
+        if (InputManager.Instance.PlayerPause.Triggered) {
+            PauseScreen.OnPause?.Invoke();
+        }
+        if (Time.timeScale == 0) {
+            return;
+        }
+        
         CameraInput cameraInput = new() {
             Look = InputManager.Instance.PlayerLook.Value * sensitivity,
         };
@@ -40,9 +47,9 @@ public class Player : MonoBehaviour {
 
         CharacterInput characterInput = new() {
             Rotation       = playerCamera.transform.rotation,
-            Move        = InputManager.Instance.PlayerMove,
+            Move         = InputManager.Instance.PlayerMove,
             Jump           = InputManager.Instance.PlayerJump.Triggered,
-            JumpSustain = InputManager.Instance.PlayerJump,
+            JumpSustain  = InputManager.Instance.PlayerJump,
             Crouch         = InputManager.Instance.PlayerCrouch.Value 
                 ? CrouchInput.Held 
                 : CrouchInput.NotHeld,

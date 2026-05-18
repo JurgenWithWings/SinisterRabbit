@@ -1,8 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class KeyCapButton : MonoBehaviour, IInteractable {
+    [SerializeField] private AudioArray pressSounds;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private string animName = "KeyCapClick";
     [SerializeField] private InteractionInfo interactionInfo;
     
@@ -24,6 +25,7 @@ public class KeyCapButton : MonoBehaviour, IInteractable {
             return;
         }
         animation.Play(animName);
+        pressSounds.PlayRandomSound(audioSource);
         OnButtonPressed.Invoke();
     }
 

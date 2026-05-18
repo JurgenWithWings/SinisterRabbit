@@ -6,9 +6,14 @@ public class Flock : Threat {
     [SerializeField] private List<Chicken> chickens = new();
     private List<Chicken> activeChickens = new();
     private List<Chicken> inactiveChickens = new();
+    [Space]
+    [SerializeField] private float[] counterIncreaseLevels = { -1.5f, 2.5f, 7f, 14f, 20f };
+    [SerializeField] private float chickenPopCounterDecrease = 15f;
+    
+    private float currentCounter;
 
     private void Start() {
-        states["Office"].RegisterThreat(this);
+        states["Flock"].RegisterThreat(this);
         
         foreach (Chicken chicken in chickens) {
             chicken.OnChickenClicked += OnChickenClicked;
@@ -21,18 +26,42 @@ public class Flock : Threat {
             chicken.OnChickenClicked -= OnChickenClicked;
         }
     }
+    
+    public override void UpdateAILevel(int newLevel) {
+        if (newLevel == 0) {
+            foreach (Chicken chicken in chickens) {
+                if (activeChickens.Contains(chicken)) {
+                    activeChickens.Remove(chicken);
+                    inactiveChickens.Add(chicken);
+                }
+                chicken.gameObject.SetActive(false);
+            }
+        }
+        else {
+            foreach (Chicken chicken in chickens) {
+                chicken.gameObject.SetActive(true);
+            }
+        }
+        base.UpdateAILevel(newLevel);
+    }
 
     private void OnChickenClicked(Chicken chicken) {
         activeChickens.Remove(chicken);
         inactiveChickens.Add(chicken);
-        
-        if (killTimer != null) {
-            StopCoroutine(killTimer);
-            killTimer = null;
-        }
+
+        currentCounter -= chickenPopCounterDecrease;
     }
 
-    protected override void Tick() { }
+    protected override void Tick() {
+        float increment = counterIncreaseLevels[Mathf.Min(chickens.Count, activeChickens.Count)];
+        currentCounter += increment * Time.deltaTime;
+            
+        currentCounter = Mathf.Clamp(currentCounter, 0, 100);
+
+        if (currentCounter >= 99.99f) {
+            TriggerGameOver();
+        }
+    }
 
     public override void CameraSystemStateUpdate(bool isOpen) {
         if (isOpen) {
@@ -49,16 +78,5 @@ public class Flock : Threat {
         activeChickens.Add(chicken);
         inactiveChickens.Remove(chicken);
         chicken.Activate();
-        
-        if (activeChickens.Count == chickens.Count) {
-            killTimer = StartCoroutine(KillTimer());
-        }
-    }
-
-    private Coroutine killTimer;
-    private IEnumerator KillTimer() {
-        yield return new WaitForSeconds(5);
-        
-        TriggerGameOver();
     }
 }

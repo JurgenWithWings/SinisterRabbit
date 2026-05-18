@@ -19,6 +19,10 @@ public class UIInteraction : MonoBehaviour {
     private void Start() {
         SetInteractionInfo += SetInteraction;
     }
+    
+    private void OnDestroy() {
+        SetInteractionInfo -= SetInteraction;
+    }
 
     private void Update() {
         promptTimer += Time.deltaTime;
