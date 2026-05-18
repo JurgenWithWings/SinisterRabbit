@@ -27,10 +27,9 @@ public class Chef : Threat {
             AttemptAdvance();
         }
         
-        if (isMoving) {
-            if (Vector3.Distance(agent.transform.position, states[currentState].transform.position) < 0.55f) {
-                OnDestinationReached();
-            }
+        float distanceToTarget = Vector3.Distance(agent.transform.position, states[currentState].transform.position);
+        if (distanceToTarget < 0.55f) {
+            OnDestinationReached();
         }
 
         if (!isMoving && currentState.Contains("Conveyor")) {
@@ -54,17 +53,17 @@ public class Chef : Threat {
         switch (nextState) {
             case "chStage1":
                 agent.speed = sadMoveSpeed;
-                animator.SetBool("isSad", true);
+                animator.SetBool("IsSad", true);
                 animator.SetInteger("Stage", 1);
                 break;
             case "chStage2":
                 agent.speed = normalMoveSpeed;
-                animator.SetBool("isSad", false);
+                animator.SetBool("IsSad", false);
                 animator.SetInteger("Stage", 2);
                 break;
             case "chStage3":
                 agent.speed = normalMoveSpeed;
-                animator.SetBool("isSad", false);
+                animator.SetBool("IsSad", false);
                 animator.SetInteger("Stage", 3);
                 break;
             
@@ -72,7 +71,7 @@ public class Chef : Threat {
             case "chCentralConveyor":
             case "chEastConveyor":
                 agent.speed = normalMoveSpeed;
-                animator.SetBool("isSad", false);
+                animator.SetBool("IsSad", false);
                 animator.SetInteger("Stage", 0);
                 break;
             
@@ -99,7 +98,7 @@ public class Chef : Threat {
         if (isMoving || key != "chef" || !currentState.Contains("Conveyor")) return;
         
         agent.speed = sadMoveSpeed;
-        animator.SetBool("isSad", true);
+        animator.SetBool("IsSad", true);
         TryMoveTo("chStage1");
     }
 }

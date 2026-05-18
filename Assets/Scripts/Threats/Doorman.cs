@@ -25,10 +25,9 @@ public class Doorman : Threat {
 
         DoorStateUpdate();
 
-        if (isMoving) {
-            if (Vector3.Distance(agent.transform.position, states[currentState].transform.position) < 0.55f) {
-                OnDestinationReached();
-            }
+        float distanceToTarget = Vector3.Distance(agent.transform.position, states[currentState].transform.position);
+        if (distanceToTarget < 0.55f) {
+            OnDestinationReached();
         }
         
         // Reset timer at end of Update

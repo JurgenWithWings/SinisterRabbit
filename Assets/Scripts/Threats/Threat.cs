@@ -58,9 +58,12 @@ public abstract class Threat : MonoBehaviour {
         return null;
     }
     
-    protected void OnDestinationReached() {
+    protected void OnDestinationReached(bool dontMove = false) {
         isMoving = false;
-        transform.rotation = states[currentState].transform.rotation;
+        if (!dontMove) {
+            transform.rotation = Quaternion.Euler(0, states[currentState].transform.rotation.eulerAngles.y, 0);
+            transform.position = new (states[currentState].transform.position.x, transform.position.y, states[currentState].transform.position.z);
+        }
     }
     
     protected bool TryMoveTo(string state) {

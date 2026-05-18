@@ -321,13 +321,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38624256}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9673902, z: -0, w: -0.25329092}
+  m_LocalRotation: {x: -0, y: -0.9089077, z: -0, w: -0.41699734}
   m_LocalPosition: {x: 6.206, y: 0.5, z: 23.177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 683775265}
-  m_LocalEulerAnglesHint: {x: 0, y: -209.345, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -229.29, z: 0}
 --- !u!114 &38624258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +343,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &39009405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,13 +1495,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239429747}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8586165, z: -0, w: 0.5126186}
-  m_LocalPosition: {x: -5.91, y: 4.623, z: 3.12}
+  m_LocalRotation: {x: -0, y: -0.87239367, z: 0, w: -0.48880395}
+  m_LocalPosition: {x: -6.108, y: 4.623, z: 3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 697354298}
-  m_LocalEulerAnglesHint: {x: 0, y: 118.323, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -238.524, z: 0}
 --- !u!114 &239429749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,6 +1517,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 838178132}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &245173524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1750,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &263079356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.33209, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 983356085}
   m_LocalEulerAnglesHint: {x: 18.687, y: 0, z: 0}
 --- !u!1 &334072394
 GameObject:
@@ -2484,6 +2493,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &372875322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,7 +3198,7 @@ GameObject:
   m_Layer: 0
   m_Name: thDepot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3198,13 +3210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464266046}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.088755265, z: -0, w: 0.9960535}
+  m_LocalRotation: {x: 0, y: 0.088755265, z: 0, w: 0.9960535}
   m_LocalPosition: {x: 22.59, y: 0, z: -26.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1937796358}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 10.184, z: 0}
 --- !u!114 &464266048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3220,6 +3232,9 @@ MonoBehaviour:
   securityCamera: {fileID: 1821293122}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &464418234
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3511,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &517242232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,6 +4114,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 303707589200545313}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &593294333
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,13 +4358,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600294223}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.5418552, z: -0, w: 0.8404719}
   m_LocalPosition: {x: 36.55, y: 0.24, z: 19.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1582018379}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -65.62, z: 0}
 --- !u!114 &600294225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4359,6 +4380,9 @@ MonoBehaviour:
   securityCamera: {fileID: 1153844529}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &619588668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,13 +4700,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665498363}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.29139674, z: -0, w: 0.9566023}
+  m_LocalRotation: {x: -0, y: -0.9986744, z: -0, w: -0.05147381}
   m_LocalPosition: {x: -14.88, y: 0.5, z: 3.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 683775265}
-  m_LocalEulerAnglesHint: {x: 0, y: -33.883, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -185.901, z: 0}
 --- !u!114 &665498365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4698,6 +4722,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &683775264
 GameObject:
   m_ObjectHideFlags: 0
@@ -5838,17 +5865,17 @@ MonoBehaviour:
   nightDuration: 360
   testingData:
   - ThreatType: 1
-    Level: 3
+    Level: 0
   - ThreatType: 2
-    Level: 3
+    Level: 0
   - ThreatType: 3
-    Level: 3
+    Level: 10
   - ThreatType: 4
-    Level: 3
+    Level: 0
   - ThreatType: 5
-    Level: 3
+    Level: 0
   - ThreatType: 6
-    Level: 3
+    Level: 0
 --- !u!1 &850570030
 GameObject:
   m_ObjectHideFlags: 0
@@ -6725,6 +6752,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &946725775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7081,6 +7111,7 @@ Transform:
   - {fileID: 838178133}
   - {fileID: 914225108}
   - {fileID: 2402069857557653806}
+  - {fileID: 327213627}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988854821
@@ -7253,7 +7284,7 @@ GameObject:
   m_Layer: 0
   m_Name: thStart
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7287,6 +7318,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1024872560
 GameObject:
   m_ObjectHideFlags: 0
@@ -7581,13 +7615,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060746398}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8586165, z: -0, w: 0.5126186}
-  m_LocalPosition: {x: 6.108, y: 4.623, z: 3.5}
+  m_LocalRotation: {x: -0, y: 0.8723916, z: -0, w: -0.48880768}
+  m_LocalPosition: {x: 6.108, y: 4.623, z: 3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 697354298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 238.524, z: 0}
 --- !u!114 &1060746400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7603,6 +7637,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 914225107}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!114 &1063832054 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 811322092400389957, guid: 18da2175a010d0345881089dce86e931, type: 3}
@@ -7988,13 +8025,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171540393}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.31445515, z: -0, w: -0.94927233}
-  m_LocalPosition: {x: 18.13, y: 0.5, z: 4.16}
+  m_LocalRotation: {x: -0, y: 0.85112804, z: -0, w: -0.52495825}
+  m_LocalPosition: {x: 19.33, y: 0.5, z: 3.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 683775265}
-  m_LocalEulerAnglesHint: {x: 0, y: -323.344, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -476.669, z: 0}
 --- !u!114 &1171540395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8010,6 +8047,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1190147559
 GameObject:
   m_ObjectHideFlags: 0
@@ -8951,13 +8991,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312543783}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.97883815, z: -0, w: 0.20463613}
+  m_LocalRotation: {x: -0, y: -0.9999733, z: -0, w: 0.007317521}
   m_LocalPosition: {x: -3.13, y: 0.24, z: 14.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1582018379}
-  m_LocalEulerAnglesHint: {x: 0, y: -156.384, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.161, z: 0}
 --- !u!114 &1312543785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8973,6 +9013,9 @@ MonoBehaviour:
   securityCamera: {fileID: 2084494457}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1312936009
 GameObject:
   m_ObjectHideFlags: 0
@@ -9020,6 +9063,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1364203834
 GameObject:
   m_ObjectHideFlags: 0
@@ -9489,13 +9535,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497305372}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9160204, z: -0, w: -0.4011317}
+  m_LocalRotation: {x: -0, y: 0.54045177, z: -0, w: -0.841375}
   m_LocalPosition: {x: 37.53, y: 0.5, z: 16.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864679594}
-  m_LocalEulerAnglesHint: {x: 0, y: -227.298, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -425.42902, z: 0}
 --- !u!114 &1497305374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9511,6 +9557,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1527533832
 GameObject:
   m_ObjectHideFlags: 0
@@ -9858,6 +9907,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 303707589200545313}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!4 &1605758433
 Transform:
   m_ObjectHideFlags: 0
@@ -9898,13 +9950,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617430045}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.97, y: 0.24, z: 10.48}
+  m_LocalRotation: {x: -0, y: 0.9991526, z: -0, w: 0.04115962}
+  m_LocalPosition: {x: 10.948, y: 0.24, z: 10.741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1582018379}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 175.282, z: 0}
 --- !u!114 &1617430047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9920,6 +9972,9 @@ MonoBehaviour:
   securityCamera: {fileID: 938981673}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1622553637
 GameObject:
   m_ObjectHideFlags: 0
@@ -10874,6 +10929,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!114 &1758225490 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4876260030925116605, guid: 18da2175a010d0345881089dce86e931, type: 3}
@@ -11610,6 +11668,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1864679593
 GameObject:
   m_ObjectHideFlags: 0
@@ -12384,6 +12445,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1937796357
 GameObject:
   m_ObjectHideFlags: 0
@@ -12572,6 +12636,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1952547082
 GameObject:
   m_ObjectHideFlags: 0
@@ -12900,6 +12967,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1992556653
 GameObject:
   m_ObjectHideFlags: 0
@@ -12947,6 +13017,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &1999947263
 GameObject:
   m_ObjectHideFlags: 0
@@ -13530,6 +13603,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &2105013881
 GameObject:
   m_ObjectHideFlags: 0
@@ -13555,13 +13631,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105013881}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9673902, z: -0, w: -0.25329092}
+  m_LocalRotation: {x: -0, y: -0.6382189, z: -0, w: -0.769855}
   m_LocalPosition: {x: -16.158, y: 0.5, z: 22.835}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 683775265}
-  m_LocalEulerAnglesHint: {x: 0, y: -209.345, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -280.682, z: 0}
 --- !u!114 &2105013883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13577,6 +13653,9 @@ MonoBehaviour:
   securityCamera: {fileID: 0}
   officeDoor: {fileID: 0}
   cameraSystem: {fileID: 0}
+  gizmoLength: 0.67
+  gizmoColor: {r: 1, g: 0.43214113, b: 0, a: 1}
+  headLengthRatio: 0.5
 --- !u!1 &2111902208
 GameObject:
   m_ObjectHideFlags: 0
@@ -13946,10 +14025,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 356181017}
     m_Modifications:
     - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: availableStates.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
       propertyPath: 'availableStates.Array.data[0]'
       value: 
       objectReference: {fileID: 1992411908}
@@ -14009,34 +14084,6 @@ PrefabInstance:
       propertyPath: technicianButtons.Array.data[5].button
       value: 
       objectReference: {fileID: 712271387}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[0].Value
-      value: 
-      objectReference: {fileID: 1992411908}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[1].Value
-      value: 
-      objectReference: {fileID: 1497305374}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[2].Value
-      value: 
-      objectReference: {fileID: 2095679749}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[3].Value
-      value: 
-      objectReference: {fileID: 239429749}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[4].Value
-      value: 
-      objectReference: {fileID: 942942476}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[5].Value
-      value: 
-      objectReference: {fileID: 1060746400}
-    - target: {fileID: 1800955219638280171, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: states._serializedList.Array.data[6].Value
-      value: 
-      objectReference: {fileID: 1605758432}
     - target: {fileID: 1987430871944068688, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.859
@@ -14080,10 +14127,6 @@ PrefabInstance:
     - target: {fileID: 5295684460538053541, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
       propertyPath: m_Name
       value: Technician
-      objectReference: {fileID: 0}
-    - target: {fileID: 5295684460538053541, guid: 9b851fc373db2c342ba2d6a825e9f180, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15647,4 +15690,3 @@ SceneRoots:
   - {fileID: 2126636389}
   - {fileID: 372875323}
   - {fileID: 983356085}
-  - {fileID: 327213627}
