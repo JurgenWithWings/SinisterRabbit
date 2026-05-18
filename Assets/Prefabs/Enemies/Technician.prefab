@@ -332,27 +332,20 @@ MonoBehaviour:
   threatType: 3
   deathCause: 2
   agent: {fileID: 5182367061444210097}
-  states:
-    _serializedList:
-    - Key: RabbitStart
-      Value: {fileID: 0}
-    - Key: RabbitMain
-      Value: {fileID: 0}
-    - Key: RabbitLeftHallway
-      Value: {fileID: 0}
-    - Key: LeftDoor
-      Value: {fileID: 0}
-    - Key: RabbitRightHallway
-      Value: {fileID: 0}
-    - Key: RightDoor
-      Value: {fileID: 0}
-    - Key: RabbitOffice
-      Value: {fileID: 0}
+  availableStates:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   movementInterval: 5
   animator: {fileID: 3124261543924570830}
   doorPatience: 3
   doorPatiencePenalty: 0.4
-  clipboard: {fileID: 5658883932082211536}
   technicianButtons:
   - code: egg
     button: {fileID: 0}

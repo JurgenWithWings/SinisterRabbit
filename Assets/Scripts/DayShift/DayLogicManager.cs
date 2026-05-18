@@ -12,6 +12,12 @@ public class DayLogicManager : MonoBehaviour {
     [SerializeField] private Collider startingArea;
     [SerializeField] private List<RepairableMachine> availableMachines;
     [SerializeField] private List<GoldenEggSpawner> availableEggSpawners;
+    
+    [Header("Sound")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private float startTime = 15f;
+    [SerializeField] private float startVolume = 0.05f;
+    [SerializeField] private float endVolume = 0.25f;
 
     #if UNITY_EDITOR
     [Header("Testing Data")] 
@@ -45,6 +51,11 @@ public class DayLogicManager : MonoBehaviour {
             data = LevelLoading.DayShiftData;
         }
     }
+
+    private void LoadAssets() {
+        AssignBrokenMachines();
+        SpawnGoldenEggs();
+    }
     
     private void Start() {
         timeRemaining = data.shiftDuration;
@@ -52,10 +63,8 @@ public class DayLogicManager : MonoBehaviour {
         UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
         
         GameOverManager.OnGameOver += OnGameOver;
-        
-        AssignBrokenMachines();
-        
-        SpawnGoldenEggs();
+
+        LoadAssets();
     }
 
     private void OnDestroy() {
@@ -76,15 +85,26 @@ public class DayLogicManager : MonoBehaviour {
     private void UpdateTimer() {
         if (timeRemaining <= 0f) {
             GameOverManager.Instance.GameOver(CauseOfDeath.Timer);
+            audioSource.Stop();
             timerStarted = false;
         }
         
         timeRemaining -= Time.deltaTime;
         
         UIDayTimer.OnTimerUpdate?.Invoke(timeRemaining);
+        
+        float t = timeRemaining / startTime;
+        t *= -1;
+        t += 1;
+        t = Mathf.Clamp01(t);
+        audioSource.volume = Mathf.Lerp(startVolume, endVolume, t);
     }
 
     private void AssignBrokenMachines() {
+        if (availableMachines.Count == 0) {
+            Debug.LogError("No Repairable Machines found in scene!");
+        }
+        
         if (availableMachines.Count < data.numBrokenMachines) {
             Debug.LogWarning("Not enough machines to break! Please add more machines to the availableMachines list.");
             return;

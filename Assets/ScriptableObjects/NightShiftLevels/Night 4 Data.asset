@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 6
   camsPowerDrain: 0.5
+  whiteboardMat: {fileID: 2100000, guid: 332c1c979f9431d44ba1d7355fdd70e4, type: 2}
   startingAI:
   - ThreatType: 1
     Level: 10
   - ThreatType: 2
-    Level: 14
+    Level: 12
   - ThreatType: 3
     Level: 9
   - ThreatType: 4
-    Level: 6
+    Level: 7
   - ThreatType: 5
-    Level: 8
+    Level: 0
   - ThreatType: 6
-    Level: 8
+    Level: 5
   oneAMLevels: []
   twoAMLevels: []
   threeAMLevels: []

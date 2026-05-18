@@ -32,7 +32,6 @@ public class Technician : Threat {
     }
     
     public override void UpdateAILevel(int newLevel) {
-        if (level == 0) return;
         if (newLevel == 0) {
             animator.transform.parent.gameObject.SetActive(false);
             if (minigameCoroutine != null) {
@@ -47,6 +46,7 @@ public class Technician : Threat {
     }
     
     protected override void Tick() {
+        if (level == 0) return;
         animator.SetFloat("Speed", agent.velocity.magnitude);
         
         if (!isMoving && timer > movementInterval) {
@@ -55,10 +55,9 @@ public class Technician : Threat {
 
         DoorStateUpdate();
         
-        if (isMoving) {
-            if (Vector3.Distance(agent.transform.position, states[currentState].transform.position) < 0.55f) {
-                OnDestinationReached();
-            }
+        float distanceToTarget = Vector3.Distance(agent.transform.position, states[currentState].transform.position);
+        if (distanceToTarget < 0.55f) {
+            OnDestinationReached();
         }
         
         // Reset timer at end of Update

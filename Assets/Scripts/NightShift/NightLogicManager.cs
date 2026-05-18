@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
+[RequireComponent(typeof(AudioSource))]
 public class NightLogicManager : MonoBehaviour {
     public static NightLogicManager Instance { get; private set; }
     
@@ -7,6 +9,11 @@ public class NightLogicManager : MonoBehaviour {
     [Space]
     [SerializeField] private float nightDuration = 360f;
     public float NightDuration => nightDuration;
+    [Space] 
+    [SerializeField] private float startVolume = 0.4f; 
+    [SerializeField] private float endVolume = 0.6f;
+    [Space] 
+    [SerializeField] private DecalProjector whiteboardDecal;
     
     #if UNITY_EDITOR
     [SerializeField] private NightShiftData.AILevelData[] testingData;
@@ -18,6 +25,8 @@ public class NightLogicManager : MonoBehaviour {
     private float currentTime;
 
     private float power = 100f;
+    
+    private AudioSource audioSource;
 
     private void Awake() {
         if (Instance != null && Instance != this) {
@@ -36,11 +45,21 @@ public class NightLogicManager : MonoBehaviour {
             
             data = LevelLoading.NightShiftData;
         }
+
+        if (data.whiteboardMat != null) {
+            whiteboardDecal.material = data.whiteboardMat;
+        }
+        else {
+            whiteboardDecal.enabled = false;
+        }
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
         UpdateTimer();
         causeTimer += Time.deltaTime;
+        audioSource.volume = Mathf.Lerp(startVolume, endVolume, currentTime / nightDuration);
     }
     
     private void UpdateTimer() {
