@@ -89,6 +89,9 @@ public static class LevelLoading {
     /// <param name="index">The level index in AllLevelData.</param>
     public static void LoadLevel(int index) {
         if (index < 0 || index >= AllData.levels.Count) {
+            if (index == 9) {
+                LoadScene(Scene.MainMenu);
+            }
             Debug.LogError("Invalid level index: " + index);
             return;
         }

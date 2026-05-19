@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7455a4bc6ba4d3d8fde62fefd865ca8, type: 3}
+  m_Name: AA_DoormanGameOver
+  m_EditorClassIdentifier: 
+  sounds:
+  - Clip: {fileID: 8300000, guid: 74f43606c51e24b4f97627ddc1d74fcc, type: 3}
+    Volume: 1
+    PitchRange: {x: 1, y: 1}
+  - Clip: {fileID: 8300000, guid: 9949d1fded8689c4da76d5c0529004ed, type: 3}
+    Volume: 1
+    PitchRange: {x: 1, y: 1}
+  - Clip: {fileID: 8300000, guid: e765de1fe3be9a1469d2da1ec90a04eb, type: 3}
+    Volume: 1
+    PitchRange: {x: 1, y: 1}
+  - Clip: {fileID: 8300000, guid: b0139a95ea6c06745a217dc95fcd51c9, type: 3}
+    Volume: 1
+    PitchRange: {x: 1, y: 1}
+  - Clip: {fileID: 8300000, guid: 7fa9516276a75384aa1ff9b10042fc3a, type: 3}
+    Volume: 1
+    PitchRange: {x: 1, y: 1}
+  - Clip: {fileID: 8300000, guid: 3694fdf4cbde3f54ea199b8bc74f274d, type: 3}
+    Volume: 1
+    PitchRange: {x: 1, y: 1}

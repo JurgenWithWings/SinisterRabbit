@@ -8,7 +8,7 @@ public class GameOverData : ScriptableObject {
         public string deathText;
         [TextArea] public string tooltip;
         public Sprite image;
-        public AudioClip deathVoiceLine;
+        public AudioArray deathVoiceLine;
     }
 
     [Header("Cause of Death Info")]

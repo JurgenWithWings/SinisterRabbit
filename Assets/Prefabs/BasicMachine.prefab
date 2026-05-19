@@ -173,6 +173,7 @@ MonoBehaviour:
   repairedEffect: {fileID: 1736351107298026948}
   audioSource: {fileID: 8439472740100403231}
   repairedSound: {fileID: 11400000, guid: 07e54e5e47b3de94a88218e90e84055a, type: 2}
+  loopSource: {fileID: 5200408812225214295}
   broken: 0
 --- !u!65 &4395959116599724133
 BoxCollider:
@@ -193,8 +194,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.418617, y: 1.7382469, z: 1.83213}
-  m_Center: {x: 0.21343538, y: 0.85918427, z: -0.07161689}
+  m_Size: {x: 1.9899464, y: 1.6599195, z: 3.6889486}
+  m_Center: {x: -0.012331963, y: 0.82002056, z: -0.13842463}
 --- !u!82 &8439472740100403231
 AudioSource:
   m_ObjectHideFlags: 0

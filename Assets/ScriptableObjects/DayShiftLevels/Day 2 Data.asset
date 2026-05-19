@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 3
   shiftDuration: 30
-  numBrokenMachines: 2
-  numberOfGoldenEggs: 3
+  numBrokenMachines: 4
+  numberOfGoldenEggs: 8

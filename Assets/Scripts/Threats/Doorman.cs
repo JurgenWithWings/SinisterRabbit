@@ -1,6 +1,11 @@
 using UnityEngine;
 
 public class Doorman : Threat {
+    [SerializeField] private float doorKillTime = 4;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip doorKnock;
+    [SerializeField] private AudioClip leaveDoor;
+    
     private void Start() {
         agent.SetDestination(states[currentState].transform.position);
     }
@@ -27,6 +32,11 @@ public class Doorman : Threat {
 
         float distanceToTarget = Vector3.Distance(agent.transform.position, states[currentState].transform.position);
         if (distanceToTarget < 0.55f) {
+            if (isMoving && currentState.Contains("Door")) {
+                audioSource.clip = doorKnock;
+                audioSource.volume = 1f;
+                audioSource.Play();
+            }
             OnDestinationReached();
         }
         
@@ -37,6 +47,7 @@ public class Doorman : Threat {
     }
 
     private void AttemptAdvance() {
+        if (level == 0) return;
         if (!RollLevel()) return;
         
         string nextState = GetNextState();
@@ -56,13 +67,6 @@ public class Doorman : Threat {
             case "uRightDoor":
                 //if (states[currentState].IsCameraActive()) return; // Camera stalling
                 break;
-            
-            case "dmOffice":
-                if (states[currentState].OfficeDoor.IsOpen) { // If door is open, move into office
-                    TriggerGameOver();
-                }
-                return;
-            
             default:
                 return;
         }
@@ -83,11 +87,9 @@ public class Doorman : Threat {
             
             // Right Side
             "dmRightStairs" => "uRightDoor",
-            "uRightDoor" => "dmOffice",
             
             // Left Side
             "dmLeftStairs" => "uLeftDoor",
-            "uLeftDoor" => "dmOffice",
             
             _ => currentState
         };
@@ -97,19 +99,34 @@ public class Doorman : Threat {
     
 
     private float doorWaitTime;
+    private float doorKillTimer;
     private void DoorStateUpdate() {
         if (currentState != "uRightDoor" && currentState != "uLeftDoor") return;
         ThreatStatePoint state = states[currentState];
 
+        // Door clearing
         if (!isMoving && !state.OfficeDoor.IsOpen) {
             doorWaitTime += Time.deltaTime;
         }
         else {
             doorWaitTime = 0f;
         }
-        
         if (!state.OfficeDoor.IsOpen && doorWaitTime > 2f) {
+            audioSource.clip = leaveDoor;
+            audioSource.volume = 0.5f;
+            audioSource.Play();
+            doorWaitTime = 0f;
+            doorKillTimer = 0f;
             TryMoveTo("dmReception");
+        }
+
+        // Door killing
+        if (!isMoving && state.OfficeDoor.IsOpen) {
+            doorKillTimer += Time.deltaTime;
+        }
+
+        if (doorKillTimer >= doorKillTime) {
+            TriggerGameOver();
         }
     }
 }
