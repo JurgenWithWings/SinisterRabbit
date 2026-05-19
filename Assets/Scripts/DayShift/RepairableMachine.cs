@@ -9,6 +9,7 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
     [SerializeField] private VisualEffect repairedEffect;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioArray repairedSound;
+    [SerializeField] private AudioSource loopSource;
 
     [SerializeField] private bool broken;
     public bool Broken => broken;
@@ -26,9 +27,11 @@ public class RepairableMachine : MonoBehaviour, IInteractable {
         foreach (VisualEffect effect in brokenEffects) {
             if (state) {
                 effect.Play();
+                loopSource.Stop();
             }
             else {
                 effect.Stop();
+                loopSource.Play();
             }
         }
         broken = state;
