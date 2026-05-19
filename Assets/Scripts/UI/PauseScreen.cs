@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PauseScreen : MonoBehaviour {
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject background;
     [SerializeField] private Button resumeButton; 
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
@@ -31,6 +32,7 @@ public class PauseScreen : MonoBehaviour {
         
         Time.timeScale = 0f;
         pauseScreen.SetActive(true);
+        background.SetActive(true);
     }
 
     private void ResumeGame() {
@@ -44,6 +46,7 @@ public class PauseScreen : MonoBehaviour {
         
         Time.timeScale = 1f;
         pauseScreen.SetActive(false);
+        background.SetActive(false);
     }
     
     private void LoadMainMenu() {
