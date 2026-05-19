@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class RabbitManager : MonoBehaviour {
     public static RabbitManager instance;
     
-    private List<Rabbit> rabbits = new();
+    [SerializeField] private List<Rabbit> rabbits = new();
     private List<RabbitPOI> availablePois = new();
     private List<RabbitPOI> unavailablePois = new();
     

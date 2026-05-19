@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584365979604736298}
   m_Layer: 0
-  m_Name: Conveyer_All
+  m_Name: Conveyer_Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
