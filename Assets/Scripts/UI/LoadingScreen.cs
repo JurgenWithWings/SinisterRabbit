@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour {
@@ -22,7 +21,7 @@ public class LoadingScreen : MonoBehaviour {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
+        
         LevelLoading.LoadScene(Scene.MainMenu);
     }
     

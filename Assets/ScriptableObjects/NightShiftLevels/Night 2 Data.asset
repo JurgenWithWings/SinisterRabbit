@@ -17,13 +17,13 @@ MonoBehaviour:
   whiteboardMat: {fileID: 2100000, guid: cf0777b602ae09b449c251da3c7598eb, type: 2}
   startingAI:
   - ThreatType: 1
-    Level: 6
+    Level: 5
   - ThreatType: 2
-    Level: 8
+    Level: 0
   - ThreatType: 3
-    Level: 3
+    Level: 4
   - ThreatType: 4
-    Level: 2
+    Level: 4
   - ThreatType: 5
     Level: 0
   - ThreatType: 6
