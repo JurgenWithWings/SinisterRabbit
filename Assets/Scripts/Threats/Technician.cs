@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Technician : Threat {
+    [SerializeField] private float doorKillTime = 4;
     [SerializeField] private float doorPatience = 3f;
     [SerializeField] private float doorPatiencePenalty = 0.4f;
     private int doorPatienceCount;
@@ -20,6 +21,12 @@ public class Technician : Threat {
     [SerializeField] private TechnicianButton[] technicianButtons;
     [SerializeField] private SpriteRenderer[] clipboardCodePlacements;
     [SerializeField] private float minigameTimeLimit = 8f;
+    [Space]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip doorKnock;
+    [SerializeField] private AudioClip leaveDoor;
+    [SerializeField] private AudioClip minigameStart;
+    [SerializeField] private AudioClip minigameComplete;
     
     private string[] currentCode = new string[4];
     private float minigameTime;
@@ -30,7 +37,7 @@ public class Technician : Threat {
         defMoveInterval = movementInterval;
         agent.SetDestination(states[currentState].transform.position);
     }
-    
+
     public override void UpdateAILevel(int newLevel) {
         if (newLevel == 0) {
             animator.transform.parent.gameObject.SetActive(false);
@@ -57,6 +64,14 @@ public class Technician : Threat {
         
         float distanceToTarget = Vector3.Distance(agent.transform.position, states[currentState].transform.position);
         if (distanceToTarget < 0.55f) {
+            if (isMoving && currentState.Contains("Door")) {
+                audioSource.clip = doorKnock;
+                audioSource.volume = 1f;
+                audioSource.Play();
+            }
+            if (isMoving && minigameCoroutine == null && currentState == "teOffice") {
+                minigameCoroutine = StartCoroutine(Minigame());
+            }
             OnDestinationReached();
         }
         
@@ -67,6 +82,7 @@ public class Technician : Threat {
     }
     
     private void AttemptAdvance() {
+        if (level == 0) return;
         if (!RollLevel()) return;
         
         string nextState = GetNextState();
@@ -100,10 +116,6 @@ public class Technician : Threat {
                 return;
         }
         
-        if (minigameCoroutine == null && currentState != "teOffice" && nextState == "teOffice") {
-            minigameCoroutine = StartCoroutine(Minigame());
-        }
-        
         TryMoveTo(nextState);
     }
     
@@ -119,15 +131,13 @@ public class Technician : Threat {
             "teCentralFactory" => randomValue < 0.5f ? "teWestWing" : "uRightDoor",
             "teWestWing" => randomValue < 0.5f ? "teCentralFactory" : "uLeftDoor",
             
-            "uRightDoor" => "teOffice",
-            "uLeftDoor" => "teOffice",
-            
             _ => currentState
         };
         return nextState;
     }
     
     private float doorWaitTime;
+    private float doorKillTimer;
     private void DoorStateUpdate() {
         if (currentState != "uRightDoor" && currentState != "uLeftDoor") return;
         ThreatStatePoint state = states[currentState];
@@ -138,10 +148,25 @@ public class Technician : Threat {
         else {
             doorWaitTime = 0f;
         }
-        
         if (!state.OfficeDoor.IsOpen && doorWaitTime > 4f) {
             doorPatienceCount++;
+            audioSource.clip = leaveDoor;
+            audioSource.volume = 0.5f;
+            audioSource.Play();
+            doorWaitTime = 0f;
+            doorKillTimer = 0f;
             TryMoveTo(currentState == "uRightDoor" ? "teCentralFactory" : "teWestWing");
+        }
+        
+        // Office Entering
+        if (!isMoving && state.OfficeDoor.IsOpen) {
+            doorKillTimer += Time.deltaTime;
+        }
+
+        if (doorKillTimer >= doorKillTime) {
+            doorWaitTime = 0f;
+            doorKillTimer = 0f;
+            TryMoveTo("teOffice");
         }
     }
     
@@ -160,6 +185,9 @@ public class Technician : Threat {
         animator.SetBool("Clipboard", true);
         minigameProgress = 0;
         minigameTime = 0;
+
+        audioSource.clip = minigameStart;
+        audioSource.Play();
         
         // Wait for player to input
         while (minigameTime < minigameTimeLimit) {
@@ -172,6 +200,8 @@ public class Technician : Threat {
         }
 
         if (minigameProgress >= 4) {
+            audioSource.clip = minigameComplete;
+            audioSource.Play();
             TryMoveTo("teStart");
         }
         else {

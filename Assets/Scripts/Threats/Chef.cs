@@ -4,6 +4,12 @@ public class Chef : Threat {
     [SerializeField] private float normalMoveSpeed = 7f;
     [SerializeField] private float sadMoveSpeed = 3f;
     [SerializeField] private float powerDrain = 4f;
+    [Space] 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip runningSound;
+    [SerializeField] private AudioClip munchingSound;
+    [SerializeField] private AudioArray ughSound;
+    [SerializeField] private AudioSource alarmSource; 
     
     private void Start() {
         agent.SetDestination(states[currentState].transform.position);
@@ -11,6 +17,8 @@ public class Chef : Threat {
     
     public override void UpdateAILevel(int newLevel) {
         if (newLevel == 0) {
+            audioSource.Stop();
+            alarmSource.Stop();
             animator.transform.parent.gameObject.SetActive(false);
         }
         else {
@@ -34,6 +42,13 @@ public class Chef : Threat {
 
         if (!isMoving && currentState.Contains("Conveyor")) {
             NightLogicManager.Instance.DecreasePower(powerDrain * Time.deltaTime, CauseOfDeath.Chef);
+            if (audioSource.clip != munchingSound || !audioSource.isPlaying) {
+                audioSource.clip = munchingSound;
+                audioSource.loop = true;
+                audioSource.volume = 0.5f;
+                audioSource.Play();
+                alarmSource.Play();
+            }
         }
         
         // Reset timer at end of Update
@@ -43,6 +58,7 @@ public class Chef : Threat {
     }
     
     private void AttemptAdvance() {
+        if (level == 0) return;
         if (!RollLevel(35)) return;
         
         string nextState = GetNextState();
@@ -71,6 +87,10 @@ public class Chef : Threat {
             case "chCentralConveyor":
             case "chEastConveyor":
                 agent.speed = normalMoveSpeed;
+                audioSource.clip = runningSound;
+                audioSource.loop = true;
+                audioSource.volume = 1f;
+                audioSource.Play();
                 animator.SetBool("IsSad", false);
                 animator.SetInteger("Stage", 0);
                 break;
@@ -97,6 +117,10 @@ public class Chef : Threat {
     public override void OfficeButtonPressed(string key) {
         if (isMoving || key != "chef" || !currentState.Contains("Conveyor")) return;
         
+        audioSource.Stop();
+        alarmSource.Stop();
+        ughSound.PlayRandomSound(audioSource);
+        audioSource.loop = false;
         agent.speed = sadMoveSpeed;
         animator.SetBool("IsSad", true);
         TryMoveTo("chStage1");

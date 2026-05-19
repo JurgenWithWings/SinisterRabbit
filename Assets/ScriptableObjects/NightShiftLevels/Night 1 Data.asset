@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Night 1 Data
   m_EditorClassIdentifier: 
   levelIndex: 0
-  camsPowerDrain: 0.5
+  camsPowerDrain: 1
   whiteboardMat: {fileID: 2100000, guid: a77ccef4c9ed7d44e89664510ee5df5c, type: 2}
   startingAI:
   - ThreatType: 1
-    Level: 4
+    Level: 7
   - ThreatType: 2
     Level: 0
   - ThreatType: 3
-    Level: 2
+    Level: 9
   - ThreatType: 4
     Level: 0
   - ThreatType: 5

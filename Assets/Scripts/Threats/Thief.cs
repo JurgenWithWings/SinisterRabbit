@@ -71,6 +71,7 @@ public class Thief : Threat {
     }
     
     private void AttemptSendTruck() {
+        if (level == 0) return;
         if (currentState == "thDepot") return;
         
         isRat = RollLevel(30);

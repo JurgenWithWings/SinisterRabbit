@@ -59,6 +59,7 @@ public abstract class Threat : MonoBehaviour {
     }
     
     protected void OnDestinationReached(bool dontMove = false) {
+        if (level == 0) return;
         isMoving = false;
         if (!dontMove) {
             transform.rotation = Quaternion.Euler(0, states[currentState].transform.rotation.eulerAngles.y, 0);

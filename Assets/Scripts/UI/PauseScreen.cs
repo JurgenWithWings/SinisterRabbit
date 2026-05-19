@@ -30,6 +30,7 @@ public class PauseScreen : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         
+        AudioListener.pause = true;
         Time.timeScale = 0f;
         pauseScreen.SetActive(true);
         background.SetActive(true);
@@ -44,6 +45,7 @@ public class PauseScreen : MonoBehaviour {
             Cursor.visible = false;
         }
         
+        AudioListener.pause = false;
         Time.timeScale = 1f;
         pauseScreen.SetActive(false);
         background.SetActive(false);

@@ -25,8 +25,12 @@ public class GameOverScreen : MonoBehaviour {
         littleText.text = deathInfo.deathText;
         tooltipText.text = deathInfo.tooltip;
         image.sprite = deathInfo.image;
-        voiceAudioSource.clip = deathInfo.deathVoiceLine;
-        voiceAudioSource.Play();
+        audioSource.ignoreListenerPause = true;
+        voiceAudioSource.ignoreListenerPause = true;
+        if (deathInfo.deathVoiceLine != null) {
+            deathInfo.deathVoiceLine.PlayRandomSound(voiceAudioSource);
+        }
+        AudioListener.pause = true;
         
         topButton.onClick.RemoveAllListeners();
         bottomButton.onClick.RemoveAllListeners();
@@ -59,15 +63,18 @@ public class GameOverScreen : MonoBehaviour {
         audioSource.Play();
         
         bottomButton.onClick.AddListener(() => {
+            AudioListener.pause = false;
             LevelLoading.LoadScene(Scene.MainMenu);
         });
     }
 
     private void LoadNextLevel() {
+        AudioListener.pause = false;
         LevelLoading.LoadNextLevel();
     }
 
     private void Restart() {
+        AudioListener.pause = false;
         LevelLoading.ReloadLevel();
     }
 
