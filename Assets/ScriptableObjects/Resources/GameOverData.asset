@@ -53,7 +53,7 @@ MonoBehaviour:
     deathText: You ran out of power!
     tooltip: Keep an eye on your power level, don't let it run out.
     image: {fileID: 21300000, guid: dec3636a8b5113741bba5edbbe8b73ee, type: 3}
-    deathVoiceLine: {fileID: 0}
+    deathVoiceLine: {fileID: 8300000, guid: 49172b55d6b170f49b142deb886bd8d2, type: 3}
   sixAMDeathInfo:
     cause: 7
     deathText: 
