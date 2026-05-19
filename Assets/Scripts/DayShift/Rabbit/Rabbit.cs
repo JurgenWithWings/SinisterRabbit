@@ -33,7 +33,7 @@ public class Rabbit : MonoBehaviour {
         animator.SetFloat("Speed", agent.velocity.magnitude);
         
         if (!atDestination) {
-            if (Vector3.Distance(agent.transform.position, currentPoi.transform.position) < 0.25f) {
+            if (Vector3.Distance(agent.transform.position, currentPoi.transform.position) < 0.45f) {
                 OnDestinationReached();
             }
         }
