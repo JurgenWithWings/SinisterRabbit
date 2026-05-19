@@ -21,7 +21,7 @@ MonoBehaviour:
   - ThreatType: 2
     Level: 12
   - ThreatType: 3
-    Level: 9
+    Level: 8
   - ThreatType: 4
     Level: 7
   - ThreatType: 5

@@ -19,7 +19,7 @@ MonoBehaviour:
   - ThreatType: 1
     Level: 4
   - ThreatType: 2
-    Level: 2
+    Level: 0
   - ThreatType: 3
     Level: 2
   - ThreatType: 4
