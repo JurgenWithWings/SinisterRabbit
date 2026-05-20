@@ -22,6 +22,9 @@ public class LoadingScreen : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         }
         
+        //Set framerate limit
+        Application.targetFrameRate = 60;
+        
         LevelLoading.LoadScene(Scene.MainMenu);
     }
     

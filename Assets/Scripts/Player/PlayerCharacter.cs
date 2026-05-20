@@ -377,10 +377,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController {
                 // Unstick from ground
                 motor.ForceUnground(time: 0.1f);
 
-                float effectiveJumpSpeed = state.Stance == Stance.Slide ? jumpSpeed * crouchJumpMultiplier : jumpSpeed;
+                //float effectiveJumpSpeed = state.Stance == Stance.Slide ? jumpSpeed * crouchJumpMultiplier : jumpSpeed;
                 
                 float currentVerticalSpeed = Vector3.Dot(currentVelocity, motor.CharacterUp);
-                float targetVerticalSpeed = Mathf.Max(currentVerticalSpeed, effectiveJumpSpeed);
+                float targetVerticalSpeed = Mathf.Max(currentVerticalSpeed, jumpSpeed);
                 currentVelocity += motor.CharacterUp * (targetVerticalSpeed - currentVerticalSpeed);
             }
             else {

@@ -8121,13 +8121,13 @@ MonoBehaviour:
   whiteboardDecal: {fileID: 1427148410}
   testingData:
   - ThreatType: 1
-    Level: 20
+    Level: 0
   - ThreatType: 2
     Level: 0
   - ThreatType: 3
-    Level: 20
-  - ThreatType: 4
     Level: 0
+  - ThreatType: 4
+    Level: 20
   - ThreatType: 5
     Level: 0
   - ThreatType: 6
@@ -19739,12 +19739,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8867671579712227482, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6174016341986656434, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6943391634573431533, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 2021139593134043886, guid: 1e02de59a45a0f445823448d04f8a6a4, type: 3}

@@ -39,6 +39,7 @@ public class GameOverScreen : MonoBehaviour {
             case CauseOfDeath.Doorman:
             case CauseOfDeath.Flock:
             case CauseOfDeath.Technician:
+            case CauseOfDeath.Chef:
             case CauseOfDeath.Thief:
             case CauseOfDeath.Timer: 
             case CauseOfDeath.Power:

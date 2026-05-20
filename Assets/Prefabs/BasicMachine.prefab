@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repairedInteractionText: Machine is Repaired
-  brokenInteractionText: Press "E" to Repair the Machine
+  brokenInteractionText: Press "Left Click" or "E" to Repair the Machine
   brokenEffects:
   - {fileID: 2041913245334473829}
   repairedEffect: {fileID: 1736351107298026948}
