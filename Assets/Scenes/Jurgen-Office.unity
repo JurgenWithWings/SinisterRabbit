@@ -1074,10 +1074,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (19)
@@ -1136,6 +1132,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1600,6 +1600,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211842230}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &212536447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 983356085}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.037
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.521
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.723
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4690064
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -2.5361727e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.8831948
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 8.2798476e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -124.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+      propertyPath: m_Name
+      value: Bin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+--- !u!4 &212536448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b49d29deb30957499381690ae76b8be, type: 3}
+  m_PrefabInstance: {fileID: 212536447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &218079744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,10 +2503,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (21)
@@ -2487,6 +2561,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4832,10 +4910,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (9)
@@ -4894,6 +4968,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5251,10 +5329,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (20)
@@ -5313,6 +5387,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5441,10 +5519,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (14)
@@ -5503,6 +5577,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5631,10 +5709,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (22)
@@ -5693,6 +5767,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7017,10 +7095,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (10)
@@ -7079,6 +7153,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8280,10 +8358,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (16)
@@ -8344,6 +8418,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8362,10 +8440,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine
@@ -8424,6 +8498,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9066,10 +9144,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (4)
@@ -9128,6 +9202,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9496,10 +9574,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (17)
@@ -9558,6 +9632,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10373,6 +10451,7 @@ Transform:
   - {fileID: 280647708}
   - {fileID: 278637316}
   - {fileID: 445318051}
+  - {fileID: 212536448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988854821
@@ -10957,10 +11036,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (1)
@@ -11019,6 +11094,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11196,10 +11275,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (8)
@@ -11258,6 +11333,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11591,10 +11670,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (13)
@@ -11653,6 +11728,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13123,10 +13202,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (12)
@@ -13185,6 +13260,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14045,10 +14124,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (15)
@@ -14107,6 +14182,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14501,10 +14580,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (7)
@@ -14565,6 +14640,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14583,10 +14662,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (11)
@@ -14645,6 +14720,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15298,10 +15377,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (3)
@@ -15360,6 +15435,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -16191,10 +16270,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (6)
@@ -16253,6 +16328,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17611,10 +17690,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (2)
@@ -17673,6 +17748,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17801,10 +17880,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (5)
@@ -17863,6 +17938,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18803,10 +18882,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 667863284}
     m_Modifications:
-    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 869392982555198248, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_Name
       value: Machine (18)
@@ -18865,6 +18940,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710177107821318506, guid: ebc1a8d4948001b42a5e3a7f76cabce9, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721980359497408511, guid: 744c959477f641444ab91ff3ae3b8a6c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
