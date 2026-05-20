@@ -68,6 +68,8 @@ public class PlayerOfficeController : MonoBehaviour {
         if (interactionController == null) {
             interactionController = GetComponent<OfficeInteractionController>();
         }
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
     
     private void Start() {

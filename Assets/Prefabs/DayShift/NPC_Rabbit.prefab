@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bda3fea96e37ec44a5a22f9b9ab7079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 20, z: 0}
+  velocity: {x: 0, y: 25, z: 0}
   goombaAudioArray: {fileID: 11400000, guid: 1104d7c37461fa941bc2443b57fe0948, type: 2}
   audioSource: {fileID: 1768050959808523748}
 --- !u!65 &8937054392204385376

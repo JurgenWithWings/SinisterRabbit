@@ -10,6 +10,8 @@ public class PauseScreen : MonoBehaviour {
     [SerializeField] private Button quitButton;
 
     public static Action OnPause;
+
+    private bool isPaused;
     
     private void Awake() {
         OnPause += ShowPauseScreen;
@@ -26,7 +28,9 @@ public class PauseScreen : MonoBehaviour {
     private void ShowPauseScreen() {
         if (GameOverManager.Instance.IsGameOver) return;
         if (Time.time < 1) return; // Prevent pausing during initial load
-        
+        if (isPaused) return;
+
+        isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         
@@ -39,10 +43,15 @@ public class PauseScreen : MonoBehaviour {
     private void ResumeGame() {
         if (GameOverManager.Instance.IsGameOver) return;
         if (Time.time < 1) return; // Prevent pausing during initial load
+        if (!isPaused) return;
         
+        isPaused = false;
         if (LevelLoading.CurrentScene == Scene.DayShift) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+        else {
+            Cursor.lockState = CursorLockMode.Confined;
         }
         
         AudioListener.pause = false;
@@ -52,8 +61,7 @@ public class PauseScreen : MonoBehaviour {
     }
     
     private void LoadMainMenu() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        ResumeGame();
         LevelLoading.LoadScene(Scene.MainMenu);
     }
     

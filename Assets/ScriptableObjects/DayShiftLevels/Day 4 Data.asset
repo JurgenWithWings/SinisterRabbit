@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Day 4 Data
   m_EditorClassIdentifier: 
   levelIndex: 7
-  shiftDuration: 30
-  numBrokenMachines: 11
+  shiftDuration: 15
+  numBrokenMachines: 23
   numberOfGoldenEggs: 5

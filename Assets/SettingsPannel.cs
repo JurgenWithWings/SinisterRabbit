@@ -43,10 +43,10 @@ public class SettingsPannel : MonoBehaviour {
     }
 
     private float ValueToDB(float value) {
-        return ((value * -1) + 1) * -80;
+        return ((value * -1) + 1) * -40;
     }
 
     private float DBToValue(float db) {
-        return ((db / -80) * -1) + 1;
+        return ((db / -40) * -1) + 1;
     }
 }

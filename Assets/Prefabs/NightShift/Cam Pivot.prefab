@@ -4669,6 +4669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office2
       objectReference: {fileID: 0}
+    - target: {fileID: 5050664818935472098, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6151892844053382320, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4872,6 +4876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Office3
       objectReference: {fileID: 0}
+    - target: {fileID: 5050664818935472098, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6151892844053382320, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5021,11 +5029,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4345455697324304318, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0033000037
+      value: 0.0033
       objectReference: {fileID: 0}
     - target: {fileID: 4345455697324304318, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.02743002
+      value: 0.03229
       objectReference: {fileID: 0}
     - target: {fileID: 4345455697324304318, guid: 87dd449d1dceb4f458d8951ca31f1551, type: 3}
       propertyPath: m_LocalRotation.w
